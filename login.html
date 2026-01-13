@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | Holy Circle</title>
+
+  <link rel="stylesheet" href="/css/global.css" />
+  <link rel="stylesheet" href="/css/auth.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body class="public-page auth-page login-page is-guest">
+
+
+  <header class="hc-navbar">
+  <div class="hc-navbar-inner">
+
+    <!-- LEFT: LOGO -->
+    <div class="hc-logo">
+      <a href="index.html">
+        <img src="images/hcsublogo.png" alt="Holy Circle Logo">
+      </a>
+    </div>
+    
+
+    <!-- CENTER: DESKTOP NAV LINKS (HIDE ON MOBILE) -->
+    <nav class="hc-nav-links">
+      <a href="podcast.html">Podcast</a>
+      <a href="events.html">Events</a>
+      <a href="forum.html">Community</a>
+      <a href="about.html">About</a>
+      <a href="donate.html" class="highlight">Donate</a>
+    </nav>
+
+    <!-- RIGHT: DESKTOP ACTIONS + MOBILE MENU BUTTON -->
+    <div class="navbar-right">
+
+      <!-- DESKTOP ACTION CLUSTER -->
+      <div class="hc-nav-actions">
+
+        <!-- NOTIFICATION BELL (desktop only) -->
+        <button
+          class="notif-btn"
+          type="button"
+          aria-label="Notifications"
+          data-member-only
+        >
+
+          <span class="notif-icon-wrap" data-notif-btn>
+            <i class="fa-regular fa-bell"></i>
+            <span class="notif-dot" data-notif-dot></span>
+          </span>
+        </button>
+<!-- NOTIFICATION DROPDOWN -->
+<div class="notif-dropdown" data-notif-dropdown>
+
+  <div class="notif-header">
+    <h4>Notifications</h4>
+    <button class="notif-clear-btn" data-notif-clear>Clear All</button>
+  </div>
+
+  <div class="notif-list" data-notif-list>
+    <!-- JS fills these -->
+    <div class="notif-empty">You're all caught up ✨</div>
+  </div>
+<div class="notif-footer">
+  <a href="/notifications.html" class="notif-view-all">
+    View all notifications →
+  </a>
+</div>
+
+
+
+
+</div>
+
+        <!-- AUTH AREA (desktop only) -->
+        <div class="hc-nav-avatar" data-auth-area>
+
+          <!-- LOGGED OUT -->
+          <button class="nav-auth-btn" data-login-link>
+            <i class="fa-regular fa-circle-user"></i>
+            <span>Sign in</span>
+          </button>
+
+          <!-- LOGGED IN -->
+          <div class="avatar-menu" data-user-menu style="display:none;">
+
+            <button class="avatar-btn" data-avatar-toggle>
+              <img class="avatar-img" data-avatar-img src="/images/default-avatar.png" alt="Avatar">
+            </button>
+
+            <div class="avatar-dropdown" data-avatar-dropdown>
+
+              <div class="dropdown-profile-bar">
+                <img src="/images/default-avatar.png" class="dropdown-avatar-sm" data-avatar-img>
+                <div class="dropdown-profile-text">
+                  <div class="dropdown-name" data-avatar-name>Member</div>
+                </div>
+              </div>
+
+              <a href="/member-dashboard.html">My Dashboard</a>
+              <a href="/test-profile.html" data-profile-link>View My Profile</a>
+              <a href="/member-account.html">Settings</a>
+              <a href="/forum-my-threads.html">My Threads</a>
+              <button type="button" data-logout-btn>Logout</button>
+
+            </div>
+          </div>
+
+        </div><!-- /auth area -->
+
+      </div><!-- /hc-nav-actions -->
+
+      <!-- MOBILE HAMBURGER (only icon on mobile) -->
+      <button class="hc-mobile-menu-btn" data-mobile-menu-btn>
+        <span></span><span></span><span></span>
+      </button>
+
+    </div><!-- /navbar-right -->
+  </div><!-- /hc-navbar-inner -->
+
+<!-- MOBILE MENU DROPDOWN -->
+<div class="hc-mobile-menu" data-mobile-menu>
+
+  <!-- PROFILE HEADER (signed-in only) -->
+  <div class="mobile-profile-header" data-auth-area>
+    <div class="mobile-profile-avatar-wrap" data-mobile-avatar-click>
+      <img class="mobile-profile-avatar" data-mobile-avatar-img src="/images/default-avatar.png">
+    </div>    
+    <div class="mobile-profile-name" data-mobile-avatar-name>Login</div>
+  </div>
+
+  <div class="mobile-divider"></div>
+
+  <!-- MOBILE MAIN NAV -->
+  <nav class="mobile-nav-section">
+    <a href="podcast.html">Podcast</a>
+    <a href="events.html">Events</a>
+    <a href="forum.html">Community</a>
+    <a href="about.html">About</a>
+    <a href="donate.html" class="highlight">Donate</a>
+  </nav>
+
+  <div class="mobile-divider"></div>
+
+  <!-- MOBILE PROFILE LINKS -->
+  <nav class="mobile-nav-section profile-links">
+
+    <a href="/member-dashboard.html" data-member-only>My Dashboard</a>
+    <a href="/notifications.html" data-member-only data-mobile-notifications>Notifications</a>
+   <a href="/member-account.html" data-member-only>Settings</a>
+    <a href="/forum-my-threads.html" data-member-only>My Threads</a>
+    <button type="button" data-logout-btn data-member-only class="logout-btn">Logout</button>
+  </nav>
+  
+
+</div>
+
+
+</header>
+  
+
+
+
+  <main class="member-container">
+    <div class="member-card">
+  
+      <div class="member-logo">
+        <img src="/images/hcsecondary.png" alt="Holy Circle Logo">
+      </div>
+  
+      <h2 class="member-title">Welcome Back</h2>
+      <p class="member-subtitle">Sign in to access your dashboard</p>
+  
+      <form id="loginForm" novalidate>
+        <div id="loginError" class="member-error"></div>
+  
+        <div class="member-field">
+          <label for="login-email">Email Address</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+  
+        <div class="member-field password-field">
+          <label for="login-password">Password</label>
+          <div class="password-wrapper">
+            <input type="password" id="password" name="password" required minlength="6">
+            <span class="toggle-password">👁</span>
+          </div>
+        </div>
+  
+        <button class="btn-member" type="submit">Sign In</button>
+  
+        <div class="member-helper">
+          <a href="forgot-password.html">Forgot password?</a>
+          <a href="join.html">Create account</a>
+        </div>
+      </form>
+  
+    </div>
+  </main>
+
+
+
+  <!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-content">
+    
+    <div class="footer-brand">
+      <h3>HOLY CIRCLE</h3>
+      <p class="tagline">Faith • Media • Community</p>
+      <p class="mission">
+        Empowering people to deepen their faith in Christ and build a strong, united community.
+      </p>
+      <a href="/donate" class="footer-donate-btn">Support Our Mission</a>
+    </div>
+
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <a href="/about.html">About Us</a>
+      <a href="/events.html">Events</a>
+      <a href="/podcast.html">Podcast</a>
+      <a href="/forum.html">Community</a>
+      <a href="/donate.html">Give</a>
+  </a>
+</div>
+   
+    </div>
+
+    <div class="footer-legal">
+      <h4>Legal</h4>
+      <a href="/privacy-policy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Use</a>
+      <a href="/donor-privacy.html">Donor Privacy Policy</a>
+    </div>
+
+    <div class="footer-contact">
+      <h4>Connect</h4> 
+      <p>Email: <a href="mailto:info@holycircle.org">info@holycircle.org</a></p>
+
+      <div class="social-links">
+        <a href="https://www.instagram.com/holycircleorg/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/people/Holy-Circle-Organization/61573876220565" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/channel/UCqcUPEiMbpAuFz1W00xFcCw" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@holycircleorg" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://open.spotify.com/show/holycircle" target="_blank"><i class="fab fa-spotify"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>
+      Holy Circle is a registered 501(c)(3) nonprofit organization. Donations are tax-deductible as permitted by law.
+      EIN: 33-3661912
+    </p>
+    <p>© 2026 Holy Circle. All Rights Reserved.</p>
+  </div>
+</footer>
+<script src="/js/avatar-engine.js"></script>
+<script src="/js/global.js"></script>
+<script src="/js/member-auth.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Holy Circle Admin — Email Templates</title>
+
+  <link rel="stylesheet" href="admin.css" />
+  <link rel="stylesheet" href="/css/global.css" />
+</head>
+
+<body>
+  <!-- SIDEBAR -->
+  <aside class="admin-sidebar">
+    <div class="sidebar-brand">
+      <h2>Holy Circle</h2>
+      <span>Admin</span>
+    </div>
+
+    <ul class="sidebar-menu">
+      <li><a href="admin-dashboard.html">Dashboard</a></li>
+      <li><a href="admin-members.html">Members</a></li>
+      <li><a href="admin-donors.html">Donors</a></li>
+      <li><a href="admin-events.html">Events</a></li>
+
+      <li><a href="admin-email.html">✉️ Email Campaigns</a></li>
+      <li class="active"><a href="admin-email-templates.html">🧩 Email Templates</a></li>
+
+      <li><a href="admin-analytics.html">Analytics</a></li>
+      <li><a href="admin-settings.html">Settings</a></li>
+    </ul>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="admin-main">
+    <header class="admin-header">
+      <h1>Email Templates</h1>
+      <div class="header-actions">
+        <button id="newTemplateBtn" class="btn primary small">
+          + New Template
+        </button>
+      </div>
+    </header>
+
+    <div class="admin-container">
+
+      <!-- LIST PANEL ========================================================= -->
+      <section class="panel tall-panel">
+        <div class="panel-header">
+          <h2>Template Library</h2>
+          <button id="refreshTemplatesBtn" class="small-btn">Refresh</button>
+        </div>
+
+        <div class="table-wrapper">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Preview</th>
+                <th>Created</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="templateTableBody">
+              <tr>
+                <td colspan="4">Loading templates...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- EDITOR PANEL ======================================================= -->
+      <section class="panel tall-panel" id="templateEditorPanel">
+        <div class="panel-header">
+          <h2 id="templateEditorTitle">Create Template</h2>
+          <div class="panel-header-actions">
+            <button id="cancelEditBtn" class="small-btn" type="button" style="display:none;">
+              Cancel
+            </button>
+          </div>
+        </div>
+
+        <form id="templateForm" class="stacked-form">
+          <input type="hidden" id="templateId" />
+
+          <label>
+            Template Name
+            <input
+              type="text"
+              id="templateName"
+              placeholder="Welcome Email Template"
+              required
+            />
+          </label>
+
+          <label>
+            Thumbnail URL (optional)
+            <input
+              type="url"
+              id="templateThumbnail"
+              placeholder="https://res.cloudinary.com/.../template-thumb.jpg"
+            />
+          </label>
+
+          <label>
+            HTML Body
+            <textarea
+              id="templateHtml"
+              rows="12"
+              placeholder="<h1>Welcome!</h1><p>We’re so glad you’re here.</p>"
+              required
+            ></textarea>
+          </label>
+
+          <label>
+            Text-Only Version (optional)
+            <textarea
+              id="templateText"
+              rows="6"
+              placeholder="If HTML is blocked, subscribers will see this text..."
+            ></textarea>
+          </label>
+
+          <div class="form-actions-row">
+            <button type="submit" class="btn primary">
+              <span id="templateSaveLabel">Save Template</span>
+            </button>
+            <p id="templateMessage" class="small-note"></p>
+          </div>
+        </form>
+      </section>
+
+    </div>
+  </main>
+
+  <script src="admin-email-templates.js"></script>
+</body>
+</html>

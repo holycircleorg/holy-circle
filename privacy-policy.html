@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Privacy Policy • Holy Circle</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="stylesheet" href="css/legal.css" />
+  <link rel="stylesheet" href="css/global.css" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+</head>
+<body class="public-page">
+
+<body class="hc-legal-body">
+
+<header class="hc-navbar">
+  <div class="hc-navbar-inner">
+
+    <!-- LEFT: LOGO -->
+    <div class="hc-logo">
+      <a href="index.html">
+        <img src="images/hcsublogo.png" alt="Holy Circle Logo">
+      </a>
+    </div>
+    
+
+    <!-- CENTER: DESKTOP NAV LINKS (HIDE ON MOBILE) -->
+    <nav class="hc-nav-links">
+      <a href="podcast.html">Podcast</a>
+      <a href="events.html">Events</a>
+      <a href="forum.html">Community</a>
+      <a href="about.html">About</a>
+      <a href="donate.html" class="highlight">Donate</a>
+    </nav>
+
+    <!-- RIGHT: DESKTOP ACTIONS + MOBILE MENU BUTTON -->
+    <div class="navbar-right">
+
+      <!-- DESKTOP ACTION CLUSTER -->
+      <div class="hc-nav-actions">
+
+        <!-- NOTIFICATION BELL (desktop only) -->
+       <button
+          class="notif-btn"
+          type="button"
+          aria-label="Notifications"
+          data-member-only
+        >
+
+          <span class="notif-icon-wrap" data-notif-btn>
+            <i class="fa-regular fa-bell"></i>
+            <span class="notif-dot" data-notif-dot></span>
+          </span>
+        </button>
+<!-- NOTIFICATION DROPDOWN -->
+<div class="notif-dropdown" data-notif-dropdown>
+
+  <div class="notif-header">
+    <h4>Notifications</h4>
+    <button class="notif-clear-btn" data-notif-clear>Clear All</button>
+  </div>
+
+  <div class="notif-list" data-notif-list>
+    <!-- JS fills these -->
+    <div class="notif-empty">You're all caught up ✨</div>
+  </div>
+<div class="notif-footer">
+  <a href="/notifications.html" class="notif-view-all">
+    View all notifications →
+  </a>
+</div>
+
+</div>
+
+        <!-- AUTH AREA (desktop only) -->
+        <div class="hc-nav-avatar" data-auth-area>
+
+          <!-- LOGGED OUT -->
+          <button class="nav-auth-btn" data-login-link>
+            <i class="fa-regular fa-circle-user"></i>
+            <span>Sign in</span>
+          </button>
+
+          <!-- LOGGED IN -->
+          <div class="avatar-menu" data-user-menu style="display:none;">
+
+            <button class="avatar-btn" data-avatar-toggle>
+              <img
+                class="avatar-img"
+                data-avatar-img
+                src="/images/default-avatar.png"
+                alt="Avatar"
+              />
+              </button>
+
+            <div class="avatar-dropdown" data-avatar-dropdown>
+
+              <div class="dropdown-profile-bar">
+                <img
+                    class="dropdown-avatar-sm"
+                    data-avatar-img
+                    src="/images/default-avatar.png"
+                  />
+
+                <div class="dropdown-profile-text">
+                  <div class="dropdown-name" data-avatar-name>Member</div>
+                </div>
+              </div>
+
+              <a href="/member-dashboard.html">My Dashboard</a>
+              <a href="/test-profile.html" data-profile-link>View My Profile</a>
+              <a href="/member-account.html">Settings</a>
+              <a href="/forum-my-threads.html">My Threads</a>
+              <button type="button" data-logout-btn>Logout</button>
+
+            </div>
+          </div>
+
+        </div><!-- /auth area -->
+
+      </div><!-- /hc-nav-actions -->
+
+      <!-- MOBILE HAMBURGER (only icon on mobile) -->
+      <button class="hc-mobile-menu-btn" data-mobile-menu-btn>
+        <span></span><span></span><span></span>
+      </button>
+
+    </div><!-- /navbar-right -->
+  </div><!-- /hc-navbar-inner -->
+
+<!-- MOBILE MENU DROPDOWN -->
+<div class="hc-mobile-menu" data-mobile-menu>
+
+  <!-- PROFILE HEADER (signed-in only) -->
+  <div class="mobile-profile-header" data-auth-area>
+    <div class="mobile-profile-avatar-wrap" data-mobile-avatar-click>
+      <img
+        class="mobile-profile-avatar"
+        data-avatar-img
+        src="/images/default-avatar.png"
+      />
+
+    </div>    
+    <div class="mobile-profile-name" data-mobile-avatar-name>Login</div>
+  </div>
+
+  <div class="mobile-divider"></div>
+
+  <!-- MOBILE MAIN NAV -->
+  <nav class="mobile-nav-section">
+    <a href="podcast.html">Podcast</a>
+    <a href="events.html">Events</a>
+    <a href="forum.html">Community</a>
+    <a href="about.html">About</a>
+    <a href="donate.html" class="highlight">Donate</a>
+  </nav>
+
+  <div class="mobile-divider"></div>
+
+  <!-- MOBILE PROFILE LINKS -->
+  <nav class="mobile-nav-section profile-links">
+
+    <a href="/member-dashboard.html" data-member-only>My Dashboard</a>
+    <a href="/notifications.html" data-member-only data-mobile-notifications>Notifications</a>
+   <a href="/member-account.html" data-member-only>Settings</a>
+    <a href="/forum-my-threads.html" data-member-only>My Threads</a>
+    <button type="button" data-logout-btn data-member-only class="logout-btn">Logout</button>
+  </nav>
+  
+
+</div>
+
+
+</header>
+
+  <main class="hc-legal-wrapper">
+    <div class="hc-legal-header">
+      <div class="hc-legal-badge">
+        <span></span> Holy Circle • 501(c)(3) Non Profit Organization
+      </div>
+      <h1>Privacy Policy</h1>
+      <p class="hc-subtitle">How we handle your information with care and integrity.</p>
+      <p class="hc-updated">Last Updated: January 2026</p>
+    </div>
+
+    <section class="hc-legal-card">
+      <p>
+        Holy Circle (“Holy Circle,” “we,” “our,” or “us”) is a registered 501(c)(3) nonprofit organization
+        based in California. We are committed to protecting your privacy and ensuring that your personal
+        information is handled with care, transparency, and integrity. This Privacy Policy explains how we
+        collect, use, and protect your information when you interact with our websites, media, community
+        platforms, and donation tools (collectively, the “Services”).
+      </p>
+
+      <h2>1. Information We Collect</h2>
+      <p>We may collect the following categories of information:</p>
+      <ul>
+        <li><strong>Personal Information:</strong> Name, email address, phone number, and other contact details you voluntarily provide.</li>
+        <li><strong>Account Information:</strong> Login details, member profile information, forum posts, event registrations, and RSVP data.</li>
+        <li><strong>Donation Information:</strong> Donation amounts, dates, designations, and limited payment details (processed by third-party payment processors).</li>
+        <li><strong>Usage Data:</strong> IP address, browser type, device information, pages visited, time spent on pages, and general analytics data.</li>
+        <li><strong>Communication Preferences:</strong> Newsletter subscriptions, opt-in preferences, and response to campaigns or surveys.</li>
+      </ul>
+      <p>
+        We do not knowingly collect personal information from children under 13 without verifiable parental
+        consent. If we learn that information was collected from a child under 13 without such consent, we
+        will take steps to delete it.
+      </p>
+
+      <h2>2. How We Use Your Information</h2>
+      <p>We use the information we collect for purposes including:</p>
+      <ul>
+        <li>Providing and improving our ministry, content, and community experiences.</li>
+        <li>Processing donations and sending charitable tax receipts and giving summaries.</li>
+        <li>Communicating updates about events, podcasts, content, and opportunities to serve.</li>
+        <li>Responding to your questions, prayer requests, or support inquiries.</li>
+        <li>Maintaining the security and integrity of our websites, platforms, and community spaces.</li>
+        <li>Complying with legal, regulatory, and financial reporting obligations for nonprofits.</li>
+      </ul>
+
+      <h2>3. How We Share Information</h2>
+      <p>
+        We respect your trust. Holy Circle does <strong>not</strong> sell, rent, or trade your personal
+        information with other organizations.
+      </p>
+      <p>We may share information in the following limited circumstances:</p>
+      <ul>
+        <li>
+          <strong>Service Providers:</strong> With trusted third-party vendors who assist us with
+          donation processing, email delivery, website analytics, or cloud hosting. These providers are
+          required to protect your information and use it only for services they perform on our behalf.
+        </li>
+        <li>
+          <strong>Legal Requirements:</strong> When required to comply with applicable law, court orders,
+          or legal processes, or to protect the rights, property, or safety of Holy Circle, our users, or others.
+        </li>
+      </ul>
+
+      <h2>4. Cookies, Tracking, and Analytics</h2>
+      <p>
+        We use cookies and similar technologies to understand how visitors use our site, improve user
+        experience, and support key features such as login, media playback, and language preferences.
+      </p>
+      <ul>
+        <li><strong>Essential Cookies:</strong> Required for the website to function properly.</li>
+        <li><strong>Analytics Cookies:</strong> Help us understand usage patterns to improve our content and outreach.</li>
+      </ul>
+      <p>
+        You can adjust your browser settings to refuse cookies or alert you when they are used, though some
+        features of the site may not function correctly without them.
+      </p>
+
+      <h2>5. Data Security</h2>
+      <p>
+        We take reasonable administrative, technical, and physical measures to protect your information from
+        unauthorized access, loss, misuse, or alteration. While we strive to use commercially acceptable
+        means to protect your personal information, no method of transmission over the internet or method of
+        electronic storage is 100% secure.
+      </p>
+
+      <h2>6. International Users</h2>
+      <p>
+        Our Services are operated in the United States. If you access our Services from outside the United
+        States, you understand that your information may be transferred to, stored, and processed in the U.S.,
+        where data protection laws may differ from those in your country of residence.
+      </p>
+
+      <h2>7. Your Rights (Including California Residents)</h2>
+      <p>
+        Depending on where you live, you may have certain rights regarding your personal information, such as
+        the right to:
+      </p>
+      <ul>
+        <li>Request access to the information we hold about you.</li>
+        <li>Request correction of inaccurate or incomplete information.</li>
+        <li>Request deletion of your information, subject to legal and financial record-keeping requirements.</li>
+        <li>Opt out of receiving certain communications from us.</li>
+      </ul>
+      <p>
+        Holy Circle does not sell personal information. California residents may exercise their privacy
+        rights under the California Consumer Privacy Act (CCPA) and the California Privacy Rights Act (CPRA)
+        by contacting us using the information below.
+      </p>
+
+      <h2>8. Data Retention</h2>
+      <p>
+        We retain personal information for as long as necessary to fulfill the purposes outlined in this
+        policy, including financial and legal record-keeping obligations for nonprofit organizations, unless
+        a longer retention period is required or permitted by law.
+      </p>
+
+      <h2>9. Changes to This Privacy Policy</h2>
+      <p>
+        We may update this Privacy Policy from time to time to reflect changes in our practices, Services, or
+        legal requirements. When we make changes, we will adjust the “Last Updated” date at the top of this page.
+        Your continued use of our Services after any changes constitutes your acceptance of the updated policy.
+      </p>
+
+      <h2>10. Contact Us</h2>
+      <p>
+        If you have any questions, concerns, or requests regarding this Privacy Policy or how we handle your
+        information, please contact us at:
+      </p>
+      <div class="hc-legal-callout">
+        <strong>Holy Circle – Privacy Inquiries</strong><br />
+        Email: <a href="mailto:info@holycircle.org">info@holycircle.org</a><br />
+        A mailing address is available upon request.
+      </div>
+    </section>
+  </main>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-content">
+      
+      <div class="footer-brand">
+        <h3>HOLY CIRCLE</h3>
+        <p class="tagline">Faith • Media • Community</p>
+        <p class="mission">
+          Empowering people to deepen their faith in Christ and build a strong, united community.
+        </p>
+        <a href="/donate" class="footer-donate-btn">Support Our Mission</a>
+      </div>
+  
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <a href="/about.html">About Us</a>
+        <a href="/events.html">Events</a>
+        <a href="/podcast.html">Podcast</a>
+        <a href="/forum.html">Community</a>
+        <a href="/donate.html">Give</a>
+  </a>
+</div>
+     
+      </div>
+  
+      <div class="footer-legal">
+        <h4>Legal</h4>
+        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Use</a>
+        <a href="/donor-privacy.html">Donor Privacy Policy</a>
+      </div>
+  
+      <div class="footer-contact">
+        <h4>Connect</h4> 
+        <p>Email: <a href="mailto:info@holycircle.org">info@holycircle.org</a></p>
+  
+        <div class="social-links">
+          <a href="https://www.instagram.com/holycircleorg/" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/people/Holy-Circle-Organization/61573876220565" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.youtube.com/channel/UCqcUPEiMbpAuFz1W00xFcCw" target="_blank"><i class="fab fa-youtube"></i></a>
+          <a href="https://www.tiktok.com/@holycircleorg" target="_blank"><i class="fab fa-tiktok"></i></a>
+          <a href="https://open.spotify.com/show/holycircle" target="_blank"><i class="fab fa-spotify"></i></a>
+        </div>
+      </div>
+    </div>
+  
+    <div class="footer-bottom">
+      <p>
+        Holy Circle is a registered 501(c)(3) nonprofit organization. Donations are tax-deductible as permitted by law.
+        EIN: 33-3661912
+      </p>
+      <p>© 2026 Holy Circle. All Rights Reserved.</p>
+    </div>
+  </footer>
+</body>
+</body>
+
+
+  <script src="/js/avatar-engine.js"></script>
+  <script src="/js/global.js" defer></script>
+  <script src="/js/index.js"></script>
+  <script src="/js/member-auth.js" defer></script>
+</html>

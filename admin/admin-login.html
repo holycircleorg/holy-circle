@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Holy Circle Admin Login</title>
+
+  <link rel="stylesheet" href="admin-login.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="login-wrapper">
+  <div class="login-card">
+
+    <h1 class="login-title">Holy Circle Admin</h1>
+    <p class="login-subtitle">Secure Access Portal</p>
+
+    <form id="adminLoginForm">
+      <label>Email</label>
+      <input id="adminLoginEmail" type="email" placeholder="you@example.com" required>
+
+      <label>Password</label>
+      <input id="adminLoginPassword" type="password" placeholder="••••••••" required>
+
+      <button type="submit" class="login-btn">Sign In</button>
+
+      <p id="adminLoginStatus" class="login-status"></p>
+    </form>
+
+  </div>
+</div>
+
+<script src="admin-login.js"></script>
+
+</body>
+</html>

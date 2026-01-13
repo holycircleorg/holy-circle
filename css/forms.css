@@ -1,0 +1,140 @@
+/* =============================
+   Holy Circle Auth Theme — Light Edition ✨
+   Applies to Login / Join / Forgot Password
+   ============================= */
+
+/* Light, clean background */
+body {
+    background: #f5f7fc !important;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: "Poppins", sans-serif;
+    color: #052053;
+  }
+  
+  /* Auth page container spacing */
+  .member-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 20px 60px;
+    text-align: center;
+  }
+  
+  /* Titles */
+  .member-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #052053;
+    margin-bottom: 6px;
+  }
+  
+  .member-subtitle {
+    font-size: 15px;
+    color: #546e96;
+    margin-bottom: 30px;
+  }
+  
+  /* Card (clean white with subtle elevation) */
+  .member-card {
+    width: 100%;
+    max-width: 450px;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 36px 30px;
+    box-shadow: 0px 6px 28px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+  }
+  
+  /* Inputs */
+  .member-card input {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 18px;
+    background: #f1f4fa;
+    border: 1px solid #d6dbe7;
+    border-radius: 10px;
+    font-size: 15px;
+    color: #052053;
+    outline: none;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  
+  .member-card input::placeholder {
+    color: #8ba0bd;
+  }
+  
+  .member-card input:focus {
+    background: #fff;
+    border-color: #bf9745;
+    box-shadow: 0 0 0 2px rgba(191, 151, 69, 0.3);
+  }
+  
+  /* Button — premium gold */
+  .btn-member {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #bf9745, #8b6b2d);
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.2s ease;
+  }
+  
+  .btn-member:hover {
+    opacity: 0.92;
+    transform: translateY(-2px);
+    box-shadow: 0px 8px 20px rgba(191, 151, 69, 0.22);
+  }
+  
+  /* Status messages */
+  .member-error,
+  .member-success {
+    font-size: 14px;
+    margin-bottom: 10px;
+    text-align: left;
+  }
+  
+  .member-error {
+    color: #cc0044;
+  }
+  
+  .member-success {
+    color: #007c45;
+  }
+  
+  /* Footer ensures the page layout stays pushed down */
+  .footer {
+    margin-top: auto;
+  }
+  
+  /* Auth bottom links */
+  .member-helper a {
+    color: #052053;
+    font-size: 14px;
+    text-decoration: none;
+    margin: 6px 0;
+    display: inline-block;
+  }
+  
+  .member-helper a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Mobile adjustments */
+  @media (max-width: 600px) {
+    .member-title {
+      font-size: 26px;
+    }
+    .member-card {
+      padding: 30px 24px;
+    }
+  }
+  

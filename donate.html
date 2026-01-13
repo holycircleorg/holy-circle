@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Donate | Holy Circle</title>
+
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/donate.css" />
+  <link rel="stylesheet" href="/css/global.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="public-page">
+
+
+<header class="hc-navbar">
+  <div class="hc-navbar-inner">
+
+    <!-- LEFT: LOGO -->
+    <div class="hc-logo">
+      <a href="index.html">
+        <img src="images/hcsublogo.png" alt="Holy Circle Logo">
+      </a>
+    </div>
+    
+
+    <!-- CENTER: DESKTOP NAV LINKS (HIDE ON MOBILE) -->
+    <nav class="hc-nav-links">
+      <a href="podcast.html">Podcast</a>
+      <a href="events.html">Events</a>
+      <a href="forum.html">Community</a>
+      <a href="about.html">About</a>
+      <a href="donate.html" class="highlight">Donate</a>
+    </nav>
+
+    <!-- RIGHT: DESKTOP ACTIONS + MOBILE MENU BUTTON -->
+    <div class="navbar-right">
+
+      <!-- DESKTOP ACTION CLUSTER -->
+      <div class="hc-nav-actions">
+
+        <!-- NOTIFICATION BELL (desktop only) -->
+        <button
+          class="notif-btn"
+          type="button"
+          aria-label="Notifications"
+          data-member-only
+        >
+
+          <span class="notif-icon-wrap" data-notif-btn>
+            <i class="fa-regular fa-bell"></i>
+            <span class="notif-dot" data-notif-dot></span>
+          </span>
+        </button>
+<!-- NOTIFICATION DROPDOWN -->
+<div class="notif-dropdown" data-notif-dropdown>
+
+  <div class="notif-header">
+    <h4>Notifications</h4>
+    <button class="notif-clear-btn" data-notif-clear>Clear All</button>
+  </div>
+
+  <div class="notif-list" data-notif-list>
+    <!-- JS fills these -->
+    <div class="notif-empty">You're all caught up ✨</div>
+  </div>
+<div class="notif-footer">
+  <a href="/notifications.html" class="notif-view-all">
+    View all notifications →
+  </a>
+</div>
+
+</div>
+
+        <!-- AUTH AREA (desktop only) -->
+        <div class="hc-nav-avatar" data-auth-area>
+
+          <!-- LOGGED OUT -->
+          <button class="nav-auth-btn" data-login-link>
+            <i class="fa-regular fa-circle-user"></i>
+            <span>Sign in</span>
+          </button>
+
+          <!-- LOGGED IN -->
+          <div class="avatar-menu" data-user-menu style="display:none;">
+
+            <button class="avatar-btn" data-avatar-toggle>
+              <img
+                class="avatar-img"
+                data-avatar-img
+                src="/images/default-avatar.png"
+                alt="Avatar"
+              />
+              </button>
+
+            <div class="avatar-dropdown" data-avatar-dropdown>
+
+              <div class="dropdown-profile-bar">
+                <img
+                    class="dropdown-avatar-sm"
+                    data-avatar-img
+                    src="/images/default-avatar.png"
+                  />
+
+                <div class="dropdown-profile-text">
+                  <div class="dropdown-name" data-avatar-name>Member</div>
+                </div>
+              </div>
+
+              <a href="/member-dashboard.html">My Dashboard</a>
+              <a href="/test-profile.html" data-profile-link>View My Profile</a>
+              <a href="/member-account.html">Settings</a>
+              <a href="/forum-my-threads.html">My Threads</a>
+              <button type="button" data-logout-btn>Logout</button>
+
+            </div>
+          </div>
+
+        </div><!-- /auth area -->
+
+      </div><!-- /hc-nav-actions -->
+
+      <!-- MOBILE HAMBURGER (only icon on mobile) -->
+      <button class="hc-mobile-menu-btn" data-mobile-menu-btn>
+        <span></span><span></span><span></span>
+      </button>
+
+    </div><!-- /navbar-right -->
+  </div><!-- /hc-navbar-inner -->
+
+<!-- MOBILE MENU DROPDOWN -->
+<div class="hc-mobile-menu" data-mobile-menu>
+
+  <!-- PROFILE HEADER (signed-in only) -->
+  <div class="mobile-profile-header" data-auth-area>
+    <div class="mobile-profile-avatar-wrap" data-mobile-avatar-click>
+      <img
+        class="mobile-profile-avatar"
+        data-avatar-img
+        src="/images/default-avatar.png"
+      />
+
+    </div>    
+    <div class="mobile-profile-name" data-mobile-avatar-name>Login</div>
+  </div>
+
+  <div class="mobile-divider"></div>
+
+  <!-- MOBILE MAIN NAV -->
+  <nav class="mobile-nav-section">
+    <a href="podcast.html">Podcast</a>
+    <a href="events.html">Events</a>
+    <a href="forum.html">Community</a>
+    <a href="about.html">About</a>
+    <a href="donate.html" class="highlight">Donate</a>
+  </nav>
+
+  <div class="mobile-divider"></div>
+
+  <!-- MOBILE PROFILE LINKS -->
+  <nav class="mobile-nav-section profile-links">
+
+    <a href="/member-dashboard.html" data-member-only>My Dashboard</a>
+    <a href="/notifications.html" data-member-only data-mobile-notifications>Notifications</a>
+   <a href="/member-account.html" data-member-only>Settings</a>
+    <a href="/forum-my-threads.html" data-member-only>My Threads</a>
+    <button type="button" data-logout-btn data-member-only class="logout-btn">Logout</button>
+  </nav>
+  
+
+</div>
+
+
+</header>
+  
+  
+  
+<section class="donate-hero">
+  <div class="overlay"></div>
+  <div class="donate-hero-content">
+    <h1>Partner With Holy Circle</h1>
+    <p>Your generosity helps us create faith-filled content, community experiences, outreach and ministry.</p>
+  </div>
+</section>
+  <!-- IMPACT SECTION -->
+  <section class="section light">
+    <h2>Why Your Gift Matters</h2>
+    <p class="subtitle">Every donation helps create Christ-centered content and experiences.</p>
+
+    <div style="max-width:900px; margin:auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:2rem;">
+      <div>
+        <h3 style="color:#002e6b;">Faith Unfiltered Podcast</h3>
+        <p>Helps us record, edit, and publish episodes that share the hope of Jesus.</p>
+      </div>
+      <div>
+        <h3 style="color:#002e6b;">Creative Projects</h3>
+        <p>Funds films, short stories, and visual content that reach people where they are.</p>
+      </div>
+      <div>
+        <h3 style="color:#002e6b;">Community & Outreach</h3>
+        <p>Supports events, worship nights, and resources that build up the body of Christ.</p>
+      </div>
+    </div>
+  </section>
+
+<!-- DONATE FORM -->
+<section class="donate-section">
+  <div class="donate-card">
+
+    <h2>Give a Gift</h2>
+
+    <!-- AMOUNT -->
+    <label class="form-label">Amount</label>
+    <div class="amount-row">
+      <button class="amount-btn" data-amount="25">$25</button>
+      <button class="amount-btn" data-amount="50">$50</button>
+      <button class="amount-btn" data-amount="100">$100</button>
+      <button class="amount-btn" data-amount="250">$250</button>
+    </div>
+
+    <input type="number" id="customAmount" placeholder="Custom amount ($)" class="input-field" />
+
+    <!-- FREQUENCY -->
+    <label class="form-label">Frequency</label>
+    <select id="frequency" class="input-field">
+      <option value="one-time">One-Time</option>
+      <option value="monthly">Monthly</option>
+    </select>
+
+    <!-- FUND -->
+    <label class="form-label">Fund</label>
+    <select id="fund" class="input-field">
+      <option value="General Fund">General Fund</option>
+      <option value="Mission Fund">Mission Fund</option>
+      <option value="Faith Partners">Faith Partners</option>
+      <option value="Outreach Projects">Outreach Projects</option>
+    </select>
+
+    <!-- NAME -->
+    <label class="form-label">Full Name</label>
+    <input id="donorName" type="text" class="input-field" placeholder="Your name" />
+
+    <!-- EMAIL -->
+    <label class="form-label">Email</label>
+    <input id="donorEmail" type="email" class="input-field" placeholder="you@example.com" />
+
+    <!-- NOTES -->
+    <label class="form-label">Note (optional)</label>
+    <textarea id="note" class="input-field" placeholder="Add a note or prayer request..."></textarea>
+
+    <!-- COVER FEES -->
+    <label class="cover-fees">
+      <input type="checkbox" id="coverFees" />
+      <span>I want to cover processing fees</span>
+    </label>
+
+    <button id="donateBtn" class="donate-submit-btn">Continue to Giving</button>
+
+    <p id="donateStatus" class="donate-status"></p>
+
+  </div>
+</section>
+
+
+  <!-- TRANSPARENCY SECTION -->
+  <section class="section light">
+    <h2>Financial Stewardship</h2>
+    <p class="subtitle">Your generosity fuels eternal impact.</p>
+  
+    <div class="about-grid">
+      <div class="text" style="text-align:left;">
+        <p>Holy Circle is a registered 501(c)(3) nonprofit organization.</p>
+        <p>We are committed to complete transparency in how resources are used. Every donation supports:</p>
+        <ul style="margin-top:1rem;">
+          <li>• Gospel-centered media and podcast production</li>
+          <li>• Community events and worship gatherings</li>
+          <li>• Outreach, discipleship, and mission-focused programs</li>
+          <li>• Operational support for expanding ministry reach</li>
+        </ul>
+      </div>
+      <img src="/images/gold-clouds.jpg" style="border-radius:12px;">
+    </div>
+  </section>
+  
+  <!-- DONATION FAQ SECTION -->
+<section class="donate-faq section">
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq-item">
+    <button class="faq-question">Is my donation tax-deductible?</button>
+    <div class="faq-answer">
+      <p>Yes. Holy Circle is a registered 501(c)(3) nonprofit organization. Donations are tax-deductible to the fullest extent allowed by law.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">How will I receive my donation receipt?</button>
+    <div class="faq-answer">
+      <p>A receipt will be emailed to the address you provide immediately after checkout for your records.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">Can I give monthly?</button>
+    <div class="faq-answer">
+      <p>Yes! Select “Monthly” under Frequency to become a recurring supporter. You can update or cancel anytime by emailing us.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">Can I designate how my gift is used?</button>
+    <div class="faq-answer">
+      <p>Yes. Use the “Fund” dropdown to direct your gift where you feel called — from media to community outreach and missions.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">Is my payment information secure?</button>
+    <div class="faq-answer">
+      <p>Absolutely. Online giving is processed securely through Stripe, a PCI-compliant global leader in payment protection.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">Can I cover processing fees?</button>
+    <div class="faq-answer">
+      <p>Yes — checking the “I want to cover processing fees” box ensures more of your gift directly fuels ministry impact.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">Can I make a dedication or prayer request?</button>
+    <div class="faq-answer">
+      <p>Of course. Add a note during checkout and our team will receive it right away.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">How do I update or cancel my recurring donation?</button>
+    <div class="faq-answer">
+      <p>Just email us anytime at <a href="mailto:info@holycircle.org">info@holycircle.org</a> and we’ll take care of it promptly.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">Do you accept offline donations?</button>
+    <div class="faq-answer">
+      <p>Yes — contact us for mailing options or additional ways to give.</p>
+    </div>
+  </div>
+
+  <!-- IRS Donor Compliance Note -->
+  <div class="faq-compliance">
+    <p><strong>Holy Circle</strong> is a registered 501(c)(3) nonprofit organization. Contributions are tax-deductible less the value of any goods or services received. <br><h3>EIN: 33-3661912</h3></p>
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-content">
+    
+    <div class="footer-brand">
+      <h3>HOLY CIRCLE</h3>
+      <p class="tagline">Faith • Media • Community</p>
+      <p class="mission">
+        Empowering people to deepen their faith in Christ and build a strong, united community.
+      </p>
+      <a href="/donate" class="footer-donate-btn">Support Our Mission</a>
+    </div>
+
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <a href="/about.html">About Us</a>
+      <a href="/events.html">Events</a>
+      <a href="/podcast.html">Podcast</a>
+      <a href="/forum.html">Community</a>
+      <a href="/donate.html">Give</a>
+  </a>
+</div>
+   
+    </div>
+
+    <div class="footer-legal">
+      <h4>Legal</h4>
+      <a href="/privacy-policy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Use</a>
+      <a href="/donor-privacy.html">Donor Privacy Policy</a>
+    </div>
+
+    <div class="footer-contact">
+      <h4>Connect</h4> 
+      <p>Email: <a href="mailto:info@holycircle.org">info@holycircle.org</a></p>
+
+      <div class="social-links">
+        <a href="https://www.instagram.com/holycircleorg/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/people/Holy-Circle-Organization/61573876220565" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/channel/UCqcUPEiMbpAuFz1W00xFcCw" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@holycircleorg" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://open.spotify.com/show/holycircle" target="_blank"><i class="fab fa-spotify"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>
+      Holy Circle is a registered 501(c)(3) nonprofit organization. Donations are tax-deductible as permitted by law.
+      EIN: 33-3661912
+    </p>
+    <p>© 2026 Holy Circle. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script src="/js/avatar-engine.js"></script>
+<script src="/js/donate.js"></script>
+<script src="/js/global.js"></script>
+<script src="/js/member-auth.js" defer></script>
+
+
+
+</body>
+</html>

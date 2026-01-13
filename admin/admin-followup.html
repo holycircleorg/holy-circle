@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Holy Circle | Admin Dashboard</title>
+
+  <link rel="stylesheet" href="admin.css">
+  <link rel="stylesheet" href="admin-layout.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="admin-followup.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <script>
+    document.body.classList.add("with-sidebar");
+  </script>
+
+<aside class="admin-sidebar">
+  <div class="sidebar-header">
+    <h2>HOLY CIRCLE</h2>
+    <button id="sidebarToggle" class="sidebar-toggle">☰</button>
+  </div>
+
+  <ul class="sidebar-menu">
+
+    <li><a href="admin-dashboard.html">
+      <i class="icon">🏠</i><span>Dashboard</span>
+    </a></li>
+
+    <li><a href="admin-people.html">
+      <i class="icon">👥</i><span>People</span>
+    </a></li>
+
+    <li><a href="admin-donors.html">
+      <i class="icon">💛</i><span>Donors</span>
+    </a></li>
+
+
+    <li><a href="admin-events.html">
+      <i class="icon">📅</i><span>Events</span>
+    </a></li>
+
+    <li><a href="admin-podcast.html">
+      <i class="icon">🎙️</i><span>Podcast</span>
+    </a></li>
+
+    <li>
+      <a href="admin-moderation.html">
+        <i class="icon">🗒️</i> Forums
+      </a>
+    </li>
+
+
+    <li><a href="admin-news.html">
+      <i class="icon">📰</i><span>News</span>
+    </a></li>
+
+    <li><a href="admin-analytics.html">
+      <i class="icon">📊</i><span>Analytics</span>
+    </a></li>
+    
+    <li><a href="admin-email.html">
+      <i class="icon">✉️</i><span>Email</span>
+    </a></li>
+
+    <li><a href="admin-users.html">
+      <i class="icon">🛂</i><span>Users</span>
+    </a></li>
+    
+
+    <li><a href="admin-settings.html">
+      <i class="icon">⚙️</i><span>Settings</span>
+    </a></li>
+  </ul>
+
+  <div class="sidebar-footer">
+    <a href="#" onclick="adminLogout()" class="logout-link">
+      <i class="icon">🚪</i><span>Logout</span>
+    </a>
+  </div>
+</aside>
+
+
+
+<header class="admin-header">
+
+  <!-- MOBILE-ONLY DROPDOWN BUTTON -->
+<div class="header-left">
+<div class="mobile-menu-trigger" id="mobileMenuTrigger">
+  <i class="fa-solid fa-bars"></i>
+</div>
+</div>
+
+
+  <!-- CENTER: title -->
+  <div class="header-center">
+    <h1>Dashboard</h1>
+  </div>
+
+  <!-- RIGHT: name + role -->
+  <div class="header-right">
+    <div class="simple-user-text">
+      <strong id="headerName">Loading...</strong>
+      <small id="headerRole"></small>
+    </div>
+  </div>
+
+</header>
+
+  <!-- MOBILE NAV DROPDOWN -->
+<div class="mobile-nav-dropdown" id="mobileNavDropdown">
+  <a href="admin-dashboard.html">Dashboard</a>
+  <a href="admin-people.html">People</a>
+  <a href="admin-donors.html">Donors</a>
+  <a href="admin-events.html">Events</a>
+  <a href="admin-podcast.html">Podcast</a>
+  <a href="admin-news.html">News</a>
+  <a href="admin-analytics.html">Analytics</a>
+  <a href="admin-users.html">Users</a>
+  <a href="admin-settings.html">Settings</a>
+</div>
+
+  
+
+
+
+<!-- MAIN LAYOUT (Matches dashboard grid spacing) -->
+<main class="admin-main">
+  <div class="admin-container">
+
+    <div class="followup-header-row">
+      <div>
+        <h2>Follow-Up Tasks</h2>
+        <p class="subtitle">Track donor care, visitors, volunteers, events, media, and admin tasks.</p>
+      </div>
+    
+      <div style="display:flex; gap:10px;">
+        <button id="toggleBoard" class="btn-secondary">
+          <i class="fa-solid fa-table-columns"></i> Board View
+        </button>
+    
+        <button id="btn-open-followup-modal" class="btn-primary">
+          <i class="fa-solid fa-plus"></i> Add Follow-Up
+        </button>
+      </div>
+    </div>
+    
+    
+
+    <!-- Filters -->
+    <section class="followup-filters">
+      <div class="filter-group">
+        <label for="filter-category">Category</label>
+        <select id="filter-category">
+          <option value="All">All</option>
+          <option value="Donor">Donor</option>
+          <option value="Visitor">Visitor</option>
+          <option value="Volunteer">Volunteer</option>
+          <option value="Event">Event</option>
+          <option value="Media">Media</option>
+          <option value="Admin">Admin</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="filter-status">Status</label>
+        <select id="filter-status">
+          <option value="All">All</option>
+          <option value="open">Open</option>
+          <option value="in_progress">In Progress</option>
+          <option value="done">Done</option>
+        </select>
+      </div>
+
+      <div class="filter-group filter-search">
+        <label for="filter-search">Search</label>
+        <input type="text" id="filter-search" placeholder="Search title or notes..." />
+      </div>
+
+      <button id="btn-filter-apply" class="btn-secondary">
+        <i class="fa-solid fa-filter"></i> Apply
+      </button>
+    </section>
+
+    <div id="followup-comments-panel">
+      <h3>Comments</h3>
+      <div id="comments-list"></div>
+    
+      <textarea id="new-comment-input"></textarea>
+    
+      <button id="add-comment-btn" class="gold-btn">Post Comment</button>
+    </div>
+    
+    <div id="followup-files-panel" class="followup-side-panel">
+      <h3>Attachments</h3>
+    
+      <div id="files-list"></div>
+    
+      <input type="file" id="file-upload-input" />
+      <button class="gold-btn" id="upload-file-btn">Upload File</button>
+    </div>
+    <div id="followup-activity-log" class="followup-side-panel">
+      <h3>Activity Log</h3>
+      <ul id="activity-list"></ul>
+    </div>
+
+    
+    <section id="kanbanView" class="kanban hidden">
+      <div class="kanban-column" data-status="open">
+        <h3>Open</h3>
+        <div class="kanban-list" id="kanban-open"></div>
+      </div>
+    
+      <div class="kanban-column" data-status="in_progress">
+        <h3>In Progress</h3>
+        <div class="kanban-list" id="kanban-in-progress"></div>
+      </div>
+    
+      <div class="kanban-column" data-status="done">
+        <h3>Done</h3>
+        <div class="kanban-list" id="kanban-done"></div>
+      </div>
+    </section>
+    
+    <!-- TABLE -->
+    <section class="followup-table-card">
+      <table class="followup-table">
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Task</th>
+            <th>Assigned To</th>
+            <th>Priority</th>
+            <th>Due</th>
+            <th>Status</th>
+            <th style="width: 80px;">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="followup-tbody">
+          <!-- Filled dynamically -->
+        </tbody>
+      </table>
+
+      <div id="followup-empty-state" class="followup-empty-state">
+        <i class="fa-solid fa-inbox"></i>
+        <p>No follow-up tasks yet. Start by adding one above.</p>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+
+
+<!-- MODAL -->
+<div id="followup-modal" class="modal-overlay">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 id="followup-modal-title">Add Follow-Up</h3>
+      <button class="modal-close" id="followup-modal-close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <form id="followup-form">
+      <input type="hidden" id="followup-id" />
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="followup-title">Title<span class="required">*</span></label>
+          <input type="text" id="followup-title" required placeholder="Call new donor to say thank you" />
+        </div>
+
+        <div class="form-group">
+          <label for="followup-category">Category<span class="required">*</span></label>
+          <select id="followup-category" required>
+            <option value="">Select</option>
+            <option value="Donor">Donor</option>
+            <option value="Visitor">Visitor</option>
+            <option value="Volunteer">Volunteer</option>
+            <option value="Event">Event</option>
+            <option value="Media">Media</option>
+            <option value="Admin">Admin</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="followup-assigned-to">Assigned To</label>
+          <select id="followup-assigned-to">
+            <option value="">Unassigned</option>
+            <!-- Filled by JS -->
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="followup-due-date">Due Date</label>
+          <input type="date" id="followup-due-date" />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="followup-priority">Priority</label>
+          <select id="followup-priority">
+            <option value="low">Low</option>
+            <option value="normal" selected>Normal</option>
+            <option value="high">High</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="followup-status">Status</label>
+          <select id="followup-status">
+            <option value="open">Open</option>
+            <option value="in_progress">In Progress</option>
+            <option value="done">Done</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="followup-notes">Notes</label>
+        <textarea id="followup-notes" rows="3" placeholder="Include context, phone number, what to say, etc."></textarea>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary" id="followup-cancel-btn">Cancel</button>
+        <button type="submit" class="btn-primary">Save Follow-Up</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="admin-followup.js" type="module"></script>
+</body>
+</html>

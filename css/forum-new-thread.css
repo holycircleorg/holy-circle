@@ -1,0 +1,218 @@
+/* =====================================================
+   HOLY CIRCLE — CREATE NEW THREAD (PREMIUM)
+   ===================================================== */
+
+:root {
+  --hc-blue: #002e6b;
+  --hc-blue-soft: #0b3f87;
+  --hc-gold: #bf9745;
+  --hc-bg: #f6f7f9;
+  --hc-card: #ffffff;
+  --hc-border: #e6e8ee;
+  --hc-muted: #6b7280;
+  --hc-shadow-soft: 0 10px 30px rgba(0,0,0,.08);
+  --hc-shadow-strong: 0 20px 60px rgba(0,0,0,.12);
+}
+
+/* -----------------------------------------------------
+   PAGE BACKGROUND
+----------------------------------------------------- */
+body[data-page="forum-new-thread"] {
+  background: radial-gradient(
+    1200px 600px at 50% -200px,
+    #eef3fb,
+    var(--hc-bg)
+  );
+}
+
+/* -----------------------------------------------------
+   CONTENT WIDTH
+----------------------------------------------------- */
+.forum-shell.narrow {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 3rem 1rem 5rem;
+}
+
+/* -----------------------------------------------------
+   HERO HEADER
+----------------------------------------------------- */
+.forum-hero.slim {
+  background: linear-gradient(
+    180deg,
+    var(--hc-blue),
+    var(--hc-blue-soft)
+  );
+  color: #ffffff;
+  border-radius: 28px;
+  padding: 2.2rem 2rem;
+  box-shadow: var(--hc-shadow-strong);
+  margin-bottom: 2rem;
+}
+
+.forum-hero.slim h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.forum-hero.slim p {
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+/* -----------------------------------------------------
+   FORM CARD
+----------------------------------------------------- */
+.forum-card {
+  background: var(--hc-card);
+  border-radius: 28px;
+  padding: 2.2rem;
+  border: 1px solid var(--hc-border);
+  box-shadow: var(--hc-shadow-strong);
+}
+
+/* -----------------------------------------------------
+   FIELD GROUPS
+----------------------------------------------------- */
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+
+.field span {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--hc-muted);
+  margin-bottom: 0.4rem;
+}
+
+/* -----------------------------------------------------
+   INPUTS & SELECTS
+----------------------------------------------------- */
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border-radius: 14px;
+  border: 1px solid var(--hc-border);
+  background: linear-gradient(
+    180deg,
+    #ffffff,
+    #f9fafb
+  );
+  font-size: 0.95rem;
+  font-family: inherit;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: var(--hc-blue);
+  background: #ffffff;
+  box-shadow:
+    0 0 0 3px rgba(0, 46, 107, 0.12),
+    0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* -----------------------------------------------------
+   TEXTAREA — LOCKED, PREMIUM
+----------------------------------------------------- */
+.field textarea {
+  resize: none;
+  height: 160px;
+  max-height: 160px;
+  min-height: 160px;
+  line-height: 1.6;
+}
+
+/* -----------------------------------------------------
+   ACTION BAR
+----------------------------------------------------- */
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.8rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--hc-border);
+}
+
+/* -----------------------------------------------------
+   PRIMARY BUTTON
+----------------------------------------------------- */
+.form-actions button[type="submit"] {
+  padding: 0.6rem 1.6rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: none;
+  background: linear-gradient(
+    180deg,
+    var(--hc-blue),
+    var(--hc-blue-soft)
+  );
+  color: #ffffff;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.form-actions button[type="submit"]:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+}
+
+.form-actions button[type="submit"]:active {
+  transform: translateY(0);
+}
+
+/* -----------------------------------------------------
+   SECONDARY (CANCEL)
+----------------------------------------------------- */
+.form-actions .cancel-btn {
+  font-size: 0.8rem;
+  color: var(--hc-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.form-actions .cancel-btn:hover {
+  text-decoration: underline;
+}
+
+/* -----------------------------------------------------
+   MOBILE POLISH
+----------------------------------------------------- */
+@media (max-width: 640px) {
+  .forum-hero.slim {
+    padding: 1.6rem;
+    border-radius: 22px;
+  }
+
+  .forum-card {
+    padding: 1.6rem;
+    border-radius: 22px;
+  }
+
+  .forum-hero.slim h1 {
+    font-size: 1.6rem;
+  }
+
+  .field textarea {
+    height: 140px;
+    max-height: 140px;
+    min-height: 140px;
+  }
+}

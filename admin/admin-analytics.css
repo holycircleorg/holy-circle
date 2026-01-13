@@ -1,0 +1,264 @@
+/* ============================
+   Holy Circle — ANALYTICS CSS
+   File: admin-analytics.css
+   ============================ */
+
+/* ======== GENERAL SPACING ======== */
+.admin-container {
+    padding: 2rem;
+  }
+  
+  .panel {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 1.6rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 46, 107, 0.06);
+  }
+  
+  .tall-panel {
+    padding: 2rem;
+  }
+  
+  /* ======== PANEL HEADERS ======== */
+  .panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.6rem;
+  }
+  
+  .panel-header h2 {
+    font-size: 1.3rem;
+    color: #002e6b;
+    margin: 0;
+  }
+  
+  .panel-subtitle {
+    font-size: 0.9rem;
+    color: #6b7280;
+  }
+  
+  .panel-header .chip-group {
+    display: flex;
+    gap: 0.4rem;
+  }
+  
+  /* ======== METRIC CARDS ======== */
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .metric-card-link {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .metric-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 1.6rem 1.8rem;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  
+  .metric-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 26px rgba(191, 151, 69, 0.35);
+    border-color: #bf9745;
+  }
+  
+  .metric-card h3 {
+    font-size: 0.9rem;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-bottom: 0.55rem;
+  }
+  
+  .metric-card p {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+    color: #002e6b;
+  }
+  
+  .metric-meta {
+    font-size: 0.85rem;
+    color: #6b7280;
+  }
+  
+  /* ======== CHIP BUTTONS ======== */
+  .chip-group {
+    display: inline-flex;
+    gap: 0.45rem;
+  }
+  
+  .chip {
+    border-radius: 99px;
+    padding: 0.35rem 0.9rem;
+    font-size: 0.78rem;
+    border: 1px solid rgba(0, 46, 107, 0.15);
+    background: #f9fafb;
+    color: #002e6b;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+  }
+  
+  .chip:hover {
+    background: #e5eef5;
+  }
+  
+  .chip-active {
+    background: #bf9745;
+    border-color: #bf9745;
+    color: #ffffff;
+  }
+  
+  /* ======== CHARTS ======== */
+  #givingChart,
+  #growthChart,
+  #peopleChart,
+  #podcastChart,
+  #trafficChart {
+    width: 100%;
+    max-height: 420px;
+  }
+  
+  /* ======== PODCAST MINI STATS ======== */
+  .stats-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    margin-bottom: 1.6rem;
+  }
+  
+  .mini-stat {
+    flex: 0 0 140px;
+    padding: 0.9rem 1.1rem;
+    border-radius: 12px;
+    background: #f9fafb;
+    border: 1px solid rgba(0, 46, 107, 0.06);
+  }
+  
+  .mini-stat h4 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #6b7280;
+    margin-bottom: 0.3rem;
+  }
+  
+  .mini-stat p {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #002e6b;
+    margin: 0;
+  }
+  
+  .chart-wrapper {
+    margin-top: 0.8rem;
+  }
+  
+  .chart-title {
+    font-size: 0.95rem;
+    color: #4b5563;
+    margin-bottom: 0.8rem;
+  }
+  
+  /* ======== TRAFFIC TABLES ======== */
+  .analytics-two-column {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .sub-panel {
+    background: #f9fafb;
+    border-radius: 16px;
+    padding: 1.2rem 1.4rem;
+    border: 1px solid rgba(0, 46, 107, 0.08);
+  }
+  
+  .sub-panel-title {
+    font-size: 1rem;
+    color: #111827;
+    margin-bottom: 0.8rem;
+  }
+  
+  .table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+  }
+  
+  .admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+  
+  .admin-table thead {
+    background: #e5eef5;
+  }
+  
+  .admin-table th,
+  .admin-table td {
+    padding: 0.5rem 0.7rem;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .admin-table th {
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: #374151;
+  }
+  
+  .admin-table tbody tr:nth-child(even) {
+    background: #f9fafb;
+  }
+  
+  /* ======== RESPONSIVE ======== */
+  @media (max-width: 900px) {
+    .panel {
+      padding: 1.3rem;
+    }
+  
+    .metric-card {
+      padding: 1.3rem 1.4rem;
+    }
+  
+    .metric-card p {
+      font-size: 1.7rem;
+    }
+  
+    .panel-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+  
+    .tall-panel {
+      padding: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .metrics-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    #givingChart,
+    #growthChart,
+    #peopleChart,
+    #podcastChart,
+    #trafficChart {
+      max-height: 340px;
+    }
+  }
+  

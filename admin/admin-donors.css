@@ -1,0 +1,150 @@
+/* FILE: admin-donors.css */
+
+.donors-layout {
+    padding: 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  /* SUMMARY CARDS */
+  .donors-summary {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+  }
+  
+  .summary-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 1.25rem 1.5rem;
+    box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
+  }
+  
+  .summary-card h3 {
+    margin: 0 0 0.5rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #6b7280;
+  }
+  
+  .summary-value {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #002e6b;
+  }
+  
+  /* TABLE + DETAIL LAYOUT */
+  .donors-content {
+    display: grid;
+    grid-template-columns: 2fr 1.3fr;
+    gap: 1.5rem;
+  }
+  
+  .donors-table-panel,
+  .donor-detail-panel {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 1.25rem 1.5rem;
+    box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
+  }
+  
+  .panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+  }
+  
+  .panel-header h2 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #111827;
+  }
+  
+  #donorSearch {
+    padding: 0.45rem 0.75rem;
+    border-radius: 999px;
+    border: 1px solid #d1d5db;
+    font-size: 0.85rem;
+  }
+  
+  /* Table */
+  .donors-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+  }
+  
+  .donors-table th,
+  .donors-table td {
+    padding: 0.55rem 0.4rem;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .donors-table th {
+    text-align: left;
+    font-weight: 600;
+    color: #6b7280;
+    font-size: 0.8rem;
+  }
+  
+  .donors-row {
+    cursor: pointer;
+  }
+  
+  .donors-row:hover {
+    background: #f3f4ff;
+  }
+  
+  /* Detail panel */
+  .donor-detail-panel h2 {
+    margin-top: 0;
+    margin-bottom: 0.2rem;
+  }
+  
+  .donor-detail-panel p {
+    margin: 0.15rem 0;
+  }
+  
+  .donation-list {
+    list-style: none;
+    padding: 0;
+    margin: 0.75rem 0 0;
+    max-height: 350px;
+    overflow-y: auto;
+  }
+  
+  .donation-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 0.85rem;
+  }
+  
+  .donation-amount {
+    font-weight: 600;
+    color: #002e6b;
+  }
+  
+  .donation-meta {
+    font-size: 0.78rem;
+    color: #6b7280;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  /* Responsive */
+  @media (max-width: 960px) {
+    .donors-summary {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  
+    .donors-content {
+      grid-template-columns: 1fr;
+    }
+  }
+  

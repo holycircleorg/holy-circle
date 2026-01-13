@@ -1,0 +1,77 @@
+<!-- admin-email-automations.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Holy Circle | Email Automations</title>
+  <link rel="stylesheet" href="admin.css" />
+  <link rel="stylesheet" href="admin-layout.css" />
+</head>
+<body>
+<script>document.body.classList.add("with-sidebar");</script>
+
+<!-- reuse your sidebar + header from other admin pages -->
+
+<main class="admin-main">
+  <div class="admin-container">
+
+    <section class="panel tall-panel">
+      <div class="panel-header">
+        <h2>Automation Sequences</h2>
+        <button class="small-btn" id="newSequenceBtn">New Sequence</button>
+      </div>
+      <ul class="simple-list" id="sequencesList"></ul>
+    </section>
+
+    <section class="panel tall-panel">
+      <div class="panel-header">
+        <h2 id="sequenceEditorTitle">Sequence Details</h2>
+      </div>
+
+      <form id="sequenceForm" class="simple-form">
+        <input type="hidden" id="sequenceId" />
+
+        <label>
+          Name
+          <input type="text" id="sequenceName" required />
+        </label>
+
+        <label>
+          Trigger Type
+          <select id="sequenceTrigger">
+            <option value="new_signup">New Signup</option>
+            <option value="first_donation">First Donation</option>
+            <option value="role_upgraded">Member Role Upgraded</option>
+            <option value="event_rsvp">RSVP to Event</option>
+          </select>
+        </label>
+
+        <label>
+          Status
+          <select id="sequenceActive">
+            <option value="1">Active</option>
+            <option value="0">Paused</option>
+          </select>
+        </label>
+
+        <h3>Steps</h3>
+        <p class="list-meta">Choose campaign + delay days (0 = immediately).</p>
+
+        <div id="stepsContainer"></div>
+
+        <button type="button" class="small-btn" id="addStepBtn">
+          + Add Step
+        </button>
+
+        <div style="margin-top:1rem;">
+          <button type="submit" class="btn gold-btn">Save Sequence</button>
+        </div>
+      </form>
+    </section>
+
+  </div>
+</main>
+
+<script src="js/admin-email-automations.js"></script>
+</body>
+</html>

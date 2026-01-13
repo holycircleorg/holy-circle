@@ -1,0 +1,207 @@
+/* =========================================================
+   NOTIFICATIONS — MODERN PREMIUM REDESIGN
+   ========================================================= */
+
+:root {
+  --hc-blue: #002e6b;
+  --hc-gold: #bf9745;
+  --hc-bg: #f5f7fb;
+  --hc-muted: #6b7a8e;
+}
+
+/* PAGE */
+.notifications-main {
+  padding: 48px 0 80px;
+  background: linear-gradient(180deg, #f7f9fc 0%, #f1f4fa 100%);
+
+}
+
+.notifications-page {
+    margin-top: 60px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.notifications-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* HEADER */
+.notifications-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 28px;
+}
+
+.notifications-header h2 {
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: var(--hc-blue);
+  letter-spacing: -0.5px;
+}
+
+.notif-actions {
+  display: flex;
+  gap: 12px;
+}
+
+/* FILTER BAR */
+.notif-filter-bar {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0 18px;
+  flex-wrap: wrap;
+}
+
+.notif-filter {
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: rgba(191, 151, 69, 0.08);
+  color: var(--hc-gold);
+  border: 1px solid rgba(191, 151, 69, 0.3);
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.notif-filter:hover {
+  background: rgba(191, 151, 69, 0.18);
+}
+
+.notif-filter.active {
+  background: var(--hc-gold);
+  color: white;
+  border-color: var(--hc-gold);
+}
+
+/* LIST */
+.notifications-list.enhanced {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* GROUP TITLE */
+.notif-group-title {
+  margin-top: 26px;
+  padding: 6px 6px 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: var(--hc-muted);
+  text-transform: uppercase;
+}
+
+/* CARD */
+.notification-item {
+  display: grid;
+  grid-template-columns: 44px 1fr auto;
+  gap: 16px;
+  padding: 18px 20px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.05);
+  transition: all 0.25s ease;
+  border: 1px solid rgba(0,0,0,0.04);
+}
+
+.notification-item:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.08);
+}
+
+/* UNREAD */
+.notification-item.unread {
+  border-left: 5px solid var(--hc-gold);
+  background: linear-gradient(
+    90deg,
+    rgba(191,151,69,0.08),
+    rgba(255,255,255,0.9)
+  );
+}
+
+/* ICON */
+.notification-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  color: white;
+}
+
+/* CATEGORY COLORS */
+.notification-item[data-category="event"] .notification-icon {
+  background: linear-gradient(135deg, #4f7cff, #002e6b);
+}
+
+.notification-item[data-category="giving"] .notification-icon {
+  background: linear-gradient(135deg, #f0b35a, #bf9745);
+}
+
+.notification-item[data-category="system"] .notification-icon {
+  background: linear-gradient(135deg, #9aa7b8, #6b7a8e);
+}
+
+/* BODY */
+.notification-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.notification-text {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--hc-blue);
+  line-height: 1.4;
+}
+
+.notification-meta {
+  margin-top: 4px;
+  font-size: 0.8rem;
+  color: var(--hc-muted);
+}
+
+/* ACTION LINK */
+.notification-link {
+  align-self: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--hc-gold);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.notification-link:hover {
+  text-decoration: underline;
+}
+
+/* EMPTY */
+.empty-state {
+  padding: 60px 20px;
+  text-align: center;
+  color: var(--hc-muted);
+  font-size: 1rem;
+}
+
+/* MOBILE */
+@media (max-width: 640px) {
+  .notification-item {
+    grid-template-columns: 44px 1fr;
+    gap: 14px;
+  }
+
+  .notification-link {
+    grid-column: 2;
+    margin-top: 6px;
+  }
+}

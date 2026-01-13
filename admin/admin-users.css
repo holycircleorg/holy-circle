@@ -1,0 +1,74 @@
+/* Header */
+.users-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.8rem;
+  }
+  
+  /* Table */
+  .users-table table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .users-table th,
+  .users-table td {
+    text-align: left;
+    padding: 0.75rem;
+    border-bottom: 1px solid #eee;
+    font-size: 0.9rem;
+  }
+  
+  /* Role badges */
+  .role-badge {
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: capitalize;
+  }
+  
+  .role-admin { background: #dbeafe; color: #1e40af; }
+  .role-editor { background: #fef9c3; color: #a16207; }
+  .role-helper { background: #e2e8f0; color: #475569; }
+  
+  .twofa-enabled { color: #059669; font-weight: 600; }
+  .twofa-disabled { color: #dc2626; font-weight: 600; }
+  
+  /* Modal */
+  .modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    display: none;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modal-backdrop.active {
+    display: flex;
+  }
+  
+  .modal-card {
+    background: white;
+    width: 100%;
+    max-width: 420px;
+    padding: 2rem;
+    border-radius: 14px;
+  }
+  
+  .modal-card label {
+    font-weight: 500;
+    margin-top: 0.7rem;
+  }
+  
+  .modal-card input,
+  .modal-card select {
+    width: 100%;
+    padding: 0.7rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-bottom: 1rem;
+  }
+  

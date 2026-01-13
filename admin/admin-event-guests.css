@@ -1,0 +1,199 @@
+/* ============================
+   ADMIN EVENT GUEST LIST
+   ============================ */
+
+   .page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .page-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #002e6b;
+  }
+  
+  .page-subtitle {
+    margin: 0.1rem 0 0;
+    font-size: 0.9rem;
+    color: #6b7280;
+  }
+  
+  .page-actions {
+    display: flex;
+    gap: 0.6rem;
+  }
+  
+  .ghost-btn,
+  .secondary-btn {
+    border-radius: 999px;
+    padding: 0.45rem 1.1rem;
+    border: 1px solid #d1d5db;
+    background: #ffffff;
+    font-size: 0.85rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    text-decoration: none;
+    color: #111827;
+  }
+  
+  .secondary-btn {
+    border-color: #bf9745;
+    color: #bf9745;
+  }
+  
+  /* Stats */
+  
+  .guest-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .stat-card {
+    border-radius: 16px;
+    border: 1px solid #e5e7eb;
+    padding: 0.9rem 1rem;
+    background: #ffffff;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.04);
+  }
+  
+  .stat-card p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #6b7280;
+  }
+  
+  .stat-card h3 {
+    margin: 0.3rem 0 0;
+    font-size: 1.3rem;
+    color: #002e6b;
+  }
+  
+  /* Filters */
+  
+  .guest-filters {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    gap: 1rem;
+  }
+  
+  .filter-pill-group {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+  
+  .filter-pill {
+    border-radius: 999px;
+    padding: 0.3rem 0.9rem;
+    border: 1px solid #d1d5db;
+    background: #ffffff;
+    font-size: 0.8rem;
+    cursor: pointer;
+  }
+  
+  .filter-pill.active {
+    background: #002e6b;
+    color: #ffffff;
+    border-color: #002e6b;
+  }
+  
+  /* Guest list cards */
+  
+  .guest-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+  
+  .empty-state {
+    font-size: 0.9rem;
+    color: #6b7280;
+    font-style: italic;
+  }
+  
+  .guest-card {
+    border-radius: 14px;
+    border: 1px solid #e5e7eb;
+    background: #ffffff;
+    padding: 0.8rem 0.9rem;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .guest-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .guest-name {
+    font-weight: 600;
+    color: #111827;
+  }
+  
+  .guest-type-pill {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+  }
+  
+  .guest-type-member {
+    background: #dbeafe;
+    color: #1d4ed8;
+  }
+  
+  .guest-type-guest {
+    background: #fef3c7;
+    color: #b45309;
+  }
+  
+  .guest-email {
+    font-size: 0.85rem;
+    color: #4b5563;
+  }
+  
+  .guest-meta {
+    font-size: 0.8rem;
+    color: #6b7280;
+  }
+  
+  .guest-comments {
+    margin-top: 0.3rem;
+    font-size: 0.85rem;
+    color: #374151;
+  }
+  
+  /* Responsive */
+  
+  @media (max-width: 900px) {
+    .guest-stats {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  
+    .guest-filters {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .guest-stats {
+      grid-template-columns: 1fr;
+    }
+  }
+  

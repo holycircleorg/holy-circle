@@ -1,0 +1,300 @@
+/* =========================================================
+   HOLY CIRCLE — MEMBER PROFILE (VIEW + EDIT)
+   Scope: Profile hero, profile layout, profile edit UI
+   Depends on: global.css + style.css + member.css
+========================================================= */
+
+/* ---------------------------------------------------------
+   PROFILE HERO (VIEW MODE)
+--------------------------------------------------------- */
+
+.profile-hero {
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+.profile-banner-wrap {
+  position: relative;
+  height: 280px;
+  overflow: hidden;
+}
+
+.profile-banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.65),
+    rgba(0, 0, 0, 0.25)
+  );
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 1.75rem;
+}
+
+/* Left side */
+.profile-banner-left {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.profile-avatar-wrap {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #bf9745;
+  background: #ffffff;
+}
+
+.profile-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-banner-text {
+  color: #ffffff;
+}
+
+.profile-name {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.profile-meta-row {
+  font-size: 0.85rem;
+  opacity: 0.85;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.meta-dot {
+  opacity: 0.6;
+}
+
+/* Right side */
+.profile-banner-right {
+  display: flex;
+  align-items: center;
+}
+
+/* ---------------------------------------------------------
+   PROFILE LAYOUT
+--------------------------------------------------------- */
+
+.profile-layout {
+  display: grid;
+  grid-template-columns: 2.2fr 1fr;
+  gap: 2.5rem;
+}
+
+@media (max-width: 900px) {
+  .profile-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------------------------------------------------------
+   PROFILE CARD (shared view + edit)
+--------------------------------------------------------- */
+
+.profile-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 1.75rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  border-left: 4px solid #bf9745;
+}
+
+.profile-section-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #002e6b;
+  margin-bottom: 1rem;
+}
+
+/* ---------------------------------------------------------
+   PROFILE CONTENT BLOCKS
+--------------------------------------------------------- */
+
+.profile-block {
+  margin-bottom: 1.5rem;
+}
+
+.profile-block:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------------------------------------------------------
+   BADGES
+--------------------------------------------------------- */
+
+.profile-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+}
+
+/* ---------------------------------------------------------
+   PROFILE EDIT — PHOTO SECTION (MERGED)
+--------------------------------------------------------- */
+
+.edit-photos-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 800px) {
+  .edit-photos-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.photo-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.photo-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #002e6b;
+}
+
+.photo-preview-area {
+  background: #f8f9fc;
+  padding: 1.2rem;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* Avatar preview */
+.photo-avatar-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #bf9745;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Banner preview */
+.photo-banner-img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid #ddd;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* ---------------------------------------------------------
+   PROFILE EDIT — SIDEBAR HELPERS
+--------------------------------------------------------- */
+
+.profile-helper-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  color: #555;
+}
+
+.profile-helper-list li {
+  padding: 0.25rem 0;
+  font-size: 0.9rem;
+}
+
+/* =========================================================
+   EDIT PROFILE — FORM FIXES
+========================================================= */
+
+.account-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+
+@media (max-width: 720px) {
+  .form-grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+/* Make form fields inherit site styles */
+.form-field input,
+.form-field textarea,
+.form-field select {
+  font-family: inherit;
+}
+
+/* Align save button with site buttons */
+.account-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* =========================================================
+   FORM READABILITY POLISH
+========================================================= */
+
+.profile-card + .profile-card {
+  margin-top: 2rem;
+}
+
+.profile-card .profile-section-title {
+  margin-bottom: 1.25rem;
+}
+
+.form-field + .form-field {
+  margin-top: 0.75rem;
+}
+
+.form-field label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #002e6b;
+}
+
+
+@media (max-width: 600px) {
+  .profile-banner-wrap {
+    height: 220px;
+  }
+
+  .profile-avatar-wrap {
+    width: 84px;
+    height: 84px;
+  }
+}

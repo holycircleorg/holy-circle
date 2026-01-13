@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Holy Circle News | HCN</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/news.css">
+  <link rel="stylesheet" href="/css/global.css" />
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body class ="public-page">
+
+<header class="hc-navbar">
+  <div class="hc-navbar-inner">
+
+    <!-- LEFT: LOGO -->
+    <div class="hc-logo">
+      <a href="index.html">
+        <img src="images/hcsublogo.png" alt="Holy Circle Logo">
+      </a>
+    </div>
+    
+
+    <!-- CENTER: DESKTOP NAV LINKS (HIDE ON MOBILE) -->
+    <nav class="hc-nav-links">
+      <a href="podcast.html">Podcast</a>
+      <a href="events.html">Events</a>
+      <a href="forum.html">Community</a>
+      <a href="about.html">About</a>
+      <a href="donate.html" class="highlight">Donate</a>
+    </nav>
+
+    <!-- RIGHT: DESKTOP ACTIONS + MOBILE MENU BUTTON -->
+    <div class="navbar-right">
+
+      <!-- DESKTOP ACTION CLUSTER -->
+      <div class="hc-nav-actions">
+
+        <!-- NOTIFICATION BELL (desktop only) -->
+        <button
+          class="notif-btn"
+          type="button"
+          aria-label="Notifications"
+          data-member-only
+        >
+
+          <span class="notif-icon-wrap" data-notif-btn>
+            <i class="fa-regular fa-bell"></i>
+            <span class="notif-dot" data-notif-dot></span>
+          </span>
+        </button>
+<!-- NOTIFICATION DROPDOWN -->
+<div class="notif-dropdown" data-notif-dropdown>
+
+  <div class="notif-header">
+    <h4>Notifications</h4>
+    <button class="notif-clear-btn" data-notif-clear>Clear All</button>
+  </div>
+
+  <div class="notif-list" data-notif-list>
+    <!-- JS fills these -->
+    <div class="notif-empty">You're all caught up ✨</div>
+  </div>
+<div class="notif-footer">
+  <a href="/notifications.html" class="notif-view-all">
+    View all notifications →
+  </a>
+</div>
+
+</div>
+
+        <!-- AUTH AREA (desktop only) -->
+        <div class="hc-nav-avatar" data-auth-area>
+
+          <!-- LOGGED OUT -->
+          <button class="nav-auth-btn" data-login-link>
+            <i class="fa-regular fa-circle-user"></i>
+            <span>Sign in</span>
+          </button>
+
+          <!-- LOGGED IN -->
+          <div class="avatar-menu" data-user-menu style="display:none;">
+
+            <button class="avatar-btn" data-avatar-toggle>
+              <img
+                class="avatar-img"
+                data-avatar-img
+                src="/images/default-avatar.png"
+                alt="Avatar"
+              />
+              </button>
+
+            <div class="avatar-dropdown" data-avatar-dropdown>
+
+              <div class="dropdown-profile-bar">
+                <img
+                    class="dropdown-avatar-sm"
+                    data-avatar-img
+                    src="/images/default-avatar.png"
+                  />
+
+                <div class="dropdown-profile-text">
+                  <div class="dropdown-name" data-avatar-name>Member</div>
+                </div>
+              </div>
+
+              <a href="/member-dashboard.html">My Dashboard</a>
+              <a href="/test-profile.html" data-profile-link>View My Profile</a>
+              <a href="/member-account.html">Settings</a>
+              <a href="/forum-my-threads.html">My Threads</a>
+              <button type="button" data-logout-btn>Logout</button>
+
+            </div>
+          </div>
+
+        </div><!-- /auth area -->
+
+      </div><!-- /hc-nav-actions -->
+
+      <!-- MOBILE HAMBURGER (only icon on mobile) -->
+      <button class="hc-mobile-menu-btn" data-mobile-menu-btn>
+        <span></span><span></span><span></span>
+      </button>
+
+    </div><!-- /navbar-right -->
+  </div><!-- /hc-navbar-inner -->
+
+<!-- MOBILE MENU DROPDOWN -->
+<div class="hc-mobile-menu" data-mobile-menu>
+
+  <!-- PROFILE HEADER (signed-in only) -->
+  <div class="mobile-profile-header" data-auth-area>
+    <div class="mobile-profile-avatar-wrap" data-mobile-avatar-click>
+      <img
+        class="mobile-profile-avatar"
+        data-avatar-img
+        src="/images/default-avatar.png"
+      />
+
+    </div>    
+    <div class="mobile-profile-name" data-mobile-avatar-name>Login</div>
+  </div>
+
+  <div class="mobile-divider"></div>
+
+  <!-- MOBILE MAIN NAV -->
+  <nav class="mobile-nav-section">
+    <a href="podcast.html">Podcast</a>
+    <a href="events.html">Events</a>
+    <a href="forum.html">Community</a>
+    <a href="about.html">About</a>
+    <a href="donate.html" class="highlight">Donate</a>
+  </nav>
+
+  <div class="mobile-divider"></div>
+
+  <!-- MOBILE PROFILE LINKS -->
+  <nav class="mobile-nav-section profile-links">
+
+    <a href="/member-dashboard.html" data-member-only>My Dashboard</a>
+    <a href="/notifications.html" data-member-only data-mobile-notifications>Notifications</a>
+   <a href="/member-account.html" data-member-only>Settings</a>
+    <a href="/forum-my-threads.html" data-member-only>My Threads</a>
+    <button type="button" data-logout-btn data-member-only class="logout-btn">Logout</button>
+  </nav>
+  
+
+</div>
+
+
+</header>
+
+
+
+  <!-- Hero -->
+  <section class="page-hero" style="background:linear-gradient(to bottom,#f0e990,#fffef8);">
+    <div class="hero-content narrow">
+      <h1 style="color: #002e6b;">Holy Circle News (HCN)</h1>
+      <p style="color: black;">Faith-based perspectives on culture, world events, and daily life — written through the lens of Christ.</p>
+    </div>
+  </section>
+
+  <!-- Blog Section -->
+  <section class="section">
+    <h2>Latest Articles</h2>
+    <div class="blog-grid">
+
+      <!-- 🟢 BLOG CARD TEMPLATE (Copy this to add new posts) -->
+      <article class="blog-card">
+        <img src="https://images.unsplash.com/photo-1581320544809-9b48b6fd40c9?auto=format&fit=crop&w=1000&q=80" alt="">
+        <div class="blog-content">
+          <span class="blog-meta">November 8, 2025 • by Charles Ford Jr.</span>
+          <h3>The Power of Testimony in Today’s Media</h3>
+          <p>How Holy Circle is reshaping storytelling to bring faith conversations back to the heart of culture.</p>
+          <a href="#" class="readmore">Read More →</a>
+        </div>
+      </article>
+
+      <article class="blog-card">
+        <img src="https://images.unsplash.com/photo-1559511260-30c05b285037?auto=format&fit=crop&w=1000&q=80" alt="">
+        <div class="blog-content">
+          <span class="blog-meta">November 5, 2025 • by HCN Staff</span>
+          <h3>Faith & Film: Why Storytelling Still Matters</h3>
+          <p>Exploring the intersection of ministry, creativity, and visual storytelling as a form of worship.</p>
+          <a href="#" class="readmore">Read More →</a>
+        </div>
+      </article>
+
+      <article class="blog-card">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1000&q=80" alt="">
+        <div class="blog-content">
+          <span class="blog-meta">October 30, 2025 • by Tyler Ford</span>
+          <h3>Building the World’s First Digital Bible Ecosystem</h3>
+          <p>Inside Holy Circle’s mission to combine scripture, technology, and community for deeper faith engagement.</p>
+          <a href="#" class="readmore">Read More →</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-content">
+    
+    <div class="footer-brand">
+      <h3>HOLY CIRCLE</h3>
+      <p class="tagline">Faith • Media • Community</p>
+      <p class="mission">
+        Empowering people to deepen their faith in Christ and build a strong, united community.
+      </p>
+      <a href="/donate" class="footer-donate-btn">Support Our Mission</a>
+    </div>
+
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <a href="/about.html">About Us</a>
+      <a href="/events.html">Events</a>
+      <a href="/podcast.html">Podcast</a>
+      <a href="/forum.html">Community</a>
+      <a href="/donate.html">Give</a>
+  </a>
+</div>
+   
+    </div>
+
+    <div class="footer-legal">
+      <h4>Legal</h4>
+      <a href="/privacy-policy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Use</a>
+      <a href="/donor-privacy.html">Donor Privacy Policy</a>
+    </div>
+
+    <div class="footer-contact">
+      <h4>Connect</h4> 
+      <p>Email: <a href="mailto:info@holycircle.org">info@holycircle.org</a></p>
+
+      <div class="social-links">
+        <a href="https://www.instagram.com/holycircleorg/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/people/Holy-Circle-Organization/61573876220565" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/channel/UCqcUPEiMbpAuFz1W00xFcCw" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@holycircleorg" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://open.spotify.com/show/holycircle" target="_blank"><i class="fab fa-spotify"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>
+      Holy Circle is a registered 501(c)(3) nonprofit organization. Donations are tax-deductible as permitted by law.
+      EIN: 33-3661912
+    </p>
+    <p>© 2026 Holy Circle. All Rights Reserved.</p>
+  </div>
+</footer>
+
+
+  <script>
+    // Mobile menu toggle
+    const toggle = document.getElementById('menu-toggle');
+    const navbarLinks = document.getElementById('navbar-links');
+  
+    toggle.addEventListener('click', () => {
+      toggle.classList.toggle('active');
+      navbarLinks.classList.toggle('active');
+    });
+  </script>
+<script src="/js/avatar-engine.js"></script>
+<script src="/js/member-auth.js" defer></script>
+<script src="/js/global.js" defer></script>
+
+  
+</body>
+</html>

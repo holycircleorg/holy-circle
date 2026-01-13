@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Moderator Action Log | Holy Circle</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="admin-mod.css">
+  <link rel="stylesheet" href="../footer.css">
+</head>
+
+<body>
+
+  <!-- ADMIN NAVBAR -->
+  <header class="admin-nav">
+    <div class="admin-nav-inner">
+      <div class="admin-logo">HOLY CIRCLE — Admin</div>
+      <nav class="admin-links">
+        <a href="admin-index.html">Dashboard</a>
+        <a href="admin-mod.html">Moderation</a>
+        <a href="admin-mod-log.html" class="active">Mod Log</a>
+        <a href="admin-events.html">Events</a>
+        <a href="admin-donors.html">Donors</a>
+        <a href="admin-people.html">Members</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- PAGE CONTENT -->
+  <main class="mod-container">
+
+    <h1 class="page-title">Moderator Action Log</h1>
+    <p class="page-subtitle">
+      A complete history of every moderation action taken on the forum.
+    </p>
+
+    <section class="mod-card">
+      <h2>Action History</h2>
+
+      <table class="mod-table">
+        <thead>
+          <tr>
+            <th>Action</th>
+            <th>Target</th>
+            <th>Performed By</th>
+            <th>Reason</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody id="modLogList">
+          <!-- JS will populate entries here -->
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2025 Holy Circle. All rights reserved.</p>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    /* Logging Loader */
+    async function fetchJSON(url) {
+      const res = await fetch(url, { credentials: "include" });
+      return res.json();
+    }
+
+    async function loadModLog() {
+      const container = document.getElementById("modLogList");
+      let data = [];
+
+      try {
+        data = await fetchJSON("/api/forum/mod/logs");
+      } catch (err) {
+        console.error("Cannot load mod logs:", err);
+      }
+
+      container.innerHTML = data.length
+        ? data
+            .map(
+              (log) => `
+        <tr>
+          <td>${log.action}</td>
+          <td>${log.target_label}</td>
+          <td>${log.admin_email || "Admin #" + log.admin_id}</td>
+          <td>${log.reason || "—"}</td>
+          <td>${new Date(log.created_at).toLocaleString()}</td>
+        </tr>
+      `
+            )
+            .join("")
+        : `<tr><td colspan="5" class="empty-row">No moderation actions yet.</td></tr>`;
+    }
+
+    document.addEventListener("DOMContentLoaded", loadModLog);
+  </script>
+
+</body>
+</html>

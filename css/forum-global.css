@@ -1,0 +1,1146 @@
+/* ===============================
+   SAFE AREA SUPPORT (iOS NOTCH)
+   =============================== */
+:root {
+  --safe-top: env(safe-area-inset-top);
+  --safe-right: env(safe-area-inset-right);
+  --safe-bottom: env(safe-area-inset-bottom);
+  --safe-left: env(safe-area-inset-left);
+}
+
+
+/* ======================================
+   AUTH-STATE ENFORCED AVATAR VISIBILITY
+   ====================================== */
+
+
+/* Logged-in users see avatars */
+body.is-authenticated [data-avatar-img] {
+  display: inline-block;
+}
+
+/* Safety: never show avatars on auth pages */
+body.is-guest.login-page [data-avatar-img],
+body.is-guest.register-page [data-avatar-img] {
+  display: none !important;
+}
+
+
+
+
+/* Show avatars only when authenticated */
+body.is-authenticated [data-avatar-img],
+body.is-authenticated [data-mobile-avatar-img] {
+  display: inline-block;
+}
+
+body.login-page [data-avatar-img],
+body.login-page [data-mobile-avatar-img] {
+  display: none !important;
+}
+
+
+
+
+/* ============================
+     GLOBAL NAVBAR
+============================= */
+/* GLOBAL RESET + TYPOGRAPHY */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: auto;
+}
+
+body {
+  min-height: 100%;
+}
+
+
+body {
+  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #ffffff;
+  color: #222222;
+  line-height: 1.6;
+}
+
+/* Generic link reset */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+/* ---------------------------------
+   GLOBAL NAVBAR — FINAL
+----------------------------------*/
+
+.hc-navbar {
+    position:sticky;
+    width: 100%;
+    background: #ffffff;
+    border-bottom: 1px solid #eee;
+    
+    top: 0;
+    z-index: 999;
+  }
+
+  .hc-navbar-inner {
+  max-width: 1400px;
+  margin: auto;
+  padding: 0.4rem 2rem;
+
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  padding-left: calc(1rem + var(--safe-left));
+  padding-right: calc(1rem + var(--safe-right));
+}
+
+  
+  .hc-logo {
+    position: relative;
+    display: flex;
+  
+  }
+
+
+  /* Navbar Logo Sizing */
+.hc-logo img {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+  margin-right: 10px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border-radius: 50%;
+}
+
+
+  .hc-logo img:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 18px rgba(191, 151, 69, 0.75),
+                0 0 32px rgba(191, 151, 69, 0.45);
+    border-radius: 50%; /* ensures glow is circular */
+  cursor: pointer;
+  }
+
+  @keyframes glowPulse {
+    0% {
+      box-shadow: 0 0 0 rgba(191,151,69,0.0);
+    }
+    50% {
+      box-shadow: 0 0 22px rgba(191,151,69,0.8),
+                  0 0 42px rgba(191,151,69,0.5);
+    }
+    100% {
+      box-shadow: 0 0 18px rgba(191,151,69,0.75),
+                  0 0 32px rgba(191,151,69,0.45);
+    }
+  }
+
+  .hc-logo img::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.9), transparent);
+    transform: translateX(-120%);
+    transition: transform 0.6s ease;
+  }
+  
+  .hc-logo img:hover::after {
+    transform: translateX(120%);
+  }
+  
+  .navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+  }
+
+/* --------------------------------------------
+   HOLY CIRCLE — GLASS MOBILE MENU (Option C)
+-------------------------------------------- */
+
+.hc-mobile-menu {
+  display: none;
+  position: fixed;
+  top: 60px; /* right under navbar */
+  left: 0;
+  width: 100%;
+  padding: 2rem 1.6rem;
+  display: none;
+  flex-direction: column;
+  gap: 1.6rem;
+  max-height: calc(100vh - 60px); /* prevent overflow */
+  overflow-y: auto; /* allow scrolling */
+  overscroll-behavior: contain;
+
+  /* 🌫 Glassmorphism */
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(22px) saturate(180%);
+  -webkit-backdrop-filter: blur(22px) saturate(180%);
+  border-bottom-left-radius: 26px;
+  border-bottom-right-radius: 26px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.10);
+
+  animation: hcGlassDrop 0.28s ease-out;
+}
+
+/* Smooth slide down animation */
+@keyframes hcGlassDrop {
+  0% {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.mobile-profile-avatar-wrap {
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+}
+
+.mobile-profile-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 3px solid rgba(191, 151, 69, 0.85); /* Holy Circle gold with glow */
+  object-fit: cover;
+  box-shadow: 0 0 14px rgba(191, 151, 69, 0.45);
+  cursor: pointer;
+}
+.mobile-profile-avatar:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 18px rgba(191, 151, 69, 0.75),
+              0 0 32px rgba(191, 151, 69, 0.45);
+}
+
+.mobile-profile-name {
+  display:none;
+  margin-top: 0.6rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #0d1b3d; /* deep navy */
+}
+
+/* Navigation links */
+.mobile-nav-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.mobile-nav-section a {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #0d1b3d;
+  text-decoration: none;
+
+  /* Glass link hover */
+  padding: 0.8rem 1rem;
+  border-radius: 14px;
+  transition: 0.2s ease;
+}
+
+.mobile-nav-section a:hover {
+  background: #bf9745;
+  backdrop-filter: blur(28px);
+}
+
+/* Gold highlight link (Donate) */
+.mobile-nav-section .highlight {
+  color: #bf9745;
+  font-weight: 700;
+}
+
+/* Soft glass divider */
+.mobile-divider {
+  height: 1px;
+  width: 100%;
+  background: #000;
+  border-radius: 20px;
+  margin: 0.5rem 0;
+}
+
+/* Logout button (glass style) */
+.logout-btn {
+  margin-top: 0.4rem;
+  font-size: 1.1rem;
+  color: #d33;
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(28px);
+  border-radius: 14px;
+  padding: 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background-color: #d33;
+  color: #fff;
+}
+  
+/* ===============================
+   MOBILE LOGIN NAME (CTA STYLE)
+   =============================== */
+
+.mobile-profile-name {
+  display: block;
+  width: 100%;
+
+  margin: 0.75rem 0 1rem;
+  padding: 0.85rem 1rem;
+
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+
+  color: #002e6b;
+  background: #bf9745; /* Holy Circle gold */
+
+  border-radius: 999px;
+  cursor: pointer;
+
+  box-shadow: 0 6px 18px rgba(191, 151, 69, 0.35);
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+/* Subtle interaction only */
+.mobile-profile-name:hover {
+  background: #d4ad5c;
+  transform: translateY(-1px);
+}
+
+/* Press feedback */
+.mobile-profile-name:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 10px rgba(191, 151, 69, 0.25);
+}
+
+/* GUARANTEE CLICKABILITY */
+.mobile-profile-name {
+  pointer-events: auto;
+}
+
+  /* ---------------------------
+     MOBILE MENU
+  -----------------------------*/
+  .hc-mobile-menu-btn {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+    background: none;
+    border: none;
+  }
+  
+  .hc-mobile-menu-btn span {
+    width: 24px;
+    height: 3px;
+    background: #002e6b;
+    border-radius: 3px;
+  }
+
+  .hc-mobile-menu-btn:hover span {
+    background: #bf9745;
+    transform:scale(1.1);
+  }
+  
+
+  /* Mobile avatar */
+  .mobile-avatar-wrapper {
+    margin-top: 1rem;
+  }
+  
+  .avatar-dropdown.mobile {
+    position: absolute;
+    margin-top: 0.5rem;
+  }
+
+  .notif-dropdown.is-open,
+.avatar-dropdown.is-open {
+  display: block;
+  z-index: 9999 !important;
+}
+
+
+  /* Avatar container */
+  .hc-nav-avatar {
+    margin-left: 1.2rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  
+  /* Avatar button (both logged-in + logged-out) */
+  .avatar-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 2px solid #bfd7ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0;
+  }
+  
+  .avatar-btn:hover {
+    border-color: #89ddf4;
+    box-shadow: 0 0 6px rgba(137, 221, 244, 0.6);
+  }
+  
+  /* Logged-out icon */
+  .avatar-btn i {
+    font-size: 18px;
+    color: #002e6b;
+  }
+  
+  /* Logged-in image */
+  .avatar-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  /* Dropdown positioning */
+  .avatar-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    display: none;
+    flex-direction: column;
+    min-width: 220px;
+    z-index: 99;
+  }
+  
+  .avatar-dropdown.active {
+    display: block;
+  }
+  
+  /* Dropdown links */
+  .avatar-dropdown a,
+  .avatar-dropdown button {
+    padding: 0.5rem 0;
+    text-align: left;
+    border: none;
+    background: none;
+    font-size: 0.95rem;
+    cursor: pointer;
+    color: #002e6b;
+     display: block;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 1.4;
+  }
+  
+  .avatar-dropdown a:hover,
+  .avatar-dropdown button:hover {
+    color: #89ddf4;
+  }
+  
+  /* Profile header inside dropdown */
+  .dropdown-profile-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.7rem;
+    border-bottom: 1px solid #e8e8e8;
+  }
+  
+  .dropdown-avatar-sm {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    margin-right: 0.8rem;
+    object-fit: cover;
+  }
+
+  .avatar-initials {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #bf9745;
+  color: white;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+  
+  /* ----------------------------
+   DROPDOWN PROFILE BAR (Option B)
+-----------------------------*/
+
+  
+  .dropdown-profile-text {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .dropdown-name {
+    font-weight: 600;
+    color: #002e6b;
+    margin-bottom: 2px;
+  }
+  
+  .dropdown-email {
+    font-size: 0.85rem;
+    color: #7d7f82;
+  }
+  
+
+
+/* --- Clean Modern Footer --- */
+.footer {
+    background: #002e6b;
+    color: #fff;
+    padding: 60px 10%;
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  
+  .footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  .footer-content div {
+    flex: 1 1 220px;
+    min-width: 220px;
+  }
+  
+
+.footer h3, .footer h4 {
+  color: #bf9745;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+
+/* Separation line above footer section titles */
+.footer h3::before,
+.footer h4::before {
+  content: "";
+  display: block;
+  width: 40px;                 /* adjust length */
+  height: 2px;                 /* line thickness */
+  background: #bf9745;         /* Holy Circle gold */
+  margin: 0 auto 12px auto;    /* space below line */
+  border-radius: 2px;          /* subtle round edge */
+}
+
+
+.footer a {
+  color: #bff1ff;
+  text-decoration: none;
+  display: block;
+  margin: 6px 0;
+  transition: 0.2s ease;
+}
+
+.footer a:hover {
+  color: #bf9745;
+   transform: translateY(-3px)
+}
+
+.footer .footer-donate-btn {
+  background-color: #bf9745;
+  padding: 8px 18px;
+  border-radius: 6px;
+  color: #fff;
+  display: inline-block;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.footer-donate-btn:hover {
+  color: #002e6b !important;
+}
+  
+  .footer-logo h3 {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    color: #f0e990;
+    margin-bottom: 0.3rem;
+  }
+  
+  .footer-logo p {
+    font-size: 0.95rem;
+    color: #bff1ff;
+  }
+  
+  .social-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2rem;
+    margin-top:-10px;
+ margin-bottom:-10px;
+  }
+  
+  .social-links a {
+    color: #fff;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+  }
+  
+  .social-links a:hover {
+    color: #bf9745;
+    transform: translateY(-3px);
+  }
+  .footer-bottom {
+    text-align: center;
+    font-size: 14px;
+    color: #d1d1d1;
+    padding-bottom: 10px;
+  }
+  
+  /* Mobile */
+  @media (max-width: 768px) {
+    .footer-content {
+      display: block;
+      text-align: center;
+    }
+    .footer .social-links {
+      margin-top: 12px;
+    }
+
+     .hc-navbar {
+    padding-top: var(--safe-top);
+  }
+
+   .hc-navbar-inner {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    padding: 0.6rem 1rem;
+  }
+
+  /* LOGO — LEFT */
+  .hc-logo {
+    grid-column: 1;
+    justify-self: start;
+  }
+
+  /* RIGHT SIDE — notification + hamburger */
+  .navbar-right {
+    grid-column: 3;
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  /* SHOW hamburger */
+  .hc-mobile-menu-btn {
+    display: flex;
+  }
+
+  /* HIDE desktop nav links */
+  .hc-nav-links {
+    display: none !important;
+  }
+.hc-nav-avatar { display: none; }
+
+}
+
+  
+  
+  .copyright {
+    font-size: 0.9rem;
+    color: #ddd;
+  }
+  
+  .copyright a {
+    color: #f0e990;
+    text-decoration: none;
+  }
+  
+  .copyright a:hover {
+    text-decoration: underline;
+  }
+  
+  .nonprofit {
+    font-size: 0.85rem;
+    color: #bff1ff;
+    line-height: 1.4;
+    max-width: 500px;
+  }
+
+  
+
+  /* =======================
+   PREMIUM NAVBAR LAYOUT
+   ======================= */
+  .hc-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    font-size: 0.98rem;
+    justify-self: center;
+  }
+  
+  .hc-nav-links a {
+    position: relative;
+    text-decoration: none;
+    color: #002e6b;
+    font-weight: 500;
+    padding-bottom: 0.15rem; 
+  }
+
+  .hc-nav-links a:hover {
+    color: #bf9745;
+  }
+
+  
+  .hc-nav-links a::after {
+    content: "";
+    position: flex;
+    left: 0;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #bf9745, #f0e990);
+    border-radius: 999px;
+    transition: width 0.25s ease;
+  }
+  
+  .hc-nav-links a:hover::after {
+    width: 100%;
+
+  }
+  
+  body.dark .hc-nav-links a {
+    color: #f9fafb;
+  }
+  
+
+.mobile-nav-section a:hover {
+  color:#002e6b;
+}
+
+  
+  /* Actions cluster (bell + avatar) */
+  .hc-nav-actions {
+    display: flex;
+    align-items: center;
+    justify-self: end;
+
+  }
+  
+  /* =======================
+     NOTIFICATION BELL
+     ======================= */
+  .notif-btn {
+    position: relative;
+    width: 34px;
+    height: 34px;
+    border-radius: 999px;
+    border: 1px solid rgba(0,46,107,0.12);
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    overflow: hidden;
+    padding: 0;
+    transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.15s ease;
+  }
+  
+  .notif-btn i {
+    font-size: 16px;
+    color: #002e6b;
+  }
+  
+  .notif-dot {
+    position: absolute;
+    top: 6px;
+    right: 7px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #fb923c; /* warm highlight */
+    box-shadow: 0 0 0 4px rgba(251,146,60,0.35);
+    opacity: 0;
+    transform: scale(0.2);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+  
+  /* When you want unread notifications, just add a .has-unread class to the button */
+  .notif-btn.has-unread .notif-dot {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  /* Shine on hover */
+  .notif-btn::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.8), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+  }
+  
+  .notif-btn:hover::before {
+    transform: translateX(100%);
+  }
+  .notif-btn:hover {
+    border-color:  #bf9745;
+    box-shadow: 0 0 10px rgba(137,221,244,0.5);
+  }
+  
+  /* Dark mode */
+  body.dark .notif-btn {
+    background: #020617;
+    border-color: rgba(148,163,184,0.35);
+  }
+  body.dark .notif-btn i {
+    color: #e5e7eb;
+  }
+  
+  /* =======================
+     AUTH / AVATAR BUTTONS
+     ======================= */
+  
+  /* Logged-out pill: "Sign in" */
+  .nav-auth-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.85rem;
+    border-radius: 999px;
+    border: 1px solid rgba(0,46,107,0.16);
+    background: #ffffff;
+    color: #002e6b;
+    font-size: 0.88rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.15s ease, background 0.2s ease;
+  }
+  
+  .nav-auth-btn i {
+    font-size: 16px;
+  }
+  
+  .nav-auth-btn:hover {
+    border-color: #bf9745;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    background: #f9fafb;
+  }
+  
+  /* Dark mode */
+  body.dark .nav-auth-btn {
+    background: #020617;
+    border-color: rgba(148,163,184,0.5);
+    color: #e5e7eb;
+  }
+  body.dark .nav-auth-btn:hover {
+    background: #0b1120;
+  }
+  
+  /* Logged-in avatar button */
+  .avatar-btn {
+    position: relative;
+    width: 38px;
+    height: 38px;
+    border-radius: 999px;
+    border: 2px solid #bfd7ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    cursor: pointer;
+    overflow: hidden;
+    padding: 0;
+    transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.15s ease;
+  }
+  
+  .avatar-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  /* Shine animation on hover */
+  .avatar-btn::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.8), transparent);
+    transform: translateX(-110%);
+    transition: transform 0.6s ease;
+  }
+  
+  .avatar-btn:hover::before {
+    transform: translateX(110%);
+  }
+  .avatar-btn:hover {
+    border-color: #89ddf4;
+    box-shadow: 0 0 10px rgba(137,221,244,0.5);
+  }
+  
+  /* Pulse when there are unread notifications for this user */
+  @keyframes avatarPulse {
+    0% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(191,151,69,0.0);
+    }
+    50% {
+      transform: scale(1.06);
+      box-shadow: 0 0 18px 4px rgba(191,151,69,0.55);
+    }
+    100% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(191,151,69,0.0);
+    }
+  }
+  
+  /* Add .has-unread to hc-nav-avatar when you want pulse */
+  .hc-nav-avatar.has-unread .avatar-btn {
+    animation: avatarPulse 1.8s ease-in-out infinite;
+  }
+  
+  /* Dark mode avatar */
+  body.dark .avatar-btn {
+    background: #020617;
+    border-color: rgba(148,163,184,0.6);
+  }
+  
+  /* ==============================
+   NOTIFICATION DROPDOWN
+   ============================== */
+
+.notif-dropdown {
+    position: absolute;
+    top: 48px;
+    right: 0;
+    width: 320px;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    padding: 1rem;
+    display: none;
+    flex-direction: column;
+    z-index: 9999;
+    animation: fadeDown 0.2s ease;
+  }
+  
+  body.dark .notif-dropdown {
+    background: #0f172a;
+    box-shadow: 0 8px 24px rgba(255,255,255,0.08);
+  }
+  
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .notif-dropdown.active {
+    display: block;
+  }
+  
+  .notif-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.8rem;
+  }
+  
+  .notif-header h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #002e6b;
+    margin: 0;
+  }
+  
+  body.dark .notif-header h4 {
+    color: #e5e7eb;
+  }
+  
+  .notif-clear-btn {
+    border: none;
+    background: none;
+    color: #bf9745;
+    cursor: pointer;
+    font-size: 0.85rem;
+  }
+
+  .notif-clear-btn:hover {
+    color:#002e6b;
+    text-decoration: underline;
+  }
+  
+  .notif-list {
+    max-height: 300px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+  
+  .notif-item {
+    background: #f6f8ff;
+    padding: 0.75rem 0.9rem;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    transition: background 0.2s ease;
+  }
+  
+  .notif-item:hover {
+    background: #e8f2ff;
+  }
+  
+  body.dark .notif-item {
+    background: #1e293b;
+  }
+  body.dark .notif-item:hover {
+    background: #2b3b52;
+  }
+  
+  .notif-title {
+    font-weight: 600;
+    color: #002e6b;
+    font-size: 0.92rem;
+  }
+  
+  body.dark .notif-title {
+    color: #fff;
+  }
+  
+  .notif-message {
+    font-size: 0.85rem;
+    color: #3b4763;
+  }
+  
+  body.dark .notif-message {
+    color: #cbd5e1;
+  }
+  
+  .notif-time {
+    margin-top: 0.15rem;
+    font-size: 0.78rem;
+    color: #7a7d87;
+  }
+  
+  .notif-empty {
+    text-align: center;
+    color: #67718a;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+  }
+  
+  
+  /* Mobile responsiveness */
+  @media (max-width: 900px) {
+    .hc-nav-links {
+      display: none !important;
+    }
+
+    .hc-logo img:hover {
+      transform: scale(1.12);
+      box-shadow: 0 0 26px rgba(191, 151, 69, 0.85),
+                  0 0 48px rgba(191, 151, 69, 0.55);
+    }
+
+  
+    .hc-mobile-menu-btn {
+      display: flex;
+    
+    }
+
+    .hc-mobile-menu.is-open {
+      display: block;
+    }
+  
+    .hc-mobile-menu.show {
+      display: flex;
+    }
+  
+  }
+
+
+/* ===============================
+   TABLET = DESKTOP NAV
+   =============================== */
+/* DESKTOP + TABLET (769px and up) */
+@media (min-width: 769px) {
+  .hc-nav-links { display: flex !important; }
+  .hc-mobile-menu-btn { display: none !important; }
+  .hc-nav-avatar { display: flex !important; } /* ensure avatar shows */
+}
+
+
+
+/* =========================================
+   MOBILE MENU: center avatar + hide greeting
+   (works with global.js toggling "is-open")
+========================================= */
+
+/* Center avatar wrapper + remove any weird alignment */
+[data-mobile-menu].is-open .mobile-profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Center the avatar */
+[data-mobile-menu].is-open .mobile-profile-avatar-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 12px auto 6px;
+}
+
+/* Make avatar look clean + premium */
+[data-mobile-menu].is-open .mobile-profile-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 999px;
+  border: 3px solid rgba(191, 151, 69, 0.85);
+  box-shadow: 0 6px 18px rgba(191, 151, 69, 0.35);
+  object-fit: cover;
+}
+
+/* Hide the "Welcome back..." / Login name line in mobile menu */
+[data-mobile-menu].is-open .mobile-profile-name {
+  display: none !important;
+}
+

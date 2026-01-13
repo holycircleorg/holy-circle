@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"name": "holy-circle-website",
+			"path": "."
+		}
+	],
+	"settings": {
+		"livePreview.defaultPreviewPath": "/forum.html"
+	}
+}

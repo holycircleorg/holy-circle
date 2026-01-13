@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Holy Circle | Podcast Admin</title>
+
+  <link rel="stylesheet" href="admin.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="admin-header">
+  <div class="admin-header-left">
+    <h1>Manage Podcast</h1>
+    <p class="admin-subtitle">Create, publish, and automate YouTube + Podbean uploads.</p>
+  </div>
+
+  <div class="admin-user-info">
+    <div class="admin-user-meta">
+      <span id="adminName">Admin User</span>
+      <small id="adminRole">Super Admin</small>
+    </div>
+    <button onclick="logoutAdmin()" class="logout-btn">
+      <i class="fa-solid fa-right-from-bracket"></i> Logout
+    </button>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main class="admin-main">
+  <div class="admin-container">
+
+    <!-- TOP BAR -->
+    <div class="people-top-bar">
+      <div class="people-search-group">
+        <input type="text" id="searchPodcast" placeholder="Search episodes…">
+        <select id="podcastStatusFilter">
+          <option value="all">All</option>
+          <option value="published">Published</option>
+          <option value="draft">Drafts</option>
+        </select>
+      </div>
+
+      <button class="primary-btn" id="addPodcastBtn">
+        <i class="fa-solid fa-plus"></i> New Episode
+      </button>
+    </div>
+
+    <!-- SUMMARY CARDS -->
+    <div class="donors-summary">
+      <div class="donors-summary-card"><h3>Total Episodes</h3><p id="statTotalEpisodes">0</p></div>
+      <div class="donors-summary-card"><h3>Published</h3><p id="statPublished">0</p></div>
+      <div class="donors-summary-card"><h3>Drafts</h3><p id="statDrafts">0</p></div>
+    </div>
+
+    <!-- EPISODE TABLE -->
+    <section class="people-table-section panel">
+      <div class="panel-header"><h2>Episodes</h2></div>
+
+      <table class="podcast-table">
+        <thead>
+          <tr>
+            <th>Episode</th>
+            <th>YouTube</th>
+            <th>Podbean</th>
+            <th>Publish Date</th>
+            <th>Status</th>
+            <th class="actions-col"></th>
+          </tr>
+        </thead>
+      
+        <tbody id="podcastTableBody"></tbody>
+      </table>
+      
+      
+
+      <p id="emptyPodcastState" class="empty-state" style="display:none;">
+        No episodes yet. Create your first episode 🎙️
+      </p>
+    </section>
+
+    <!-- FORM PANEL -->
+    <section id="podcastFormPanel" class="person-form-panel hidden">
+
+      <h2 id="podcastFormTitle">New Episode</h2>
+
+      <div class="form-row">
+        <div class="form-field">
+          <label>Episode Title</label>
+          <input type="text" id="podcastTitle">
+        </div>
+        <div class="form-field">
+          <label>Status</label>
+          <select id="podcastStatus">
+            <option value="draft">Draft</option>
+            <option value="published">Published</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-field">
+          <label>Podcast Publish Date (Apple/Spotify)</label>
+          <input type="date" id="podcastDate">
+        </div>
+        <div class="form-field">
+          <label>YouTube Publish Time</label>
+          <input type="datetime-local" id="youtubePublishAt">
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label>Description</label>
+        <textarea id="podcastDescription" rows="4"></textarea>
+      </div>
+
+      <div class="form-row">
+        <div class="form-field">
+          <label>Audio File (.mp3)</label>
+          <input type="file" id="podcastAudioFile" accept="audio/mpeg">
+        </div>
+        <div class="form-field">
+          <label>Video File (.mp4)</label>
+          <input type="file" id="podcastVideo" accept="video/mp4">
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button class="primary-btn" id="savePodcastBtn">Publish Episode</button>
+        <button class="secondary-btn" id="cancelPodcastBtn">Cancel</button>
+      </div>
+
+      <p id="podcastFormStatus" class="form-status"></p>
+
+    </section>
+
+  </div>
+</main>
+
+
+<script src="admin-podcast.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Terms of Use • Holy Circle</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <link rel="stylesheet" href="css/legal.css" />
+    <link rel="stylesheet" href="css/global.css" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+</head>
+<body class="public-page">
+
+<body class="hc-legal-body">
+
+<header class="hc-navbar">
+  <div class="hc-navbar-inner">
+
+    <!-- LEFT: LOGO -->
+    <div class="hc-logo">
+      <a href="index.html">
+        <img src="images/hcsublogo.png" alt="Holy Circle Logo">
+      </a>
+    </div>
+    
+
+    <!-- CENTER: DESKTOP NAV LINKS (HIDE ON MOBILE) -->
+    <nav class="hc-nav-links">
+      <a href="podcast.html">Podcast</a>
+      <a href="events.html">Events</a>
+      <a href="forum.html">Community</a>
+      <a href="about.html">About</a>
+      <a href="donate.html" class="highlight">Donate</a>
+    </nav>
+
+    <!-- RIGHT: DESKTOP ACTIONS + MOBILE MENU BUTTON -->
+    <div class="navbar-right">
+
+      <!-- DESKTOP ACTION CLUSTER -->
+      <div class="hc-nav-actions">
+
+        <!-- NOTIFICATION BELL (desktop only) -->
+        <button
+          class="notif-btn"
+          type="button"
+          aria-label="Notifications"
+          data-member-only
+        >
+
+          <span class="notif-icon-wrap" data-notif-btn>
+            <i class="fa-regular fa-bell"></i>
+            <span class="notif-dot" data-notif-dot></span>
+          </span>
+        </button>
+<!-- NOTIFICATION DROPDOWN -->
+<div class="notif-dropdown" data-notif-dropdown>
+
+  <div class="notif-header">
+    <h4>Notifications</h4>
+    <button class="notif-clear-btn" data-notif-clear>Clear All</button>
+  </div>
+
+  <div class="notif-list" data-notif-list>
+    <!-- JS fills these -->
+    <div class="notif-empty">You're all caught up ✨</div>
+  </div>
+<div class="notif-footer">
+  <a href="/notifications.html" class="notif-view-all">
+    View all notifications →
+  </a>
+</div>
+
+</div>
+
+        <!-- AUTH AREA (desktop only) -->
+        <div class="hc-nav-avatar" data-auth-area>
+
+          <!-- LOGGED OUT -->
+          <button class="nav-auth-btn" data-login-link>
+            <i class="fa-regular fa-circle-user"></i>
+            <span>Sign in</span>
+          </button>
+
+          <!-- LOGGED IN -->
+          <div class="avatar-menu" data-user-menu style="display:none;">
+
+            <button class="avatar-btn" data-avatar-toggle>
+              <img
+                class="avatar-img"
+                data-avatar-img
+                src="/images/default-avatar.png"
+                alt="Avatar"
+              />
+              </button>
+
+            <div class="avatar-dropdown" data-avatar-dropdown>
+
+              <div class="dropdown-profile-bar">
+                <img
+                    class="dropdown-avatar-sm"
+                    data-avatar-img
+                    src="/images/default-avatar.png"
+                  />
+
+                <div class="dropdown-profile-text">
+                  <div class="dropdown-name" data-avatar-name>Member</div>
+                </div>
+              </div>
+
+              <a href="/member-dashboard.html">My Dashboard</a>
+              <a href="/test-profile.html" data-profile-link>View My Profile</a>
+              <a href="/member-account.html">Settings</a>
+              <a href="/forum-my-threads.html">My Threads</a>
+              <button type="button" data-logout-btn>Logout</button>
+
+            </div>
+          </div>
+
+        </div><!-- /auth area -->
+
+      </div><!-- /hc-nav-actions -->
+
+      <!-- MOBILE HAMBURGER (only icon on mobile) -->
+      <button class="hc-mobile-menu-btn" data-mobile-menu-btn>
+        <span></span><span></span><span></span>
+      </button>
+
+    </div><!-- /navbar-right -->
+  </div><!-- /hc-navbar-inner -->
+
+<!-- MOBILE MENU DROPDOWN -->
+<div class="hc-mobile-menu" data-mobile-menu>
+
+  <!-- PROFILE HEADER (signed-in only) -->
+  <div class="mobile-profile-header" data-auth-area>
+    <div class="mobile-profile-avatar-wrap" data-mobile-avatar-click>
+      <img
+        class="mobile-profile-avatar"
+        data-avatar-img
+        src="/images/default-avatar.png"
+      />
+
+    </div>    
+    <div class="mobile-profile-name" data-mobile-avatar-name>Login</div>
+  </div>
+
+  <div class="mobile-divider"></div>
+
+  <!-- MOBILE MAIN NAV -->
+  <nav class="mobile-nav-section">
+    <a href="podcast.html">Podcast</a>
+    <a href="events.html">Events</a>
+    <a href="forum.html">Community</a>
+    <a href="about.html">About</a>
+    <a href="donate.html" class="highlight">Donate</a>
+  </nav>
+
+  <div class="mobile-divider"></div>
+
+  <!-- MOBILE PROFILE LINKS -->
+  <nav class="mobile-nav-section profile-links">
+
+    <a href="/member-dashboard.html" data-member-only>My Dashboard</a>
+    <a href="/notifications.html" data-member-only data-mobile-notifications>Notifications</a>
+   <a href="/member-account.html" data-member-only>Settings</a>
+    <a href="/forum-my-threads.html" data-member-only>My Threads</a>
+    <button type="button" data-logout-btn data-member-only class="logout-btn">Logout</button>
+  </nav>
+  
+
+</div>
+
+
+</header>
+
+  <main class="hc-legal-wrapper">
+    <div class="hc-legal-header">
+      <div class="hc-legal-badge">
+        <span></span> Holy Circle • 501(c)(3) Non Profit Organization
+      </div>
+      <h1>Terms of Use</h1>
+      <p class="hc-subtitle">Guidelines for using Holy Circle’s website and community platforms.</p>
+      <p class="hc-updated">Last Updated: January 2026</p>
+    </div>
+
+    <section class="hc-legal-card">
+      <p>
+        These Terms of Use (“Terms”) govern your access to and use of the websites, content, and online
+        services operated by Holy Circle (“Holy Circle,” “we,” “our,” or “us”). By accessing or using our
+        Services, you agree to be bound by these Terms.
+      </p>
+
+      <h2>1. Purpose of Our Website and Services</h2>
+      <p>
+        Holy Circle exists to inspire and empower individuals and families to deepen their faith in Christ
+        through media, teaching, events, and community. Our website and online platforms provide access to
+        content, podcasts, videos, events, forums, and donation opportunities.
+      </p>
+
+      <h2>2. Eligibility</h2>
+      <p>
+        By using our Services, you affirm that you are at least 13 years of age or using the Services with
+        the consent and supervision of a parent or legal guardian. If you are under 13, please do not
+        provide personal information through our online forms.
+      </p>
+
+      <h2>3. Community Conduct</h2>
+      <p>
+        When participating in forums, comments, messaging, or other interactive features, you agree to:
+      </p>
+      <ul>
+        <li>Communicate respectfully and in a Christ-honoring way.</li>
+        <li>Not harass, threaten, or defame others.</li>
+        <li>Not post hateful, obscene, or illegal content.</li>
+        <li>Not impersonate another person or misrepresent your affiliation.</li>
+        <li>Not upload malicious code, spam, or disruptive content.</li>
+      </ul>
+      <p>
+        We reserve the right, but are not obligated, to monitor, edit, or remove content that violates these
+        standards or that we determine to be inappropriate for our community.
+      </p>
+
+      <h2>4. User Accounts</h2>
+      <p>
+        Some features (such as forums, events, or member tools) may require you to create an account. You are
+        responsible for maintaining the confidentiality of your login credentials and for all activity that
+        occurs under your account. Notify us immediately if you suspect unauthorized use.
+      </p>
+
+      <h2>5. Intellectual Property</h2>
+      <p>
+        Unless otherwise stated, all content on our Services—including text, graphics, logos, video, audio,
+        images, and design—is owned by or licensed to Holy Circle and protected by applicable copyright,
+        trademark, and other intellectual property laws.
+      </p>
+      <ul>
+        <li>You may view, share, or download content for personal, non-commercial, faith-building use.</li>
+        <li>You may not reproduce, distribute, modify, or exploit our content for commercial purposes without our written permission.</li>
+      </ul>
+      <p>
+        User-generated content (e.g., forum posts) remains owned by the user. By posting or submitting
+        content, you grant Holy Circle a non-exclusive, worldwide, royalty-free license to use, display,
+        reproduce, and distribute that content in connection with our ministry and Services.
+      </p>
+
+      <h2>6. Donations and Tax-Deductibility</h2>
+      <p>
+        Holy Circle is a registered 501(c)(3) charitable organization. Our Employer Identification Number (EIN) is
+        <strong>333661912</strong>. Donations may be tax-deductible to the extent allowed by law. Please consult your tax advisor for specific guidance.
+      </p>
+      <ul>
+        <li>Donations are voluntary and used to support our mission and ministry programs.</li>
+        <li>We will provide receipts for donations as required for U.S. tax purposes.</li>
+        <li>Refunds are generally only issued in cases of processing error or duplicate transactions.</li>
+      </ul>
+
+      <h2>7. Third-Party Services and Links</h2>
+      <p>
+        Our Services may include links to third-party websites, media platforms, or services (such as YouTube,
+        podcast platforms, or payment processors). We do not control these third-party services and are not
+        responsible for their content, policies, or practices. Accessing third-party services is at your own risk.
+      </p>
+
+      <h2>8. Disclaimers</h2>
+      <p>
+        Content on Holy Circle is offered for spiritual encouragement, education, and informational purposes only.
+        It does not constitute professional legal, medical, financial, or counseling advice. You are encouraged
+        to seek appropriate professional guidance for such matters.
+      </p>
+      <p>
+        Our Services are provided on an “as is” and “as available” basis. We do not warrant that the Services
+        will be uninterrupted, error-free, or free of harmful components.
+      </p>
+
+      <h2>9. Limitation of Liability</h2>
+      <p>
+        To the fullest extent permitted by law, Holy Circle and its directors, officers, employees, and volunteers
+        are not liable for any indirect, incidental, consequential, or special damages arising from or related
+        to your use of our Services.
+      </p>
+      <p>
+        Your sole and exclusive remedy for dissatisfaction with the Services is to stop using the Services.
+      </p>
+
+      <h2>10. Indemnification</h2>
+      <p>
+        You agree to indemnify and hold Holy Circle harmless from any claims, losses, liabilities, and expenses
+        (including attorneys’ fees) arising out of or related to your use of the Services, your violation of
+        these Terms, or your violation of any rights of another person or entity.
+      </p>
+
+      <h2>11. Governing Law</h2>
+      <p>
+        These Terms and any disputes arising from or related to them shall be governed by the laws of the
+        State of California, without regard to its conflict of law principles.
+      </p>
+
+      <h2>12. Changes to These Terms</h2>
+      <p>
+        We may revise these Terms from time to time. The “Last Updated” date at the top reflects the latest
+        version. By continuing to use our Services after changes are posted, you agree to the updated Terms.
+      </p>
+
+      <h2>13. Contact Us</h2>
+      <p>
+        If you have questions about these Terms or how they apply to you, please contact us:
+      </p>
+      <div class="hc-legal-callout">
+        <strong>Holy Circle – Terms &amp; Website Inquiries</strong><br />
+        Email: <a href="mailto:info@holycircle.org">info@holycircle.org</a><br />
+        A mailing address is available upon request.
+      </div>
+    </section>
+  </main>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-content">
+      
+      <div class="footer-brand">
+        <h3>HOLY CIRCLE</h3>
+        <p class="tagline">Faith • Media • Community</p>
+        <p class="mission">
+          Empowering people to deepen their faith in Christ and build a strong, united community.
+        </p>
+        <a href="/donate" class="footer-donate-btn">Support Our Mission</a>
+      </div>
+  
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <a href="/about.html">About Us</a>
+        <a href="/events.html">Events</a>
+        <a href="/podcast.html">Podcast</a>
+        <a href="/forum.html">Community</a>
+        <a href="/donate.html">Give</a>
+  </a>
+</div>
+     
+      </div>
+  
+      <div class="footer-legal">
+        <h4>Legal</h4>
+        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Use</a>
+        <a href="/donor-privacy.html">Donor Privacy Policy</a>
+      </div>
+  
+      <div class="footer-contact">
+        <h4>Connect</h4> 
+        <p>Email: <a href="mailto:info@holycircle.org">info@holycircle.org</a></p>
+  
+        <div class="social-links">
+          <a href="https://www.instagram.com/holycircleorg/" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/people/Holy-Circle-Organization/61573876220565" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.youtube.com/channel/UCqcUPEiMbpAuFz1W00xFcCw" target="_blank"><i class="fab fa-youtube"></i></a>
+          <a href="https://www.tiktok.com/@holycircleorg" target="_blank"><i class="fab fa-tiktok"></i></a>
+          <a href="https://open.spotify.com/show/holycircle" target="_blank"><i class="fab fa-spotify"></i></a>
+        </div>
+      </div>
+    </div>
+  
+    <div class="footer-bottom">
+      <p>
+        Holy Circle is a registered 501(c)(3) nonprofit organization. Donations are tax-deductible as permitted by law.
+        EIN: 33-3661912
+      </p>
+      <p>© 2026 Holy Circle. All Rights Reserved.</p>
+    </div>
+  </footer>
+</body>
+</body>
+ <script src="/js/avatar-engine.js"></script>
+<script src="/js/global.js"></script>
+<script src="/js/index.js"></script>
+<script src="/js/member-auth.js"></script>
+</html>

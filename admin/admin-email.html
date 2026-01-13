@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Holy Circle | Admin Dashboard</title>
+
+  <link rel="stylesheet" href="admin.css">
+  <link rel="stylesheet" href="admin-layout.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <script>
+    document.body.classList.add("with-sidebar");
+  </script>
+
+<aside class="admin-sidebar">
+  <div class="sidebar-header">
+    <h2>HOLY CIRCLE</h2>
+    <button id="sidebarToggle" class="sidebar-toggle">☰</button>
+  </div>
+
+  <ul class="sidebar-menu">
+
+    <li><a href="admin-dashboard.html">
+      <i class="icon">🏠</i><span>Dashboard</span>
+    </a></li>
+
+    <li><a href="admin-people.html">
+      <i class="icon">👥</i><span>People</span>
+    </a></li>
+
+    <li><a href="admin-donors.html">
+      <i class="icon">💛</i><span>Donors</span>
+    </a></li>
+
+
+    <li><a href="admin-events.html">
+      <i class="icon">📅</i><span>Events</span>
+    </a></li>
+
+    <li><a href="admin-podcast.html">
+      <i class="icon">🎙️</i><span>Podcast</span>
+    </a></li>
+
+    <li>
+      <a href="admin-moderation.html">
+        <i class="icon">🗒️</i> Forums
+      </a>
+    </li>
+
+
+    <li><a href="admin-news.html">
+      <i class="icon">📰</i><span>News</span>
+    </a></li>
+
+    <li><a href="admin-analytics.html">
+      <i class="icon">📊</i><span>Analytics</span>
+    </a></li>
+    
+    <li><a href="admin-email.html">
+      <i class="icon">✉️</i><span>Email</span>
+    </a></li>
+
+    <li><a href="admin-users.html">
+      <i class="icon">🛂</i><span>Users</span>
+    </a></li>
+    
+
+    <li><a href="admin-settings.html">
+      <i class="icon">⚙️</i><span>Settings</span>
+    </a></li>
+  </ul>
+
+  <div class="sidebar-footer">
+    <a href="#" onclick="adminLogout()" class="logout-link">
+      <i class="icon">🚪</i><span>Logout</span>
+    </a>
+  </div>
+</aside>
+
+
+
+<header class="admin-header">
+
+  <!-- MOBILE-ONLY DROPDOWN BUTTON -->
+<div class="header-left">
+<div class="mobile-menu-trigger" id="mobileMenuTrigger">
+  <i class="fa-solid fa-bars"></i>
+</div>
+</div>
+
+
+  <!-- CENTER: title -->
+  <div class="header-center">
+    <h1>Dashboard</h1>
+  </div>
+
+  <!-- RIGHT: name + role -->
+  <div class="header-right">
+    <div class="simple-user-text">
+      <strong id="headerName">Loading...</strong>
+      <small id="headerRole"></small>
+    </div>
+  </div>
+
+</header>
+
+  <!-- MOBILE NAV DROPDOWN -->
+<div class="mobile-nav-dropdown" id="mobileNavDropdown">
+  <a href="admin-dashboard.html">Dashboard</a>
+  <a href="admin-people.html">People</a>
+  <a href="admin-donors.html">Donors</a>
+  <a href="admin-events.html">Events</a>
+  <a href="admin-podcast.html">Podcast</a>
+  <a href="admin-news.html">News</a>
+  <a href="admin-analytics.html">Analytics</a>
+  <a href="admin-users.html">Users</a>
+  <a href="admin-settings.html">Settings</a>
+</div>
+
+  
+
+
+      <li class="active"><a href="admin-email.html">
+        ✉️ Email Campaigns
+      </a></li>
+
+      <li><a href="admin-email-templates.html">
+        🧩 Email Templates
+      </a></li>
+
+      <li><a href="admin-analytics.html">Analytics</a></li>
+      <li><a href="admin-settings.html">Settings</a></li>
+    </ul>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="admin-main">
+    <header class="admin-header">
+      <h1>Email Campaigns</h1>
+      <div></div>
+    </header>
+
+    <div class="admin-container">
+
+      <!-- SNAPSHOT ========================================================= -->
+      <section class="panel tall-panel">
+        <div class="panel-header">
+          <h2>Email List Snapshot</h2>
+        </div>
+
+        <ul class="simple-list">
+          <li>
+            <div class="list-main">
+              <span class="list-title">Total Subscribers</span>
+              <span class="list-meta">All time</span>
+            </div>
+            <strong id="statEmailTotal">0</strong>
+          </li>
+
+          <li>
+            <div class="list-main">
+              <span class="list-title">New This Week</span>
+              <span class="list-meta">Last 7 days</span>
+            </div>
+            <strong id="statEmail7d">0</strong>
+          </li>
+
+          <li>
+            <div class="list-main">
+              <span class="list-title">New This Month</span>
+              <span class="list-meta">Last 30 days</span>
+            </div>
+            <strong id="statEmail30d">0</strong>
+          </li>
+
+          <li>
+            <div class="list-main">
+              <span class="list-title">Top Source</span>
+              <span class="list-meta">Where signups find you</span>
+            </div>
+            <strong id="statEmailTopSource">—</strong>
+          </li>
+        </ul>
+      </section>
+
+      
+      <!-- CREATE CAMPAIGN ========================================================= -->
+      <section class="panel tall-panel">
+        <div class="panel-header">
+          <h2>Create a New Campaign</h2>
+
+          <a href="admin-email-templates.html" class="small-btn gold-btn">
+            Manage Templates →
+          </a>
+        </div>
+
+        <form id="campaignForm" class="stacked-form">
+
+          <!-- INTERNAL META -->
+          <label>
+            Campaign Name (Internal Only)
+            <input type="text" id="campaignName" placeholder="Welcome Series #1" required />
+          </label>
+
+          <label>
+            Subject Line
+            <input type="text" id="campaignSubject" placeholder="Welcome to Holy Circle" required />
+          </label>
+
+          <label>
+            From Email (optional)
+            <input type="email" id="campaignFrom" placeholder="donations@holycircle.org" />
+          </label>
+
+          <!-- TEMPLATE SELECTOR -->
+          <label>
+            Insert From Template
+            <div class="template-row">
+              <select id="campaignTemplate">
+                <option value="">— Select a Template —</option>
+              </select>
+
+              <a href="admin-email-templates.html" class="small-btn">
+                Edit Templates
+              </a>
+            </div>
+          </label>
+
+          <!-- SEGMENTATION -->
+          <label>
+            Send To Segment
+            <select id="campaignSegment" required>
+              <option value="all">Everyone (All Lists Combined)</option>
+              <option value="email_signups">General Email Signups</option>
+              <option value="members">Members Only</option>
+              <option value="donors">Donors Only</option>
+              <option value="volunteers">Volunteers Only</option>
+            </select>
+          </label>
+
+          <!-- BODY EDITOR -->
+          <label>
+            Email Body (HTML)
+            <textarea id="campaignBody" rows="12" placeholder="<h1>Welcome!</h1><p>We're so glad you're here.</p>" required></textarea>
+          </label>
+
+          <label>
+            Plain Text Version (Optional)
+            <textarea id="campaignBodyText" rows="6" placeholder="If you want to add a text-only version, write it here..."></textarea>
+          </label>
+
+          <!-- ACTION BUTTON -->
+          <button type="submit" class="btn primary large">
+            Save Campaign as Draft
+          </button>
+
+          <p id="campaignMessage" class="small-note"></p>
+
+        </form>
+      </section>
+
+
+      <!-- CAMPAIGN HISTORY ========================================================= -->
+      <section class="panel tall-panel" style="margin-top:2rem;">
+        <div class="panel-header">
+          <h2>Campaign History</h2>
+          <button id="refreshEmailCampaigns" class="small-btn">Refresh</button>
+        </div>
+
+        <div class="table-wrapper">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Subject</th>
+                <th>Segment</th>
+                <th>Status</th>
+                <th>Sent</th>
+                <th>Errors</th>
+                <th>Created</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="campaignTableBody">
+              <tr>
+                <td colspan="8">Loading campaigns...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script src="admin-email.js"></script>
+</body>
+</html>

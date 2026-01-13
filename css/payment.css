@@ -1,0 +1,67 @@
+.footer {
+    background: #002e6b;
+    color: #fff;
+    padding: 3rem 1.5rem;
+    text-align: center;
+  }
+  
+  .footer-content {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .footer-logo h3 {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    color: #f0e990;
+    margin-bottom: 0.3rem;
+  }
+  
+  .footer-logo p {
+    font-size: 0.95rem;
+    color: #bff1ff;
+  }
+  
+  .social-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2rem;
+    margin-top: 0.5rem;
+  }
+  
+  .social-links a {
+    color: #fff;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+  }
+  
+  .social-links a:hover {
+    color: #f0e990;
+    transform: translateY(-3px);
+  }
+  
+  .copyright {
+    font-size: 0.9rem;
+    color: #ddd;
+  }
+  
+  .copyright a {
+    color: #f0e990;
+    text-decoration: none;
+  }
+  
+  .copyright a:hover {
+    text-decoration: underline;
+  }
+  
+  .nonprofit {
+    font-size: 0.85rem;
+    color: #bff1ff;
+    line-height: 1.4;
+    max-width: 500px;
+  }

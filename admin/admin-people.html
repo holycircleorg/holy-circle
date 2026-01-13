@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Holy Circle | Admin Dashboard</title>
+
+  <link rel="stylesheet" href="admin.css">
+  <link rel="stylesheet" href="admin-layout.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <script>
+    document.body.classList.add("with-sidebar");
+  </script>
+
+<aside class="admin-sidebar">
+  <div class="sidebar-header">
+    <h2>HOLY CIRCLE</h2>
+    <button id="sidebarToggle" class="sidebar-toggle">☰</button>
+  </div>
+
+  <ul class="sidebar-menu">
+
+    <li><a href="admin-dashboard.html">
+      <i class="icon">🏠</i><span>Dashboard</span>
+    </a></li>
+
+    <li><a href="admin-people.html">
+      <i class="icon">👥</i><span>People</span>
+    </a></li>
+
+    <li><a href="admin-donors.html">
+      <i class="icon">💛</i><span>Donors</span>
+    </a></li>
+
+
+    <li><a href="admin-events.html">
+      <i class="icon">📅</i><span>Events</span>
+    </a></li>
+
+    <li><a href="admin-podcast.html">
+      <i class="icon">🎙️</i><span>Podcast</span>
+    </a></li>
+
+    <li>
+      <a href="admin-moderation.html">
+        <i class="icon">🗒️</i> Forums
+      </a>
+    </li>
+
+
+    <li><a href="admin-news.html">
+      <i class="icon">📰</i><span>News</span>
+    </a></li>
+
+    <li><a href="admin-analytics.html">
+      <i class="icon">📊</i><span>Analytics</span>
+    </a></li>
+    
+    <li><a href="admin-email.html">
+      <i class="icon">✉️</i><span>Email</span>
+    </a></li>
+
+    <li><a href="admin-users.html">
+      <i class="icon">🛂</i><span>Users</span>
+    </a></li>
+    
+
+    <li><a href="admin-settings.html">
+      <i class="icon">⚙️</i><span>Settings</span>
+    </a></li>
+  </ul>
+
+  <div class="sidebar-footer">
+    <a href="#" onclick="adminLogout()" class="logout-link">
+      <i class="icon">🚪</i><span>Logout</span>
+    </a>
+  </div>
+</aside>
+
+
+
+<header class="admin-header">
+
+  <!-- MOBILE-ONLY DROPDOWN BUTTON -->
+<div class="header-left">
+<div class="mobile-menu-trigger" id="mobileMenuTrigger">
+  <i class="fa-solid fa-bars"></i>
+</div>
+</div>
+
+
+  <!-- CENTER: title -->
+  <div class="header-center">
+    <h1>Dashboard</h1>
+  </div>
+
+  <!-- RIGHT: name + role -->
+  <div class="header-right">
+    <div class="simple-user-text">
+      <strong id="headerName">Loading...</strong>
+      <small id="headerRole"></small>
+    </div>
+  </div>
+
+</header>
+
+  <!-- MOBILE NAV DROPDOWN -->
+<div class="mobile-nav-dropdown" id="mobileNavDropdown">
+  <a href="admin-dashboard.html">Dashboard</a>
+  <a href="admin-people.html">People</a>
+  <a href="admin-donors.html">Donors</a>
+  <a href="admin-events.html">Events</a>
+  <a href="admin-podcast.html">Podcast</a>
+  <a href="admin-news.html">News</a>
+  <a href="admin-analytics.html">Analytics</a>
+  <a href="admin-users.html">Users</a>
+  <a href="admin-settings.html">Settings</a>
+</div>
+
+  
+
+
+<!-- MAIN CONTENT -->
+<main class="admin-main">
+  <div class="admin-container">
+
+    <!-- SUMMARY CARDS -->
+    <section class="people-summary">
+      <div class="people-summary-card">
+        <h3>Total People</h3>
+        <p id="summaryTotalPeople">—</p>
+      </div>
+      <div class="people-summary-card">
+        <h3>Active Members</h3>
+        <p id="summaryActiveMembers">—</p>
+      </div>
+      <div class="people-summary-card">
+        <h3>Volunteers</h3>
+        <p id="summaryVolunteers">—</p>
+      </div>
+      <div class="people-summary-card">
+        <h3>New This Month</h3>
+        <p id="summaryNewThisMonth">—</p>
+      </div>
+    </section>
+
+    <!-- TOP BAR -->
+    <section class="people-top-bar">
+      <div class="people-filters">
+        <input
+          type="text"
+          id="peopleSearch"
+          placeholder="Search by name, email, tag..."
+        />
+
+        <select id="statusFilter">
+          <option value="all">All Status</option>
+          <option value="Visitor">Visitor</option>
+          <option value="Member">Member</option>
+          <option value="Volunteer">Volunteer</option>
+          <option value="Staff">Staff</option>
+        </select>
+
+        <select id="membershipFilter">
+          <option value="all">Membership: All</option>
+          <option value="Pending">Pending</option>
+          <option value="Active">Active</option>
+          <option value="Inactive">Inactive</option>
+          <option value="Terminated">Terminated</option>
+        </select>
+
+        <select id="tagFilter">
+          <option value="all">Tag: All</option>
+          <!-- Filled dynamically -->
+        </select>
+      </div>
+
+      <button id="newPersonBtn" class="primary-btn">
+        <i class="fa-solid fa-user-plus"></i>
+        Add Person
+      </button>
+    </section>
+
+    <!-- MAIN TWO-COLUMN LAYOUT -->
+    <section class="people-main-layout">
+      <!-- LEFT: PEOPLE TABLE -->
+      <div class="people-table-panel">
+        <h2 class="panel-title">People Directory</h2>
+
+        <table id="peopleTable" class="people-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Status</th>
+              <th>Membership</th>
+              <th>Tags</th>
+              <th>Last Activity</th>
+              <th style="width: 76px;">Actions</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+
+        <p id="peopleEmptyState" class="empty-state hidden">
+          No people found yet. Add your first profile.
+        </p>
+      </div>
+
+      <!-- RIGHT: DETAIL / FORM PANEL -->
+      <div class="people-right-panel">
+
+        <!-- PERSON DETAIL PANEL -->
+        <section id="personDetailPanel" class="person-detail-panel empty-state-box">
+          <p id="personDetailEmpty">
+            Select a person from the table to view their profile.
+          </p>
+
+          <div id="personDetailContent" class="hidden">
+            <div class="person-detail-header">
+              <div>
+                <h2 id="detailPersonName">Person Name</h2>
+                <p id="detailPersonMeta" class="person-meta-line"></p>
+              </div>
+              <div class="person-detail-actions">
+                <button id="editPersonBtn" class="secondary-btn small">
+                  <i class="fa-solid fa-pen"></i> Edit
+                </button>
+              </div>
+            </div>
+
+            <!-- TABS -->
+            <div class="profile-tabs">
+              <button class="tab-btn active" data-tab="profile">Profile</button>
+              <button class="tab-btn" data-tab="activity">Activity</button>
+              <button class="tab-btn" data-tab="membership">Membership</button>
+              <button class="tab-btn" data-tab="followup">Follow-Up</button>
+              <button class="tab-btn" data-tab="donations">Giving</button>
+              <button class="tab-btn" data-tab="notes">Notes</button>
+            </div>
+
+            <!-- PROFILE TAB -->
+            <div id="tab-profile" class="tab-content"></div>
+
+            <!-- ACTIVITY TAB -->
+            <div id="tab-activity" class="tab-content hidden"></div>
+
+            <!-- MEMBERSHIP TAB -->
+            <div id="tab-membership" class="tab-content hidden">
+              <h3>Membership & Voting</h3>
+              <div id="membershipInfo"></div>
+              <button id="openMembershipEditBtn" class="secondary-btn small" style="margin-top: 0.75rem;">
+                Update Membership
+              </button>
+              <p class="helper-text">
+                Uses your bylaws: 18+, professing Christ, agree to bylaws, faithful in serving and giving.
+              </p>
+            </div>
+
+            <!-- FOLLOW-UP TAB -->
+            <div id="tab-followup" class="tab-content hidden">
+              <h3>Follow-Up</h3>
+              <p><strong>Stage:</strong> <span id="followStageText">—</span></p>
+              <p><strong>Next Follow-Up:</strong> <span id="nextFollowText">—</span></p>
+              <p><strong>Last Completed:</strong> <span id="lastFollowCompletedText">—</span></p>
+
+              <div class="followup-actions">
+                <button id="openInFollowupBtn" class="primary-btn small">
+                  Open in Follow-Up Board
+                </button>
+                <button id="completeFollowupBtn" class="secondary-btn small">
+                  Mark Complete
+                </button>
+              </div>
+              <p id="followupStatusMsg" class="form-status"></p>
+            </div>
+
+            <!-- DONATIONS TAB -->
+            <div id="tab-donations" class="tab-content hidden">
+              <h3>Giving Overview</h3>
+              <div id="donationSummary" class="donation-summary-text"></div>
+              <ul id="donationList" class="donation-list"></ul>
+
+              <div class="donor-link-box">
+                <h4>Link Donor Record</h4>
+                <p class="helper-text">
+                  This keeps financial tools in the Donors tab, but lets you see giving history for this person.
+                </p>
+                <input
+                  type="email"
+                  id="linkDonorEmail"
+                  placeholder="Enter donor email…"
+                />
+                <button id="linkDonorBtn" class="primary-btn small">
+                  Link Donor
+                </button>
+              </div>
+            </div>
+
+            <!-- NOTES TAB -->
+            <div id="tab-notes" class="tab-content hidden"></div>
+          </div>
+        </section>
+
+        <!-- PERSON FORM PANEL (ADD / EDIT) -->
+        <section id="personFormPanel" class="person-form-panel hidden">
+          <div class="person-form-header">
+            <h2 id="personFormTitle">Add Person</h2>
+            <button id="closePersonFormBtn" class="secondary-btn small">
+              Close
+            </button>
+          </div>
+
+          <form id="personForm">
+            <input type="hidden" id="personId" />
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="personName">Full Name</label>
+                <input type="text" id="personName" required />
+              </div>
+
+              <div class="form-field">
+                <label for="personEmail">Email</label>
+                <input type="email" id="personEmail" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="personPhone">Phone</label>
+                <input
+                  type="text"
+                  id="personPhone"
+                  placeholder="(555) 555-5555"
+                />
+              </div>
+
+              <div class="form-field">
+                <label for="personStatus">Status</label>
+                <select id="personStatus">
+                  <option value="Visitor">Visitor</option>
+                  <option value="Member">Member</option>
+                  <option value="Volunteer">Volunteer</option>
+                  <option value="Staff">Staff</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="personMembershipStatus">Membership Status</label>
+                <select id="personMembershipStatus">
+                  <option value="">None</option>
+                  <option value="Pending">Pending</option>
+                  <option value="Active">Active</option>
+                  <option value="Inactive">Inactive</option>
+                  <option value="Terminated">Terminated</option>
+                </select>
+              </div>
+
+              <div class="form-field">
+                <label for="personCanVote">Voting Eligible</label>
+                <select id="personCanVote">
+                  <option value="">Unknown</option>
+                  <option value="1">Yes</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="personHousehold">Household / Family</label>
+                <input
+                  type="text"
+                  id="personHousehold"
+                  placeholder="e.g. Ford Family"
+                />
+              </div>
+
+              <div class="form-field">
+                <label for="personBirthdate">Birthdate</label>
+                <input type="date" id="personBirthdate" />
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="personTags">Tags (comma separated)</label>
+              <input
+                type="text"
+                id="personTags"
+                placeholder="e.g. new, media team, prayer, youth"
+              />
+            </div>
+
+            <div class="form-field">
+              <label for="personNotes">Pastoral Notes</label>
+              <textarea
+                id="personNotes"
+                rows="3"
+                placeholder="Background, discipleship, pastoral care notes..."
+              ></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="primary-btn">
+                <i class="fa-solid fa-floppy-disk"></i> Save
+              </button>
+              <button
+                type="button"
+                id="deletePersonBtn"
+                class="secondary-btn danger"
+              >
+                Delete
+              </button>
+            </div>
+
+            <p id="personFormStatus" class="form-status"></p>
+          </form>
+        </section>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+
+<script src="admin-people.js"></script>
+<script src="admin-layout.js"></script>
+</body>
+</html>

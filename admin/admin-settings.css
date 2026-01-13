@@ -1,0 +1,59 @@
+.settings-section {
+    margin-bottom: 2rem;
+    padding: 1.8rem;
+  }
+  
+  .settings-section h2 {
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+  
+  /* Grid */
+  .settings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.4rem;
+    margin-bottom: 1.2rem;
+  }
+  
+  .setting-item label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+    display: block;
+  }
+  
+  .setting-item input,
+  .setting-item select {
+    width: 100%;
+    padding: 0.7rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  .settings-save {
+    margin-top: 0.8rem;
+  }
+  
+  /* Danger zone */
+  .danger-zone {
+    border: 2px solid #fca5a5;
+  }
+  
+  .danger-btn {
+    background: #dc2626;
+    color: white;
+    padding: 0.8rem;
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  .danger-btn:hover {
+    background: #b91c1c;
+  }
+  

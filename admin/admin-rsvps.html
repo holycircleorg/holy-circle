@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Holy Circle | RSVP Manager</title>
+
+  <link rel="stylesheet" href="admin.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+  <header class="admin-header">
+    <h1>RSVP Manager</h1>
+    <div class="admin-user-info">
+      <span id="adminName"></span>
+      <button onclick="logoutAdmin()" class="logout-btn">Logout</button>
+    </div>
+  </header>
+
+  <div class="admin-container">
+
+    <!-- SUMMARY -->
+    <section class="rsvp-summary">
+      <div class="summary-card">
+        <h3>Total Events</h3>
+        <p id="totalEvents">0</p>
+      </div>
+      <div class="summary-card">
+        <h3>Total RSVPs</h3>
+        <p id="totalRSVPs">0</p>
+      </div>
+    </section>
+
+    <!-- EVENTS LIST -->
+    <section class="rsvp-events-section">
+      <h2>Events</h2>
+      <div id="rsvpEventsList" class="events-grid">
+        <!-- Filled by JS -->
+      </div>
+
+      <p id="eventsEmpty" class="empty-state hidden">
+        No events with RSVPs yet.
+      </p>
+    </section>
+
+  </div>
+
+
+  <script src="admin-rsvps.js"></script>
+
+  
+</body>
+</html>

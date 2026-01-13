@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Event Details | Holy Circle</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/css/events.css" />
+  <link rel="stylesheet" href="/css/event-details.css" />
+  <link rel="stylesheet" href="/css/global.css" />
+</head>
+<body class="public-page">
+
+
+<header class="hc-navbar">
+  <div class="hc-navbar-inner">
+
+    <!-- LEFT: LOGO -->
+    <div class="hc-logo">
+      <a href="index.html">
+        <img src="images/hcsublogo.png" alt="Holy Circle Logo">
+      </a>
+    </div>
+    
+
+    <!-- CENTER: DESKTOP NAV LINKS (HIDE ON MOBILE) -->
+    <nav class="hc-nav-links">
+      <a href="podcast.html">Podcast</a>
+      <a href="events.html">Events</a>
+      <a href="forum.html">Community</a>
+      <a href="about.html">About</a>
+      <a href="donate.html" class="highlight">Donate</a>
+    </nav>
+
+    <!-- RIGHT: DESKTOP ACTIONS + MOBILE MENU BUTTON -->
+    <div class="navbar-right">
+
+      <!-- DESKTOP ACTION CLUSTER -->
+      <div class="hc-nav-actions">
+
+        <!-- NOTIFICATION BELL (desktop only) -->
+        <button
+          class="notif-btn"
+          type="button"
+          aria-label="Notifications"
+          data-member-only
+        >
+
+          <span class="notif-icon-wrap" data-notif-btn>
+            <i class="fa-regular fa-bell"></i>
+            <span class="notif-dot" data-notif-dot></span>
+          </span>
+        </button>
+<!-- NOTIFICATION DROPDOWN -->
+<div class="notif-dropdown" data-notif-dropdown>
+
+  <div class="notif-header">
+    <h4>Notifications</h4>
+    <button class="notif-clear-btn" data-notif-clear>Clear All</button>
+  </div>
+
+  <div class="notif-list" data-notif-list>
+    <!-- JS fills these -->
+    <div class="notif-empty">You're all caught up ✨</div>
+  </div>
+<div class="notif-footer">
+  <a href="/notifications.html" class="notif-view-all">
+    View all notifications →
+  </a>
+</div>
+
+</div>
+
+        <!-- AUTH AREA (desktop only) -->
+        <div class="hc-nav-avatar" data-auth-area>
+
+          <!-- LOGGED OUT -->
+          <button class="nav-auth-btn" data-login-link>
+            <i class="fa-regular fa-circle-user"></i>
+            <span>Sign in</span>
+          </button>
+
+          <!-- LOGGED IN -->
+          <div class="avatar-menu" data-user-menu style="display:none;">
+
+            <button class="avatar-btn" data-avatar-toggle>
+              <img
+                class="avatar-img"
+                data-avatar-img
+                src="/images/default-avatar.png"
+                alt="Avatar"
+              />
+              </button>
+
+            <div class="avatar-dropdown" data-avatar-dropdown>
+
+              <div class="dropdown-profile-bar">
+                <img
+                    class="dropdown-avatar-sm"
+                    data-avatar-img
+                    src="/images/default-avatar.png"
+                  />
+
+                <div class="dropdown-profile-text">
+                  <div class="dropdown-name" data-avatar-name>Member</div>
+                </div>
+              </div>
+
+              <a href="/member-dashboard.html">My Dashboard</a>
+              <a href="/test-profile.html" data-profile-link>View My Profile</a>
+              <a href="/member-account.html">Settings</a>
+              <a href="/forum-my-threads.html">My Threads</a>
+              <button type="button" data-logout-btn>Logout</button>
+
+            </div>
+          </div>
+
+        </div><!-- /auth area -->
+
+      </div><!-- /hc-nav-actions -->
+
+      <!-- MOBILE HAMBURGER (only icon on mobile) -->
+      <button class="hc-mobile-menu-btn" data-mobile-menu-btn>
+        <span></span><span></span><span></span>
+      </button>
+
+    </div><!-- /navbar-right -->
+  </div><!-- /hc-navbar-inner -->
+
+<!-- MOBILE MENU DROPDOWN -->
+<div class="hc-mobile-menu" data-mobile-menu>
+
+  <!-- PROFILE HEADER (signed-in only) -->
+  <div class="mobile-profile-header" data-auth-area>
+    <div class="mobile-profile-avatar-wrap" data-mobile-avatar-click>
+      <img
+        class="mobile-profile-avatar"
+        data-avatar-img
+        src="/images/default-avatar.png"
+      />
+
+    </div>    
+    <div class="mobile-profile-name" data-mobile-avatar-name>Login</div>
+  </div>
+
+  <div class="mobile-divider"></div>
+
+  <!-- MOBILE MAIN NAV -->
+  <nav class="mobile-nav-section">
+    <a href="podcast.html">Podcast</a>
+    <a href="events.html">Events</a>
+    <a href="forum.html">Community</a>
+    <a href="about.html">About</a>
+    <a href="donate.html" class="highlight">Donate</a>
+  </nav>
+
+  <div class="mobile-divider"></div>
+
+  <!-- MOBILE PROFILE LINKS -->
+  <nav class="mobile-nav-section profile-links">
+
+    <a href="/member-dashboard.html" data-member-only>My Dashboard</a>
+    <a href="/notifications.html" data-member-only data-mobile-notifications>Notifications</a>
+   <a href="/member-account.html" data-member-only>Settings</a>
+    <a href="/forum-my-threads.html" data-member-only>My Threads</a>
+    <button type="button" data-logout-btn data-member-only class="logout-btn">Logout</button>
+  </nav>
+  
+
+</div>
+
+
+</header>
+
+  <main class="event-page">
+
+    <!-- HERO -->
+    <section class="event-hero">
+      <div class="event-hero-overlay"></div>
+      <div class="event-hero-inner">
+        <p id="eventTypePill" class="event-type-pill">Event</p>
+        <h1 id="eventTitle">Loading event…</h1>
+        <p class="event-meta">
+          <span id="eventDateTime">Date & time</span>
+          <span class="meta-dot">•</span>
+          <span id="eventLocation">Location</span>
+        </p>
+  
+        <div class="event-hero-actions">
+          <button id="rsvpBtn" class="rsvp-btn">RSVP</button>
+  
+          <!-- Add-to-calendar buttons -->
+          <button id="addGoogleCalBtn" class="cal-btn">Google Calendar</button>
+          <button id="addAppleCalBtn" class="cal-btn">Apple Calendar</button>
+  
+          <a href="events.html" class="ghost-btn">
+            <i class="fa-solid fa-arrow-left"></i>
+            Back to Events
+          </a>
+        </div>
+      </div>
+    </section>
+  
+    <!-- MAIN LAYOUT -->
+    <section class="event-layout">
+      <!-- LEFT: DESCRIPTION -->
+      <div class="event-main-column">
+        <h2>About this event</h2>
+        <p id="eventDescription">
+          We’re loading the details for this event. If this message stays here, please check back soon.
+        </p>
+      </div>
+  
+      <!-- RIGHT: DETAILS + RSVP CARD -->
+      <aside class="event-side-column">
+        <div class="event-info-card">
+          <h3>Details</h3>
+          <ul>
+            <li>
+              <span class="icon">📅</span>
+              <span id="eventDateDetail">Date</span>
+            </li>
+            <li>
+              <span class="icon">⏰</span>
+              <span id="eventTimeDetail">Time</span>
+            </li>
+            <li>
+              <span class="icon">📍</span>
+              <span id="eventLocationDetail">Location</span>
+            </li>
+            <li>
+              <span class="icon">🎚</span>
+              <span id="eventTypeDetail">Type</span>
+            </li>
+          </ul>
+        </div>
+  
+        <div class="event-rsvp-card">
+          <h3>RSVP</h3>
+          <p id="rsvpStatusText">
+            Sign in or continue as a guest to let us know you’re coming.
+          </p>
+          <button id="rsvpSideBtn" class="rsvp-btn full-width">
+            RSVP
+          </button>
+        </div>
+      </aside>
+    </section>
+  
+    <!-- SOFT CTA RIBBON -->
+    <section class="soft-donate-ribbon">
+      <p>
+        Your support helps us host more worship nights, gatherings, and creative experiences.
+      </p>
+      <a href="donate.html" class="soft-donate-btn">Support Holy Circle</a>
+    </section>
+  
+    <!-- GUEST RSVP MODAL (Option 3) -->
+    <div id="guestRsvpOverlay" class="guest-modal-overlay hidden"></div>
+  
+    <div id="guestRsvpModal" class="guest-modal hidden">
+      <div class="guest-modal-inner">
+        <button id="closeGuestModal" class="guest-modal-close" aria-label="Close">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+  
+        <h2>RSVP for this event</h2>
+        <p class="guest-modal-text">
+          Are you a Holy Circle member? You can sign in, or RSVP as a guest.
+        </p>
+  
+        <div class="guest-modal-actions">
+          <button id="guestSignInBtn" class="ghost-btn full-width">
+            <i class="fa-regular fa-circle-user"></i>
+            Sign in to RSVP
+          </button>
+        </div>
+  
+        <div class="guest-divider">
+          <span>or RSVP as guest</span>
+        </div>
+  
+        <form id="guestRsvpForm" class="guest-form">
+          <div class="field">
+            <label for="guestName">Name</label>
+            <input type="text" id="guestName" required />
+          </div>
+  
+          <div class="field">
+            <label for="guestEmail">Email</label>
+            <input type="email" id="guestEmail" required />
+          </div>
+  
+          <div class="field">
+            <label for="guestGuests">Number of guests</label>
+            <input type="number" id="guestGuests" min="1" value="1" />
+          </div>
+  
+          <div class="field">
+            <label for="guestComments">Comments (optional)</label>
+            <textarea id="guestComments" rows="3"></textarea>
+          </div>
+  
+          <button type="submit" class="rsvp-btn full-width">
+            Submit RSVP
+          </button>
+  
+          <p id="guestRsvpMessage" class="guest-message"></p>
+        </form>
+      </div>
+    </div>
+  
+  </main>
+  
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-content">
+    
+    <div class="footer-brand">
+      <h3>HOLY CIRCLE</h3>
+      <p class="tagline">Faith • Media • Community</p>
+      <p class="mission">
+        Empowering people to deepen their faith in Christ and build a strong, united community.
+      </p>
+      <a href="/donate" class="footer-donate-btn">Support Our Mission</a>
+    </div>
+
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <a href="/about.html">About Us</a>
+      <a href="/events.html">Events</a>
+      <a href="/podcast.html">Podcast</a>
+      <a href="/forum.html">Community</a>
+      <a href="/donate.html">Give</a>
+  </a>
+</div>
+   
+    </div>
+
+    <div class="footer-legal">
+      <h4>Legal</h4>
+      <a href="/privacy-policy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Use</a>
+      <a href="/donor-privacy.html">Donor Privacy Policy</a>
+    </div>
+
+    <div class="footer-contact">
+      <h4>Connect</h4> 
+      <p>Email: <a href="mailto:info@holycircle.org">info@holycircle.org</a></p>
+
+      <div class="social-links">
+        <a href="https://www.instagram.com/holycircleorg/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/people/Holy-Circle-Organization/61573876220565" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/channel/UCqcUPEiMbpAuFz1W00xFcCw" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@holycircleorg" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://open.spotify.com/show/holycircle" target="_blank"><i class="fab fa-spotify"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>
+      Holy Circle is a registered 501(c)(3) nonprofit organization. Donations are tax-deductible as permitted by law.
+      EIN: 33-3661912
+    </p>
+    <p>© 2026 Holy Circle. All Rights Reserved.</p>
+  </div>
+</footer>
+
+  <script src="/js/avatar-engine.js"></script>
+  <script src="/js/global.js"></script>
+  <script src="/js/event-details.js"></script>
+  <script src="/js/member-auth.js"></script>
+  
+  
+
+</body>
+</html>

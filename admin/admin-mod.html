@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Holy Circle | Admin Dashboard</title>
+
+  <link rel="stylesheet" href="admin.css">
+  <link rel="stylesheet" href="admin-mod.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+
+<body>
+  <script>
+    document.body.classList.add("with-sidebar");
+  </script>
+
+<aside class="admin-sidebar">
+  <div class="sidebar-header">
+    <h2>HOLY CIRCLE</h2>
+    <button id="sidebarToggle" class="sidebar-toggle">☰</button>
+  </div>
+
+  <ul class="sidebar-menu">
+
+    <li><a href="admin-dashboard.html">
+      <i class="icon">🏠</i><span>Dashboard</span>
+    </a></li>
+
+    <li><a href="admin-people.html">
+      <i class="icon">👥</i><span>People</span>
+    </a></li>
+
+    <li><a href="admin-donors.html">
+      <i class="icon">💛</i><span>Donors</span>
+    </a></li>
+
+
+    <li><a href="admin-events.html">
+      <i class="icon">📅</i><span>Events</span>
+    </a></li>
+
+    <li><a href="admin-podcast.html">
+      <i class="icon">🎙️</i><span>Podcast</span>
+    </a></li>
+
+    <li>
+      <a href="admin-moderation.html">
+        <i class="icon">🗒️</i> Forums
+      </a>
+    </li>
+
+
+    <li><a href="admin-news.html">
+      <i class="icon">📰</i><span>News</span>
+    </a></li>
+
+    <li><a href="admin-analytics.html">
+      <i class="icon">📊</i><span>Analytics</span>
+    </a></li>
+    
+    <li><a href="admin-email.html">
+      <i class="icon">✉️</i><span>Email</span>
+    </a></li>
+
+    <li><a href="admin-users.html">
+      <i class="icon">🛂</i><span>Users</span>
+    </a></li>
+    
+
+    <li><a href="admin-settings.html">
+      <i class="icon">⚙️</i><span>Settings</span>
+    </a></li>
+  </ul>
+
+  <div class="sidebar-footer">
+    <a href="#" onclick="adminLogout()" class="logout-link">
+      <i class="icon">🚪</i><span>Logout</span>
+    </a>
+  </div>
+</aside>
+
+
+
+<header class="admin-header">
+
+  <!-- MOBILE-ONLY DROPDOWN BUTTON -->
+<div class="header-left">
+<div class="mobile-menu-trigger" id="mobileMenuTrigger">
+  <i class="fa-solid fa-bars"></i>
+</div>
+</div>
+
+
+  <!-- CENTER: title -->
+  <div class="header-center">
+    <h1>Dashboard</h1>
+  </div>
+
+  <!-- RIGHT: name + role -->
+  <div class="header-right">
+    <div class="simple-user-text">
+      <strong id="headerName">Loading...</strong>
+      <small id="headerRole"></small>
+    </div>
+  </div>
+
+</header>
+
+  <!-- MOBILE NAV DROPDOWN -->
+<div class="mobile-nav-dropdown" id="mobileNavDropdown">
+  <a href="admin-dashboard.html">Dashboard</a>
+  <a href="admin-people.html">People</a>
+  <a href="admin-donors.html">Donors</a>
+  <a href="admin-events.html">Events</a>
+  <a href="admin-podcast.html">Podcast</a>
+  <a href="admin-news.html">News</a>
+  <a href="admin-analytics.html">Analytics</a>
+  <a href="admin-users.html">Users</a>
+  <a href="admin-settings.html">Settings</a>
+</div>
+
+  
+
+
+  <!-- PAGE WRAPPER -->
+  <main class="mod-container">
+
+    <h1 class="page-title">Moderator Dashboard</h1>
+    <p class="page-subtitle">Review and manage reports, hidden content, locks, bans, and more.</p>
+
+    <div style="margin-bottom: 25px;">
+      <button id="openBadgeManager" class="mod-btn" style="background:#bf9745;color:#fff;">
+        🏅 Manage Badges
+      </button>
+    </div>
+    <!-- SECTION: REPORTED CONTENT -->
+    <section class="mod-card">
+      <h2>Reported Items</h2>
+      <table class="mod-table">
+        <thead>
+          <tr>
+            <th>Thread</th>
+            <th>Reason</th>
+            <th>Reporter</th>
+            <th>Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="modReportedList">
+          <!-- JS inserts rows here -->
+        </tbody>
+      </table>
+    </section>
+
+    <!-- SECTION: HIDDEN THREADS -->
+    <section class="mod-card">
+      <h2>Hidden Threads</h2>
+      <table class="mod-table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>ID</th>
+            <th>Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="modHiddenThreads"></tbody>
+      </table>
+    </section>
+
+    <!-- SECTION: HIDDEN REPLIES -->
+    <section class="mod-card">
+      <h2>Hidden Replies</h2>
+      <table class="mod-table">
+        <thead>
+          <tr>
+            <th>Reply ID</th>
+            <th>Preview</th>
+            <th>Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="modHiddenReplies"></tbody>
+      </table>
+    </section>
+
+    <!-- SECTION: PINNED THREADS -->
+    <section class="mod-card">
+      <h2>Pinned Threads</h2>
+      <table class="mod-table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>ID</th>
+            <th>Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="modPinned"></tbody>
+      </table>
+    </section>
+
+    <!-- SECTION: LOCKED THREADS -->
+    <section class="mod-card">
+      <h2>Locked Threads</h2>
+      <table class="mod-table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>ID</th>
+            <th>Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="modLocked"></tbody>
+      </table>
+    </section>
+
+  </main>
+<!-- BADGE ADMIN MODAL -->
+<div id="badgeModal" class="badge-modal">
+  <div class="badge-modal-content">
+
+    <h2>Badge Manager</h2>
+    <p class="badge-subtext">Assign or remove badges from members.</p>
+
+    <!-- MEMBER SEARCH -->
+    <div class="badge-field">
+      <label>Search Member</label>
+      <input id="badgeMemberSearch" type="text" placeholder="Type name or email...">
+    </div>
+
+    <div id="badgeMemberResults" class="badge-results"></div>
+
+    <hr>
+<!-- CREATE NEW BADGE -->
+<div class="create-badge-box">
+  <h3>Create New Badge</h3>
+
+  <div class="badge-field">
+    <label>Badge Name</label>
+    <input id="newBadgeName" type="text" placeholder="e.g. Kingdom Builder">
+  </div>
+
+  <div class="badge-field">
+    <label>Badge Icon</label>
+    <input id="newBadgeIcon" type="file" accept="image/*">
+  </div>
+
+  <button id="createBadgeBtn" class="mod-btn" style="background:#002e6b;color:#fff;">
+    ➕ Create Badge
+  </button>
+
+  <div id="createBadgeStatus" class="badge-status"></div>
+
+  <hr style="margin: 20px 0;">
+</div>
+
+    <!-- BADGE LIST -->
+    <h3>Available Badges</h3>
+    <div id="badgeList" class="badge-admin-grid"></div>
+
+    <!-- EDIT / DELETE PANEL -->
+    <div id="badgeEditPanel" class="badge-edit-panel">
+      <h3>Edit Badge</h3>
+    
+      <div class="badge-field">
+        <label>Badge Name</label>
+        <input id="editBadgeName" type="text">
+      </div>
+    
+      <div class="badge-field">
+        <label>Badge Icon</label>
+        <input id="editBadgeIcon" type="file" accept="image/*">
+      </div>
+    
+      <button id="saveBadgeChanges" class="mod-btn" style="background:#002e6b;color:#fff;">
+        💾 Save Changes
+      </button>
+    
+      <button id="deleteBadge" class="mod-btn" style="background:#b91c1c;color:#fff;margin-top:10px;">
+        🗑 Delete Badge
+      </button>
+    
+      <button id="closeEditPanel" class="mod-btn mod-hide" style="margin-top:10px;">
+        Cancel
+      </button>
+    
+      <div id="badgeEditStatus" class="badge-status"></div>
+    </div>
+    
+
+    <div class="badge-modal-actions">
+      <button id="closeBadgeModal" class="mod-btn mod-hide">Close</button>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2025 Holy Circle. All rights reserved.</p>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="admin-mod.js"></script>
+</body>
+</html>

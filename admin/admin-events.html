@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Holy Circle | Admin Events</title>
+
+  <!-- Core admin styles -->
+  <link rel="stylesheet" href="admin.css">
+  <link rel="stylesheet" href="admin-layout.css">
+  <link rel="stylesheet" href="admin-events.css">
+
+  <!-- Icons & Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<script>
+  document.body.classList.add("with-sidebar");
+</script>
+
+<!-- SIDEBAR -->
+<aside class="admin-sidebar">
+  <div class="sidebar-header">
+    <h2>HOLY CIRCLE</h2>
+    <button id="sidebarToggle" class="sidebar-toggle">☰</button>
+  </div>
+
+  <ul class="sidebar-menu">
+    <li><a href="admin-dashboard.html"><i class="icon">🏠</i><span>Dashboard</span></a></li>
+    <li><a href="admin-people.html"><i class="icon">👥</i><span>People</span></a></li>
+    <li><a href="admin-donors.html"><i class="icon">💛</i><span>Donors</span></a></li>
+    <li class="active"><a href="admin-events.html"><i class="icon">📅</i><span>Events</span></a></li>
+    <li><a href="admin-podcast.html"><i class="icon">🎙️</i><span>Podcast</span></a></li>
+    <li><a href="admin-moderation.html"><i class="icon">🗒️</i><span>Forums</span></a></li>
+    <li><a href="admin-news.html"><i class="icon">📰</i><span>News</span></a></li>
+    <li><a href="admin-analytics.html"><i class="icon">📊</i><span>Analytics</span></a></li>
+    <li><a href="admin-email.html"><i class="icon">✉️</i><span>Email</span></a></li>
+    <li><a href="admin-users.html"><i class="icon">🛂</i><span>Users</span></a></li>
+    <li><a href="admin-settings.html"><i class="icon">⚙️</i><span>Settings</span></a></li>
+  </ul>
+
+  <div class="sidebar-footer">
+    <a href="#" onclick="adminLogout()" class="logout-link">
+      <i class="icon">🚪</i><span>Logout</span>
+    </a>
+  </div>
+</aside>
+
+<!-- HEADER -->
+<header class="admin-header">
+  <div class="header-left">
+    <div class="mobile-menu-trigger" id="mobileMenuTrigger">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+  </div>
+
+  <div class="header-center">
+    <h1>Events</h1>
+  </div>
+
+  <div class="header-right">
+    <div class="simple-user-text">
+      <strong id="headerName">Loading…</strong>
+      <small id="headerRole"></small>
+    </div>
+  </div>
+</header>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav-dropdown" id="mobileNavDropdown">
+  <a href="admin-dashboard.html">Dashboard</a>
+  <a href="admin-people.html">People</a>
+  <a href="admin-donors.html">Donors</a>
+  <a href="admin-events.html">Events</a>
+  <a href="admin-podcast.html">Podcast</a>
+  <a href="admin-news.html">News</a>
+  <a href="admin-analytics.html">Analytics</a>
+  <a href="admin-email.html">Email</a>
+  <a href="admin-users.html">Users</a>
+  <a href="admin-settings.html">Settings</a>
+</div>
+
+<!-- MAIN CONTENT -->
+<main class="admin-main">
+  <div class="admin-container">
+
+    <!-- HEADER ROW -->
+    <section class="events-header">
+      <div>
+        <h2>Event Manager</h2>
+        <p class="events-subtitle">
+          Create, edit, and manage all Holy Circle events. These sync with the public Events calendar.
+        </p>
+      </div>
+
+      <button id="openCreateModal" class="primary-btn">
+        <i class="fa-solid fa-plus"></i>
+        New Event
+      </button>
+
+      <button id="launchForumBtn" class="btn gold-btn">
+  🚀 Launch Forum Emails
+</button>
+
+    </section>
+
+
+    <!-- FILTER BAR -->
+    <section class="events-filters">
+      <input
+        type="text"
+        id="searchEvents"
+        placeholder="Search by name or location..."
+        class="search-input"
+      >
+
+      <select id="filterStatus" class="filter-select">
+        <option value="all">All Statuses</option>
+        <option value="upcoming">Upcoming</option>
+        <option value="draft">Draft</option>
+        <option value="archived">Archived</option>
+      </select>
+
+      <select id="filterType" class="filter-select">
+        <option value="all">All Types</option>
+        <option value="worship">Worship</option>
+        <option value="community">Community</option>
+        <option value="podcast">Podcast</option>
+        <option value="online">Online</option>
+      </select>
+
+
+    <!-- EVENTS TABLE -->
+    <section class="panel">
+      <div class="table-wrapper">
+        <table class="admin-table events-table">
+          <thead>
+            <tr>
+              <th>Event</th>
+              <th>Date & Time</th>
+              <th>Type</th>
+              <th>Status</th>
+              <th>Location</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="eventsTableBody">
+            <tr>
+              <td colspan="6" class="empty-state" id="eventsEmptyState">
+                No events yet. Click “New Event” to create your first one.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<!-- EVENT MODAL -->
+<div id="eventModal" class="modal-backdrop">
+  <div class="modal-card">
+    <div class="modal-header">
+      <h3 id="modalTitle">Create Event</h3>
+      <button type="button" id="closeModal" class="modal-close-btn">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <form id="eventForm" novalidate>
+      <input type="hidden" id="eventId">
+
+      <label for="eventName">Event Name</label>
+      <input type="text" id="eventName" name="name" required placeholder="e.g. Worship Night">
+
+      <div class="modal-row">
+        <div class="modal-col">
+          <label for="eventDate">Date</label>
+          <input type="date" id="eventDate" name="date" required>
+        </div>
+        <div class="modal-col">
+          <label for="eventTime">Time</label>
+          <input type="time" id="eventTime" name="time" required>
+        </div>
+      </div>
+
+      <label for="eventLocation">Location</label>
+      <input type="text" id="eventLocation" name="location" placeholder="e.g. Holy Circle Studio or Online">
+
+      <div class="modal-row">
+        <div class="modal-col">
+          <label for="eventType">Type</label>
+          <select id="eventType" name="type">
+            <option value="worship">Worship</option>
+            <option value="bible">Bible Study</option>
+            <option value="podcast">Podcast</option>
+            <option value="community">Community</option>
+            <option value="online">Online</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="modal-col">
+          <label for="eventStatus">Status</label>
+          <select id="eventStatus" name="status">
+            <option value="upcoming">Upcoming</option>
+            <option value="draft">Draft</option>
+            <option value="archived">Archived</option>
+          </select>
+        </div>
+      </div>
+
+      <label for="eventDescription">Description</label>
+      <textarea id="eventDescription" name="description" rows="4" placeholder="What should people know about this event?"></textarea>
+
+      <div class="modal-actions">
+        <button type="button" id="cancelModal" class="secondary-btn">Cancel</button>
+        <button type="submit" class="primary-btn">Save Event</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="admin-layout.js"></script>
+<script src="admin-events.js"></script>
+
+</body>
+</html>

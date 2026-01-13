@@ -1,0 +1,284 @@
+/* ============================
+   HOLY CIRCLE — ADMIN EVENTS
+   ============================ */
+
+   .events-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+  }
+  
+  .events-header h2 {
+    font-size: 1.6rem;
+    margin: 0;
+    color: #002e6b;
+  }
+  
+  .events-subtitle {
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin-top: 0.3rem;
+  }
+  
+  .primary-btn {
+    background: #bf9745;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  
+  .primary-btn i {
+    font-size: 0.9rem;
+  }
+  
+  /* Filters */
+  
+  .events-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .search-input {
+    flex: 1 1 240px;
+    padding: 0.55rem 0.8rem;
+    border-radius: 999px;
+    border: 1px solid #d1d5db;
+    font-size: 0.95rem;
+  }
+  
+  .filter-select {
+    flex: 0 0 170px;
+    padding: 0.55rem 0.8rem;
+    border-radius: 999px;
+    border: 1px solid #d1d5db;
+    font-size: 0.9rem;
+    background: #fff;
+  }
+  
+  /* Table */
+  
+  .table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+  }
+  
+  .admin-table.events-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+  
+  .admin-table.events-table th,
+  .admin-table.events-table td {
+    padding: 0.65rem 0.8rem;
+    border-bottom: 1px solid #e5e7eb;
+    text-align: left;
+  }
+  
+  .admin-table.events-table thead {
+    background: #f3f4f6;
+  }
+  
+  .admin-table.events-table th {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #6b7280;
+  }
+  
+  .empty-state {
+    text-align: center;
+    padding: 1.2rem 0;
+    color: #6b7280;
+  }
+  
+  .event-main {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+  
+  .event-main strong {
+    color: #111827;
+  }
+  
+  .event-main small {
+    color: #6b7280;
+  }
+  
+  /* Pills */
+  
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+  
+  .pill-type {
+    background: #e0f2fe;
+    color: #0369a1;
+  }
+  
+  .pill-status {
+    background: #ecfdf3;
+    color: #15803d;
+  }
+  
+  .pill-status.pill-draft {
+    background: #fef3c7;
+    color: #92400e;
+  }
+  
+  .pill-status.pill-archived {
+    background: #f3f4f6;
+    color: #4b5563;
+  }
+  
+  /* Actions */
+  
+  .actions-cell {
+    white-space: nowrap;
+  }
+  
+  .icon-btn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 0.2rem 0.35rem;
+    border-radius: 6px;
+  }
+  
+  .icon-btn i {
+    font-size: 0.9rem;
+    color: #4b5563;
+  }
+  
+  .icon-btn:hover {
+    background: #e5e7eb;
+  }
+  
+  .icon-btn.danger i {
+    color: #b91c1c;
+  }
+  
+  /* Modal */
+  
+  .modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  
+  .modal-backdrop.active {
+    display: flex;
+  }
+  
+  .modal-card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 1.5rem 1.7rem;
+    width: 100%;
+    max-width: 560px;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.25);
+  }
+  
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .modal-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #111827;
+  }
+  
+  .modal-close-btn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: #6b7280;
+  }
+  
+  .modal-card label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 0.25rem;
+  }
+  
+  .modal-card input,
+  .modal-card select,
+  .modal-card textarea {
+    width: 100%;
+    padding: 0.55rem 0.7rem;
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .modal-row {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .modal-col {
+    flex: 1 1 0;
+  }
+  
+  .modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.6rem;
+    margin-top: 0.4rem;
+  }
+  
+  .secondary-btn {
+    background: #f3f4f6;
+    color: #111827;
+    padding: 0.55rem 1.1rem;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+  
+  /* Responsive */
+  
+  @media (max-width: 768px) {
+    .events-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.85rem;
+    }
+  
+    .events-filters {
+      flex-direction: column;
+    }
+  
+    .modal-row {
+      flex-direction: column;
+    }
+  }
+  

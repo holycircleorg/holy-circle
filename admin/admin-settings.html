@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Settings | Holy Circle</title>
+
+  <link rel="stylesheet" href="admin.css">
+  <link rel="stylesheet" href="admin-settings.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght:300;500;700&display=swap" rel="stylesheet">
+</head>
+
+
+<header class="admin-header">
+  <div class="admin-header-left">
+    <h1>Admin Settings</h1>
+    <p class="admin-subtitle">Manage system preferences, security, and your profile.</p>
+  </div>
+
+  <div class="admin-user-info">
+    <div class="admin-user-meta">
+      <span id="adminName"></span>
+      <small id="adminRole"></small>
+    </div>
+    <button onclick="logoutAdmin()" class="logout-btn">
+      <i class="fa-solid fa-right-from-bracket"></i> Logout
+    </button>
+  </div>
+</header>
+
+<main class="admin-main">
+
+  <div class="admin-container">
+
+    <!-- GENERAL SETTINGS -->
+    <section class="settings-section card">
+      <h2>General Settings</h2>
+
+      <div class="settings-grid">
+
+        <div class="setting-item">
+          <label>Ministry Name</label>
+          <input type="text" id="settingMinistryName">
+        </div>
+
+        <div class="setting-item">
+          <label>Website URL</label>
+          <input type="text" id="settingWebsiteURL">
+        </div>
+
+        <div class="setting-item">
+          <label>Support Email</label>
+          <input type="email" id="settingSupportEmail">
+        </div>
+
+        <div class="setting-item">
+          <label>Timezone</label>
+          <select id="settingTimezone"></select>
+        </div>
+
+        <div class="setting-item">
+          <label>Upload Logo</label>
+          <input type="file" id="settingLogoUpload" accept="image/*">
+        </div>
+
+      </div>
+
+      <button onclick="saveGeneralSettings()" class="primary-btn settings-save">
+        Save General Settings
+      </button>
+    </section>
+
+
+    <!-- SECURITY -->
+    <section class="settings-section card">
+      <h2>Security Settings</h2>
+
+      <div class="settings-grid">
+
+        <div class="setting-item">
+          <label>Change Password</label>
+          <button onclick="openPasswordModal()" class="secondary-btn small-btn">
+            Change Password
+          </button>
+        </div>
+
+        <div class="setting-item">
+          <label>Two-Factor Authentication (2FA)</label>
+          <button onclick="toggle2FA()" class="secondary-btn small-btn">
+            Manage 2FA
+          </button>
+        </div>
+
+        <div class="setting-item">
+          <label>Trusted Devices</label>
+          <button onclick="clearTrustedDevices()" class="secondary-btn small-btn">
+            Clear Devices
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- DANGER ZONE -->
+    <section class="settings-section card danger-zone">
+      <h2>Danger Zone</h2>
+
+      <button onclick="reset2FA()" class="danger-btn">
+        Reset 2FA for This Account
+      </button>
+
+      <button onclick="forceLogoutAll()" class="danger-btn">
+        Force Logout All Sessions
+      </button>
+
+      <button onclick="deleteAccount()" class="danger-btn">
+        Delete My Admin Account
+      </button>
+    </section>
+
+  </div>
+</main>
+
+<!-- PASSWORD MODAL -->
+<div class="modal-backdrop" id="passwordModal">
+  <div class="modal-card">
+    <h3>Change Password</h3>
+
+    <form id="changePasswordForm">
+
+      <label>Current Password</label>
+      <input type="password" id="currentPassword">
+
+      <label>New Password</label>
+      <input type="password" id="newPassword">
+
+      <div class="modal-actions">
+        <button type="button" onclick="closePasswordModal()" class="secondary-btn">Cancel</button>
+        <button type="submit" class="primary-btn">Update</button>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+
+<script src="admin-settings.js"></script>
+
+</body>
+</html>

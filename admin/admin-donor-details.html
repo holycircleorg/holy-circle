@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Holy Circle | Donor Details</title>
+
+  <link rel="stylesheet" href="admin.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+  <header class="admin-header">
+    <h1>Donor Profile</h1>
+
+    <div class="admin-user-info">
+      <span id="adminName"></span>
+      <button onclick="logoutAdmin()" class="logout-btn">Logout</button>
+    </div>
+  </header>
+
+  <div class="admin-container">
+
+    <!-- BASIC INFO -->
+    <section class="donor-header">
+      <div>
+        <h2 id="donorName">Loading...</h2>
+        <p id="donorEmail"></p>
+        <a id="donorEmailLink" href="#" class="donor-email-link">
+          <i class="fa-solid fa-envelope"></i> Email Donor
+        </a>
+      </div>
+
+      <button type="button" id="backToDonors" class="secondary-btn">
+        ← Back to Donors
+      </button>
+    </section>
+
+    <!-- SUMMARY CARDS -->
+    <section class="donor-summary-grid">
+      <div class="donor-summary-card">
+        <h3>Total Given</h3>
+        <p id="donorTotal">$0</p>
+      </div>
+      <div class="donor-summary-card">
+        <h3>Number of Gifts</h3>
+        <p id="donorCount">0</p>
+      </div>
+      <div class="donor-summary-card">
+        <h3>First Gift</h3>
+        <p id="donorFirstGift">–</p>
+      </div>
+      <div class="donor-summary-card">
+        <h3>Last Gift</h3>
+        <p id="donorLastGift">–</p>
+      </div>
+    </section>
+
+    <!-- CAMPAIGNS -->
+    <section class="donor-campaigns">
+      <h3>Campaigns Supported</h3>
+      <p id="donorCampaigns">–</p>
+    </section>
+
+    <!-- YEARLY SUMMARY -->
+    <section class="donor-year-section">
+      <div class="donor-year-header">
+        <h3>Yearly Summary</h3>
+        <select id="yearSelect"></select>
+      </div>
+      <p id="yearTotalText">Select a year to view total giving.</p>
+    </section>
+
+    <!-- DONATION HISTORY TABLE -->
+    <section class="donor-history-section">
+      <h3>Donation History</h3>
+      <table id="donorHistoryTable">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Amount</th>
+            <th>Campaign</th>
+            <th>Source</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Filled by JS -->
+        </tbody>
+      </table>
+      <p id="historyEmpty" class="empty-state hidden">
+        No donations found for this donor.
+      </p>
+    </section>
+
+  </div>
+
+  <script src="admin-donor-details.js"></script>
+
+  
+</body>
+</html>

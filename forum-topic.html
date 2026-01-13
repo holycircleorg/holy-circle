@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Forum Topics • Holy Circle</title>
+
+  <!-- Global -->
+  <link rel="stylesheet" href="/css/global.css" />
+
+  <!-- Forum System -->
+  <link rel="stylesheet" href="/css/forum.css" />
+
+  <!-- Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+</head>
+
+
+  <!-- ================= NAVBAR (UNCHANGED) ================= -->
+  <header class="hc-navbar">
+    <div class="hc-navbar-inner">
+
+      <div class="hc-logo">
+        <a href="/index.html">
+          <img src="/images/hcsublogo.png" alt="Holy Circle Logo" />
+        </a>
+      </div>
+
+      <nav class="hc-nav-links">
+        <a href="/podcast.html">Podcast</a>
+        <a href="/events.html">Events</a>
+        <a href="/forum.html" class="active">Community</a>
+        <a href="/about.html">About</a>
+        <a href="/donate.html" class="highlight">Donate</a>
+      </nav>
+
+      <div class="navbar-right">
+        <!-- avatar / auth handled by global.js -->
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ================= PAGE SHELL ================= -->
+  <main class="forum-shell wide">
+
+    <!-- Hero -->
+    <section class="forum-hero">
+      <h1>Forum Topics</h1>
+      <p>Browse prayer, testimony, and faith-centered discussions.</p>
+    </section>
+
+    <!-- Topics Grid -->
+    <section class="forum-topics-grid" id="topicsGrid">
+
+      <!-- Skeleton -->
+      <div class="topic-card skeleton"></div>
+      <div class="topic-card skeleton"></div>
+      <div class="topic-card skeleton"></div>
+
+    </section>
+
+  </main>
+
+  <!-- ================= SCRIPTS ================= -->
+    <script src="/js/avatar-engine.js"></script>
+    <script src="/js/global.js"></script>
+    <script src="/js/member-auth.js"></script>
+    <script src="/js/forum-global.js"></script>
+    <script src="/js/forum.js"></script>
+
+
+
+</body>
+</html>

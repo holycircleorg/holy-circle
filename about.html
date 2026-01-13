@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About | Holy Circle</title>
+
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/global.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body class="public-page">
+
+
+<header class="hc-navbar">
+  <div class="hc-navbar-inner">
+
+    <!-- LEFT: LOGO -->
+    <div class="hc-logo">
+      <a href="index.html">
+        <img src="images/hcsublogo.png" alt="Holy Circle Logo">
+      </a>
+    </div>
+    
+
+    <!-- CENTER: DESKTOP NAV LINKS (HIDE ON MOBILE) -->
+    <nav class="hc-nav-links">
+      <a href="podcast.html">Podcast</a>
+      <a href="events.html">Events</a>
+      <a href="forum.html">Community</a>
+      <a href="about.html">About</a>
+      <a href="donate.html" class="highlight">Donate</a>
+    </nav>
+
+    <!-- RIGHT: DESKTOP ACTIONS + MOBILE MENU BUTTON -->
+    <div class="navbar-right">
+
+      <!-- DESKTOP ACTION CLUSTER -->
+      <div class="hc-nav-actions">
+
+        <!-- NOTIFICATION BELL (desktop only) -->
+        <button
+        class="notif-btn"
+        type="button"
+        aria-label="Notifications"
+        data-member-only
+      >
+
+          <span class="notif-icon-wrap" data-notif-btn>
+            <i class="fa-regular fa-bell"></i>
+            <span class="notif-dot" data-notif-dot></span>
+          </span>
+        </button>
+<!-- NOTIFICATION DROPDOWN -->
+<div class="notif-dropdown" data-notif-dropdown>
+
+  <div class="notif-header">
+    <h4>Notifications</h4>
+    <button class="notif-clear-btn" data-notif-clear>Clear All</button>
+  </div>
+
+  <div class="notif-list" data-notif-list>
+    <!-- JS fills these -->
+    <div class="notif-empty">You're all caught up ✨</div>
+  </div>
+  <div class="notif-footer">
+  <a href="/notifications.html" class="notif-view-all">
+    View all notifications →
+  </a>
+</div>
+
+
+</div>
+
+        <!-- AUTH AREA (desktop only) -->
+        <div class="hc-nav-avatar" data-auth-area>
+
+          <!-- LOGGED OUT -->
+          <button class="nav-auth-btn" data-login-link>
+            <i class="fa-regular fa-circle-user"></i>
+            <span>Sign in</span>
+          </button>
+
+          <!-- LOGGED IN -->
+          <div class="avatar-menu" data-user-menu style="display:none;">
+
+            <button class="avatar-btn" data-avatar-toggle>
+              <img
+                class="avatar-img"
+                data-avatar-img
+                src="/images/default-avatar.png"
+                alt="Avatar"
+              />
+              </button>
+
+            <div class="avatar-dropdown" data-avatar-dropdown>
+
+              <div class="dropdown-profile-bar">
+                <img
+                    class="dropdown-avatar-sm"
+                    data-avatar-img
+                    src="/images/default-avatar.png"
+                  />
+
+                <div class="dropdown-profile-text">
+                  <div class="dropdown-name" data-avatar-name>Member</div>
+                </div>
+              </div>
+
+              <a href="/member-dashboard.html">My Dashboard</a>
+              <a href="/test-profile.html" data-profile-link>View My Profile</a>
+              <a href="/member-account.html">Settings</a>
+              <a href="/forum-my-threads.html">My Threads</a>
+              <button type="button" data-logout-btn>Logout</button>
+
+            </div>
+          </div>
+
+        </div><!-- /auth area -->
+
+      </div><!-- /hc-nav-actions -->
+
+      <!-- MOBILE HAMBURGER (only icon on mobile) -->
+      <button class="hc-mobile-menu-btn" data-mobile-menu-btn>
+        <span></span><span></span><span></span>
+      </button>
+
+    </div><!-- /navbar-right -->
+  </div><!-- /hc-navbar-inner -->
+
+<!-- MOBILE MENU DROPDOWN -->
+<div class="hc-mobile-menu" data-mobile-menu>
+
+  <!-- PROFILE HEADER (signed-in only) -->
+  <div class="mobile-profile-header" data-auth-area>
+    <div class="mobile-profile-avatar-wrap" data-mobile-avatar-click>
+      <img
+        class="mobile-profile-avatar"
+        data-avatar-img
+        src="/images/default-avatar.png"
+      />
+
+    </div>    
+    <div class="mobile-profile-name" data-mobile-avatar-name>Login</div>
+  </div>
+
+  <div class="mobile-divider"></div>
+
+  <!-- MOBILE MAIN NAV -->
+  <nav class="mobile-nav-section">
+    <a href="podcast.html">Podcast</a>
+    <a href="events.html">Events</a>
+    <a href="forum.html">Community</a>
+    <a href="about.html">About</a>
+    <a href="donate.html" class="highlight">Donate</a>
+  </nav>
+
+  <div class="mobile-divider"></div>
+
+  <!-- MOBILE PROFILE LINKS -->
+  <nav class="mobile-nav-section profile-links">
+
+    <a href="/member-dashboard.html" data-member-only>My Dashboard</a>
+    <a href="/notifications.html" data-member-only data-mobile-notifications>Notifications</a>
+   <a href="/member-account.html" data-member-only>Settings</a>
+    <a href="/forum-my-threads.html" data-member-only>My Threads</a>
+    <button type="button" data-logout-btn data-member-only class="logout-btn">Logout</button>
+  </nav>
+  
+
+</div>
+
+
+</header>
+
+
+  <!-- ABOUT PAGE HERO -->
+  <section class="page-hero about-hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>About Holy Circle</h1>
+      <p>Rooted in Scripture • Driven by Purpose</p>
+    </div>
+  </section>
+
+  <!-- WELCOME VIDEO SECTION -->
+<section class="section" style="padding-top:7rem; padding-bottom:3rem; text-align:center;">
+  <h2 style="color:#002e6b; font-size:2.2rem; margin-bottom:1rem;">
+    Welcome to Holy Circle
+  </h2>
+  <p style="max-width:700px; margin:0 auto; color:#555;">
+    A message from our team about the heart, mission, and vision behind Holy Circle.
+  </p>
+
+  <div style="max-width:900px; margin:2.5rem auto 0;">
+    <!-- Replace the src with your final YouTube, Vimeo, or self-hosted link -->
+    <iframe 
+      width="100%" 
+      height="480" 
+      style="border-radius:16px; box-shadow:0 12px 28px rgba(0,0,0,0.18);" 
+      src="https://www.youtube.com/embed/VIDEO_ID"
+      title="Welcome Video"
+      frameborder="0"
+      allowfullscreen>
+    </iframe>
+  </div>
+</section>
+
+  <!-- MISSION -->
+  <section class="section">
+    <h2>Mission Statement</h2>
+    <p>
+      Holy Circle exists to inspire and empower individuals and families to deepen their faith in Christ
+      through engaging content and community connections, encouraging active participation in building
+      God’s kingdom on Earth.
+    </p>
+    <blockquote>“And let us consider how we may spur one another on toward love and good deeds.” — Hebrews 10:24–25</blockquote>
+  </section>
+
+    <!-- STATEMENT OF FAITH (summary) -->
+    <section class="section">
+      <h2>Statement of Faith</h2>
+      <div class="faith-list">
+        <h3>1. The Written Word of God</h3>
+        <p>The Bible (66 books) is the inspired, authoritative Word of God.</p>
+  
+        <h3>2. God</h3>
+        <p>One God in three Persons: Father, Son, and Holy Spirit.</p>
+  
+        <h3>3. Salvation</h3>
+        <p>By grace through faith in Jesus Christ — received through repentance and belief.</p>
+  
+        <h3>4. Eternity</h3>
+        <p>Eternal life with Christ for believers; separation from God for those who reject Him.</p>
+  
+        <h3>5. The World</h3>
+        <p>God created humanity in His image; redemption is found in Christ alone.</p>
+      </div>
+    </section>
+
+  <!-- WHAT WE DO -->
+  <section class="section light">
+    <h2>What We Do</h2>
+    <div class="about-grid">
+      <div class="text">
+        <p style="text-align:left; max-width:500px; margin:0 auto 1.5rem;">
+          Holy Circle is a 501(c)(3) nonprofit using media, events, and entertainment to help people encounter Jesus
+          in their everyday lives.
+        </p>
+        <ul style="text-align:left; max-width:500px; margin:0 auto;">
+          <li> <strong>Podcast & Conversations</strong> — real stories and biblical truth for modern life.</li>
+          <li> <strong>Films & Visual Storytelling</strong> — creative projects that point people to Christ.</li>
+          <li> <strong>Community & Events</strong> — Worship, outreach, and discipleship moments.</li>
+          
+      </div>
+
+      <div class="image">
+        <img src="images/pod-bts2.jpeg" alt="Holy Circle Community">
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+<!-- OUR STORY -->
+<section class="section">
+  <h2>Our Story</h2>
+  <p class="subtitle">Where it all began — and where God is taking us.</p>
+
+  <div class="about-grid">
+    <div class="text" style="text-align:left; max-width:520px; margin:0 auto;">
+      <p>
+        Holy Circle began as a spark — a desire to create a place where people could
+        encounter Jesus through creativity, storytelling, and genuine community.
+      </p>
+      <p>
+        What started as conversations around faith has grown into a nonprofit focused on
+        building disciples through media, worship gatherings, outreach, and cinematic storytelling.
+      </p>
+      <p>
+        Our heart is simple: to reach people where they are, and point them toward Jesus.
+      </p>
+    </div>
+
+    <div>
+      <img src="/images/pod-bts1.jpeg" style="border-radius:12px;">
+    </div>
+  </div>
+</section>
+
+
+
+  <!-- LEADERSHIP -->
+  <section class="section light">
+    <h2>Leadership</h2>
+    <div class="board-grid">
+      <div class="member">
+        <div class="avatar-wrapper">
+          <img class="avatar" src="images/Devan.jpeg" alt="Portrait of Devan Ford">
+        </div>
+        <h4>Devan Ford</h4>
+        <p>CEO/Founder </p>
+      </div>
+
+      <div class="member">
+        <div class="avatar-wrapper">
+          <img class="avatar" src="images/Dad.jpeg" alt="Portrait of Charles Ford Jr.">
+        </div>
+        <h4>Charles Ford Jr.</h4>
+        <p>COO/ Co-Host </p>
+      </div>
+
+      <div class="member">
+        <div class="avatar-wrapper">
+          <img class="avatar" src="images/Mom.jpeg" alt="Portrait of Julieanne Ford">
+        </div>
+        <h4>Julieanne Ford</h4>
+        <p>Head of Production</p>
+      </div>
+
+      <div class="member">
+        <div class="avatar-wrapper">
+          <img class="avatar" src="images/tyler.jpeg" alt="Portrait of Tyler Ford">
+        </div>
+        <h4>Tyler Ford</h4>
+        <p>Outreach Specialist/ Co-Host</p>
+      </div>
+
+             <div class="member">
+        <div class="avatar-wrapper">
+          <img class="avatar" src="images/Alexa.jpeg" alt="Portrait of Alexa Manly">
+        </div>
+        <h4>Alexa Manly</h4>
+        <p>Marketing Specialist</p>
+      </div>
+        <div class="member">
+        <div class="avatar-wrapper">
+          <img class="avatar" src="images/Vivian.jpeg" alt="Portrait of Vivian Wu">
+        </div>
+        <h4>Vivian Wu</h4>
+        <p>Volunteer Coordinator</p>
+      </div>
+
+    
+     
+  </section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-content">
+    
+    <div class="footer-brand">
+      <h3>HOLY CIRCLE</h3>
+      <p class="tagline">Faith • Media • Community</p>
+      <p class="mission">
+        Empowering people to deepen their faith in Christ and build a strong, united community.
+      </p>
+      <a href="/donate" class="footer-donate-btn">Support Our Mission</a>
+    </div>
+
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <a href="/about.html">About Us</a>
+      <a href="/events.html">Events</a>
+      <a href="/podcast.html">Podcast</a>
+      <a href="/forum.html">Community</a>
+      <a href="/donate.html">Give</a>
+  </a>
+</div>
+   
+    </div>
+
+    <div class="footer-legal">
+      <h4>Legal</h4>
+      <a href="/privacy-policy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Use</a>
+      <a href="/donor-privacy.html">Donor Privacy Policy</a>
+    </div>
+
+    <div class="footer-contact">
+      <h4>Connect</h4> 
+      <p>Email: <a href="mailto:info@holycircle.org">info@holycircle.org</a></p>
+
+      <div class="social-links">
+        <a href="https://www.instagram.com/holycircleorg/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/people/Holy-Circle-Organization/61573876220565" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/channel/UCqcUPEiMbpAuFz1W00xFcCw" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@holycircleorg" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://open.spotify.com/show/holycircle" target="_blank"><i class="fab fa-spotify"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>
+      Holy Circle is a registered 501(c)(3) nonprofit organization. Donations are tax-deductible as permitted by law.
+      EIN: 33-3661912
+    </p>
+    <p>© 2026 Holy Circle. All Rights Reserved.</p>
+  </div>
+</footer>
+
+
+<script src="/js/avatar-engine.js"></script>
+<script src="/js/global.js"></script>
+<script src="/js/member-auth.js"></script>
+
+
+
+
+  
+</body>
+</html>

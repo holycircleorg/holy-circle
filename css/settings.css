@@ -1,0 +1,259 @@
+/* =========================================================
+   SETTINGS / ACCOUNT PAGE
+   Holy Circle — Apple-clean, minimal, premium
+========================================================= */
+
+/* ---------- Page Layout ---------- */
+
+.member-main {
+  background: #f9fbff;
+  min-height: 100vh;
+  padding: 3rem 1.5rem 5rem;
+}
+
+.member-main-inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+/* ---------- Page Header ---------- */
+
+.member-header {
+  margin-bottom: 2.5rem;
+}
+
+.member-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #002e6b;
+  margin-bottom: 0.5rem;
+}
+
+.member-subtitle {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* ---------- Cards ---------- */
+
+.member-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 1.75rem 1.75rem 1.9rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+}
+
+.member-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #002e6b;
+  margin-bottom: 1.25rem;
+}
+
+/* ---------- Form Rows ---------- */
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-row label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-row input {
+  padding: 0.65rem 0.8rem;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 0.95rem;
+  background: #f4f6f9;
+  color: #555;
+}
+
+.form-row input:disabled {
+  cursor: not-allowed;
+}
+
+/* ---------- Helper Text ---------- */
+
+.helper-text {
+  font-size: 0.8rem;
+  color: #777;
+  margin-top: 0.35rem;
+  line-height: 1.4;
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1.25rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn.secondary {
+  background: #002e6b;
+  color: #fff;
+}
+
+.btn.secondary:hover {
+  background: #001f4a;
+  transform: translateY(-1px);
+}
+
+.btn.danger {
+  background: #b00020;
+  color: #fff;
+}
+
+.btn.danger:hover {
+  background: #8f0019;
+}
+
+/* ---------- Links ---------- */
+
+.dash-link {
+  display: inline-block;
+  margin-top: 0.65rem;
+  font-size: 0.85rem;
+  color: #bf9745;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.dash-link:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Toggle Rows ---------- */
+
+.toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.6rem 0;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+
+.toggle-row span {
+  flex: 1;
+  line-height: 1.4;
+}
+
+.toggle-row input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #002e6b;
+  cursor: pointer;
+}
+
+/* ---------- Danger Zone ---------- */
+
+.danger-zone {
+  border: 1px solid rgba(176, 0, 32, 0.25);
+  background: #fff5f7;
+}
+
+.danger-zone h3 {
+  color: #b00020;
+}
+
+.danger-zone .helper-text {
+  color: #8a3a44;
+}
+
+/* ---------- Member Subnav (Account context) ---------- */
+
+.member-subnav {
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.member-subnav-inner {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  gap: 1.25rem;
+  padding: 0.9rem 1.5rem;
+}
+
+.member-subnav-link {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #555;
+  text-decoration: none;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid transparent;
+}
+
+.member-subnav-link:hover {
+  color: #002e6b;
+}
+
+.member-subnav-link.active {
+  color: #002e6b;
+  border-bottom-color: #bf9745;
+}
+
+
+/* ---------- Notification Groups ---------- */
+
+.notification-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.notification-group-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #777;
+}
+
+.notification-desc {
+  font-size: 0.8rem;
+  color: #777;
+  margin-top: -0.4rem;
+  margin-left: 1.75rem;
+  line-height: 1.4;
+}
+
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 640px) {
+  .member-main {
+    padding: 2rem 1rem 4rem;
+  }
+
+  .member-title {
+    font-size: 1.65rem;
+  }
+
+  .member-card {
+    padding: 1.4rem 1.4rem 1.6rem;
+  }
+
+  .member-subnav-inner {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}

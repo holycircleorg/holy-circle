@@ -1,0 +1,192 @@
+/* CINEMATIC DONATE PAGE HERO */
+.donate-hero {
+  height: 60vh;
+  background-image: url('../images/giving.jpeg');  /* <-- Change image if you want */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6rem 2rem;
+  text-align: center;
+  color: #fff;
+}
+
+.donate-hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55); /* dark overlay */
+}
+
+.donate-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+}
+
+.donate-hero-content h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #bf9745; /* Holy Circle gold */
+}
+
+.donate-hero-content p {
+  font-size: 1.2rem;
+  color: #ffffff;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+  
+  .donate-section {
+    padding: 4rem 2rem;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .donate-card {
+    background: #ffffff;
+    padding: 2.5rem;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 550px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  }
+  
+  .form-label {
+    margin-top: 1.5rem;
+    display: block;
+    font-weight: 600;
+    color: #002e6b;
+  }
+  
+  .amount-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+  
+  .amount-btn {
+    padding: 0.8rem;
+    border: 2px solid #002e6b;
+    background: white;
+    color: #002e6b;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .amount-btn.active,
+  .amount-btn:hover {
+    color: #002e6b;
+  transform: translateY(-3px);
+   background-color:#bf9745;
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    border-radius: 12px;
+    border: 1px solid #dcdcdc;
+    margin-top: 0.6rem;
+    font-size: 1rem;
+  }
+  
+  textarea.input-field {
+    resize: none;
+    height: 80px;
+  }
+  
+  .cover-fees {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+  
+  .donate-submit-btn {
+    width: 100%;
+    padding: 1rem;
+    margin-top: 2rem;
+    background: #bf9745;
+    color: white;
+    border-radius: 30px;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .donate-submit-btn:hover {
+    color: #002e6b;
+    transform: translateY(-3px);
+  }
+  
+  .donate-status {
+    margin-top: 1rem;
+    text-align: center;
+    font-weight: 600;
+  }
+  
+  /* FAQ Styling */
+.donate-faq {
+  max-width: 900px;
+  margin: auto;
+  text-align: left;
+}
+
+.faq-item {
+  border-bottom: 1px solid rgba(0,0,0,0.15);
+  padding: 0.75rem 0;
+}
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #002e6b;
+  text-align: left;
+  padding: 0.5rem 0;
+}
+
+.faq-question:after {
+  content: '+';
+  float: right;
+  font-weight: 700;
+}
+
+.faq-question.active:after {
+  content: '-';
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.faq-answer p {
+  margin: 0.5rem 0;
+}
+
+.faq-compliance {
+  font-size: 0.85rem;
+  color: #555;
+  margin: 1.5rem auto 0;
+  border-top: 2px solid #bf9745;
+  padding-top: 1rem;
+  text-align: center;
+}
+
+.faq-compliance h3 {
+  color: #002e6b;
+}

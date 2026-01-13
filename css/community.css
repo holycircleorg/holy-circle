@@ -1,0 +1,77 @@
+/* ======================================================
+   HOLY CIRCLE — COMMUNITY PAGE
+   IMPORTANT:
+   This file MUST NOT control layout.
+   Layout is owned by forum.css + forum-main.css
+====================================================== */
+
+/* Page background only */
+body[data-page="forum-community"] {
+  background: var(--hc-bg);
+}
+
+/* ======================================================
+   COMMUNITY HERO (TEXT ONLY)
+====================================================== */
+
+#communityHeader,
+.forum-hero {
+  margin-bottom: 2rem;
+}
+
+/* ======================================================
+   COMMUNITY RIGHT SIDEBAR EXTENSIONS ONLY
+   (uses existing forum sidebar blocks)
+====================================================== */
+
+#threadCommunityCard .sidebar-list {
+  margin-top: 0.5rem;
+}
+
+#joinCommunityBtn {
+  margin-top: 0.75rem;
+  width: 100%;
+}
+
+/* ======================================================
+   RULES LIST (no layout overrides)
+====================================================== */
+
+#communityRulesList {
+  padding-left: 0;
+  list-style: none;
+}
+
+#communityRulesList li {
+  padding: 0.25rem 0;
+  color: var(--hc-muted);
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+.modal-content {
+  background: #0b1b33;
+  border-radius: 16px;
+  padding: 20px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.modal-content input,
+.modal-content textarea {
+  width: 100%;
+  margin-top: 10px;
+}

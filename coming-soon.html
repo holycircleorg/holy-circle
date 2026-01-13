@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Forum Coming Soon • Holy Circle</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --hc-blue: #002e6b;
+      --hc-gold: #bf9745;
+      --hc-bg: #0b1b33;
+      --hc-text: #f5f7fb;
+      --hc-muted: rgba(245,247,251,0.65);
+      --hc-glass: rgba(255,255,255,0.06);
+      --hc-border: rgba(191,151,69,0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Poppins", system-ui, sans-serif;
+      background:
+        radial-gradient(1200px 600px at 50% -200px, rgba(191,151,69,0.18), transparent),
+        linear-gradient(180deg, #08162b, #050d1a);
+      color: var(--hc-text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .coming-soon-card {
+      max-width: 720px;
+      width: 100%;
+      background: linear-gradient(
+        180deg,
+        rgba(255,255,255,0.08),
+        rgba(255,255,255,0.02)
+      );
+      border: 1px solid var(--hc-border);
+      border-radius: 20px;
+      padding: 48px 36px;
+      text-align: center;
+      backdrop-filter: blur(14px);
+      box-shadow:
+        0 30px 80px rgba(0,0,0,0.45),
+        inset 0 1px 0 rgba(255,255,255,0.08);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--hc-gold);
+      background: rgba(191,151,69,0.15);
+      border: 1px solid var(--hc-border);
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 600;
+      margin: 0 0 12px;
+      line-height: 1.2;
+    }
+
+    p {
+      margin: 0 auto;
+      max-width: 520px;
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--hc-muted);
+    }
+
+    .divider {
+      width: 80px;
+      height: 2px;
+      margin: 28px auto;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        var(--hc-gold),
+        transparent
+      );
+      opacity: 0.8;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .btn-gold {
+      color: #0b1b33;
+      background: linear-gradient(180deg, #d7b36a, var(--hc-gold));
+      box-shadow:
+        0 6px 20px rgba(191,151,69,0.35),
+        inset 0 1px 0 rgba(255,255,255,0.45);
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-1px);
+      box-shadow:
+        0 10px 30px rgba(191,151,69,0.45),
+        inset 0 1px 0 rgba(255,255,255,0.6);
+    }
+
+    .btn-ghost {
+      color: var(--hc-text);
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255,255,255,0.06);
+    }
+
+    footer {
+      margin-top: 32px;
+      font-size: 13px;
+      color: rgba(245,247,251,0.45);
+    }
+  </style>
+</head>
+
+<body>
+  <main class="coming-soon-card">
+    <div class="badge">Coming Soon</div>
+
+    <h1>The Holy Circle Forum</h1>
+
+    <p>
+      We’re building a thoughtful space for conversations that matter — rooted
+      in faith, creativity, and real community.
+    </p>
+
+    <div class="divider"></div>
+
+    <p>
+      The forum isn’t open just yet. We’re taking time to ensure it launches with
+      purpose, clarity, and the right foundations in place.
+    </p>
+
+    <div class="cta-row">
+      <a href="/" class="btn btn-gold">Return Home</a>
+      <a href="/about.html" class="btn btn-ghost">Learn About Holy Circle</a>
+    </div>
+
+    <form class="notify-form" id="forumNotifyForm" novalidate>
+  <label for="notifyEmail" class="notify-label">
+    Be notified when the forum opens
+  </label>
+
+  <div class="notify-row">
+    <input
+      type="email"
+      id="notifyEmail"
+      placeholder="you@example.com"
+      required
+    />
+    <button type="submit" class="btn btn-gold">
+      Notify Me
+    </button>
+  </div>
+
+  <div class="notify-status" id="notifyStatus" aria-live="polite"></div>
+</form>
+
+
+    <footer>
+      Thank you for being here early.
+    </footer>
+  </main>
+
+  <script>
+
+    function trackForumInterest(source = "coming-soon") {
+  fetch("/api/traffic/event", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      event: "forum_interest",
+      page: "coming-soon",
+      meta: { source }
+    })
+  }).catch(() => {});
+}
+
+(function () {
+  const form = document.getElementById("forumNotifyForm");
+  const emailInput = document.getElementById("notifyEmail");
+  const status = document.getElementById("notifyStatus");
+
+  if (!form || !emailInput) return;
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    status.textContent = "";
+
+    trackForumInterest("email_submit");
+
+
+    const email = emailInput.value.trim();
+    if (!email || !email.includes("@")) {
+      status.textContent = "Please enter a valid email address.";
+      return;
+    }
+
+    // Disable UI
+    emailInput.disabled = true;
+    form.querySelector("button").disabled = true;
+
+    try {
+      // 🔒 SAFE PLACEHOLDER — won’t error if endpoint doesn’t exist yet
+const res = await fetch("/api/email-signups", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    email,
+    source_page: "forum-coming-soon",
+    intent: "forum_waitlist"
+  })
+});
+
+
+
+      if (!res.ok) throw new Error("Request failed");
+
+      status.textContent =
+        "You’re on the list. We’ll let you know when it opens.";
+    } catch {
+      // Graceful fallback (still feels intentional)
+      status.textContent =
+        "Thanks! We’ve noted your interest.";
+    } finally {
+      emailInput.disabled = true;
+      form.querySelector("button").disabled = true;
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

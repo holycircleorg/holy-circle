@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Holy Circle | Donations Admin</title>
+
+  <link rel="stylesheet" href="admin.css">
+  <link rel="stylesheet" href="admin-layout.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+  <header class="admin-header">
+    <h1>Donations</h1>
+    <div class="admin-user-info">
+      <span id="adminName"></span>
+      <button onclick="logoutAdmin()" class="logout-btn">Logout</button>
+    </div>
+  </header>
+
+  <div class="admin-container">
+
+    <!-- METRICS -->
+    <section class="stats-section">
+      <div class="stat-card">
+        <h3>Total Donations</h3>
+        <p id="donationsCount">0</p>
+      </div>
+      <div class="stat-card">
+        <h3>Total Given</h3>
+        <p id="donationsTotal">$0</p>
+      </div>
+      <div class="stat-card">
+        <h3>Average Gift</h3>
+        <p id="donationsAvg">$0</p>
+      </div>
+    </section>
+
+    <!-- CHARTS -->
+    <section class="charts-section">
+      <h2>Giving Over Time</h2>
+      <div class="charts-grid">
+        <div class="chart-box">
+          <canvas id="givingOverTimeChart"></canvas>
+        </div>
+        <div class="chart-box">
+          <canvas id="fundBreakdownChart"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- FILTERS + TABLE -->
+    <section style="margin-top: 2rem;">
+      <div class="people-top-bar">
+        <div class="people-search-group">
+          <input type="text" id="donationSearch" placeholder="Search by donor, email, or fund">
+        </div>
+      </div>
+
+      <table id="donationsTable">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Donor</th>
+            <th>Email</th>
+            <th>Amount</th>
+            <th>Fund</th>
+            <th>Type</th>
+            <th>Transaction ID</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Filled by JS -->
+        </tbody>
+      </table>
+
+      <p id="donationsEmpty" class="empty-state hidden">No donations recorded yet.</p>
+    </section>
+
+  </div>
+
+  <script src="admin-donations.js"></script>
+</body>
+</html>

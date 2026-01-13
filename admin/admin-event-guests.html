@@ -1,0 +1,64 @@
+  <!-- MAIN -->
+  <main class="admin-main">
+    <div class="admin-container">
+
+      <!-- HEADER -->
+      <section class="page-header">
+        <div>
+          <h2 id="eventTitleAdmin">Event Guest List</h2>
+          <p id="eventMetaAdmin" class="page-subtitle">Loading event details…</p>
+        </div>
+
+        <div class="page-actions">
+          <a href="admin-events.html" class="ghost-btn">
+            <i class="fa-solid fa-arrow-left"></i> Back to Events
+          </a>
+          <button id="exportCsvBtn" class="secondary-btn">
+            <i class="fa-solid fa-file-export"></i> Export CSV
+          </button>
+        </div>
+      </section>
+
+      <!-- STATS CARDS -->
+      <section class="guest-stats">
+        <div class="stat-card">
+          <p>Total RSVPs</p>
+          <h3 id="statTotalRsvps">0</h3>
+        </div>
+        <div class="stat-card">
+          <p>Member RSVPs</p>
+          <h3 id="statMemberRsvps">0</h3>
+        </div>
+        <div class="stat-card">
+          <p>Guest RSVPs</p>
+          <h3 id="statGuestRsvps">0</h3>
+        </div>
+        <div class="stat-card">
+          <p>Total Guests Attending</p>
+          <h3 id="statTotalGuests">0</h3>
+        </div>
+      </section>
+
+      <!-- FILTERS -->
+      <section class="guest-filters">
+        <div class="filter-pill-group">
+          <button class="filter-pill active" data-filter="all">All</button>
+          <button class="filter-pill" data-filter="member">Members</button>
+          <button class="filter-pill" data-filter="guest">Guests</button>
+        </div>
+
+        <input type="text" id="guestSearch" class="search-input" placeholder="Search by name or email...">
+      </section>
+
+      <!-- LIST -->
+      <section class="guest-list" id="guestList">
+        <!-- JS renders RSVPs as cards -->
+        <p class="empty-state" id="guestEmptyState">No RSVPs yet for this event.</p>
+      </section>
+
+    </div>
+  </main>
+
+  <script src="admin-event-guests.js"></script>
+</body>
+</html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Account & Security • Holy Circle</title>
+
+  <!-- Core styles -->
+  <link rel="stylesheet" href="/css/global.css" />
+  <link rel="stylesheet" href="/css/settings.css"/>
+
+
+  <!-- Fonts & Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap"
+    rel="stylesheet"
+  />
+</head>
+
+<body class="member-page">
+
+
+  <!-- Global Navbar -->
+<header class="hc-navbar">
+  <div class="hc-navbar-inner">
+
+    <!-- LEFT: LOGO -->
+    <div class="hc-logo">
+      <a href="index.html">
+        <img src="images/hcsublogo.png" alt="Holy Circle Logo">
+      </a>
+    </div>
+    
+
+    <!-- CENTER: DESKTOP NAV LINKS (HIDE ON MOBILE) -->
+    <nav class="hc-nav-links">
+      <a href="podcast.html">Podcast</a>
+      <a href="events.html">Events</a>
+      <a href="forum.html">Community</a>
+      <a href="about.html">About</a>
+      <a href="donate.html" class="highlight">Donate</a>
+    </nav>
+
+    <!-- RIGHT: DESKTOP ACTIONS + MOBILE MENU BUTTON -->
+    <div class="navbar-right">
+
+      <!-- DESKTOP ACTION CLUSTER -->
+      <div class="hc-nav-actions">
+
+        <!-- ADMIN DASHBOARD BUTTON (hidden by default) -->
+        <a
+          href="/admin/admin-dashboard.html"
+          id="adminDashboardBtn"
+          class="admin-icon-btn"
+          style="display:none; width:36px; height:36px; border-radius:50%; background:#bf9745; color:#fff; align-items:center; justify-content:center; font-size:0.85rem; font-weight:600; text-decoration:none; margin-right:0.6rem;"
+          title="Admin Dashboard"
+        >
+          A
+        </a>
+
+        <!-- NOTIFICATION BELL (desktop only) -->
+        <button
+          class="notif-btn"
+          type="button"
+          aria-label="Notifications"
+          data-member-only
+        >
+
+          <span class="notif-icon-wrap" data-notif-btn>
+            <i class="fa-regular fa-bell"></i>
+            <span class="notif-dot" data-notif-dot></span>
+          </span>
+        </button>
+<!-- NOTIFICATION DROPDOWN -->
+<div class="notif-dropdown" data-notif-dropdown>
+
+  <div class="notif-header">
+    <h4>Notifications</h4>
+    <button class="notif-clear-btn" data-notif-clear>Clear All</button>
+  </div>
+
+  <div class="notif-list" data-notif-list>
+    <!-- JS fills these -->
+    <div class="notif-empty">You're all caught up ✨</div>
+    
+  </div>
+    <div class="notif-footer">
+  <a href="/notifications.html" class="notif-view-all">
+    View all notifications →
+  </a>
+</div>
+
+</div>
+
+        <!-- AUTH AREA (desktop only) -->
+        <div class="hc-nav-avatar" data-auth-area>
+
+          <!-- LOGGED OUT -->
+          <button class="nav-auth-btn" data-login-link>
+            <i class="fa-regular fa-circle-user"></i>
+            <span>Sign in</span>
+          </button>
+
+          <!-- LOGGED IN -->
+          <div class="avatar-menu" data-user-menu style="display:none;">
+
+            <button class="avatar-btn" data-avatar-toggle>
+              <img
+                class="avatar-img"
+                data-avatar-img
+                src="/images/default-avatar.png"
+                alt="Avatar"
+              />
+              </button>
+
+            <div class="avatar-dropdown" data-avatar-dropdown>
+
+              <div class="dropdown-profile-bar">
+                <img
+                    class="dropdown-avatar-sm"
+                    data-avatar-img
+                    src="/images/default-avatar.png"
+                  />
+
+                <div class="dropdown-profile-text">
+                  <div class="dropdown-name" data-avatar-name>Member</div>
+                </div>
+              </div>
+
+              <a href="/member-dashboard.html">My Dashboard</a>
+              <a href="/test-profile.html" data-profile-link>View My Profile</a>
+              <a href="/member-account.html">Settings</a>
+              <a href="/forum-my-threads.html">My Threads</a>
+              <button type="button" data-logout-btn>Logout</button>
+
+            </div>
+          </div>
+
+        </div><!-- /auth area -->
+
+      </div><!-- /hc-nav-actions -->
+
+      <!-- MOBILE HAMBURGER (only icon on mobile) -->
+      <button class="hc-mobile-menu-btn" data-mobile-menu-btn>
+        <span></span><span></span><span></span>
+      </button>
+
+    </div><!-- /navbar-right -->
+  </div><!-- /hc-navbar-inner -->
+
+<!-- MOBILE MENU DROPDOWN -->
+<div class="hc-mobile-menu" data-mobile-menu>
+
+  <!-- PROFILE HEADER (signed-in only) -->
+  <div class="mobile-profile-header" data-auth-area>
+    <div class="mobile-profile-avatar-wrap" data-mobile-avatar-click>
+      <img
+        class="mobile-profile-avatar"
+        data-avatar-img
+        src="/images/default-avatar.png"
+      />
+    </div>    
+    <div class="mobile-profile-name" data-mobile-avatar-name>Login</div>
+  </div>
+
+  <div class="mobile-divider"></div>
+
+  <!-- MOBILE MAIN NAV -->
+  <nav class="mobile-nav-section">
+    <a href="podcast.html">Podcast</a>
+    <a href="events.html">Events</a>
+    <a href="forum.html">Community</a>
+    <a href="about.html">About</a>
+    <a href="donate.html" class="highlight">Donate</a>
+  </nav>
+
+  <div class="mobile-divider"></div>
+
+  <!-- MOBILE PROFILE LINKS -->
+  <nav class="mobile-nav-section profile-links">
+
+    <a href="/member-dashboard.html" data-member-only>My Dashboard</a>
+    <a href="/notifications.html" data-member-only data-mobile-notifications>Notifications</a>
+    <a href="/member-account.html" data-member-only>Settings</a>
+    <a href="/forum-my-threads.html" data-member-only>My Threads</a>
+    <button type="button" data-logout-btn data-member-only class="logout-btn">Logout</button>
+  </nav>
+  
+
+</div>
+
+
+</header>
+
+
+  <!-- Member Subnav -->
+  <nav class="member-subnav">
+    <div class="member-subnav-inner">
+      <a href="/member-dashboard.html" class="member-subnav-link">Dashboard</a>
+      <a href="/test-profile.html" class="member-subnav-link">Profile</a>
+      <a href="/test-profile-edit.html" class="member-subnav-link">Edit Profile</a>
+      <a href="/member-account.html" class="member-subnav-link active">Account</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="member-main">
+    <div class="member-main-inner">
+
+      <!-- Page Header -->
+      <header class="member-header">
+        <h1 class="member-title">Account & Security</h1>
+        <p class="member-subtitle">
+          Manage login, notifications, and account protection
+        </p>
+      </header>
+
+      <!-- ACCOUNT INFO -->
+      <section class="member-card">
+        <h3>Account</h3>
+
+        <div class="form-row">
+          <label>Email</label>
+          <input id="email" type="email" value="" disabled />
+          <p class="helper-text">
+            This email is used for login and important account notices.
+          </p>
+        </div>
+      </section>
+
+      <!-- SECURITY -->
+      <section class="member-card">
+        <h3>Security</h3>
+
+        <button class="btn secondary">
+          Change Password
+        </button>
+
+        <a href="/reset-password.html" class="dash-link">
+          Forgot your password?
+        </a>
+      </section>
+
+      <!-- NOTIFICATIONS -->
+<section class="member-card">
+  <h3>Notifications</h3>
+
+  <!-- COMMUNITY -->
+  <div class="notification-group" style="display:none;">
+    <div class="notification-group-title">Community</div>
+    
+    <label class="toggle-row1" style="display:none;">
+      <span>Forum replies</span>
+      <input type="checkbox" data-notif-key="forum_replies"/>
+    </label>
+
+    <label style="display:none;">
+      <span> Forum mentions</span>
+      <input type="checkbox" data-setting="forum_mentions" checked />
+    </label>
+
+
+    <label class="toggle-row" style="display:none;">
+      <span>Prayer responses</span>
+      <input type="checkbox" data-notif-key="prayer_responses"/>
+    </label>
+  </div>
+
+  <!-- EVENTS -->
+  <div class="notification-group">
+    <div class="notification-group-title">Events & RSVP</div>
+
+    <label class="toggle-row">
+      <span>Event RSVPs & reminders</span>
+      <input type="checkbox" data-notif-key="event_rsvp"/>
+    </label>
+
+    <label class="toggle-row">
+      <span>Event updates or changes</span>
+      <input type="checkbox" data-notif-key="event_updates"/>
+    </label>
+  </div>
+
+  <!-- PODCAST -->
+  <div class="notification-group">
+    <div class="notification-group-title">Podcast & Media</div>
+
+    <label class="toggle-row">
+      <span>New podcast episodes</span>
+      <input type="checkbox" data-notif-key="podcast_new"/>
+    </label>
+
+    <label class="toggle-row">
+      <span>Special announcements</span>
+      <input type="checkbox" data-notif-key="podcast_announcements"/>
+    </label>
+  </div>
+
+</section>
+
+
+
+      <!-- DANGER ZONE -->
+      <section class="member-card danger-zone">
+        <h3>Danger Zone</h3>
+
+        <button class="btn danger">
+          Delete Account
+        </button>
+
+        <p class="helper-text">
+          This action is permanent and cannot be undone.
+        </p>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <!-- KEEP YOUR EXISTING FOOTER -->
+  </footer>
+
+  <!-- Scripts -->
+   <script src="/js/avatar-engine.js"></script>
+  <script src="/js/global.js"></script>
+  <script src="/js/member-account.js"></script>
+  <script src="/js/member-auth.js"></script>
+
+</body>
+</html>

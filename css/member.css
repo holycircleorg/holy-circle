@@ -1,0 +1,681 @@
+/* =========================================================
+   HOLY CIRCLE — MEMBER SYSTEM (DASHBOARD + ACCOUNT + PROFILE)
+   Layout only. No buttons. No inputs. No colors.
+========================================================= */
+
+/* ---------------------------------------------------------
+   MEMBER SUBNAV
+--------------------------------------------------------- */
+
+.member-subnav {
+  background: #ffffff;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.member-subnav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+}
+
+.member-subnav-link {
+  font-weight: 600;
+  color: #002e6b;
+  padding: 0.4rem 0.6rem;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: 0.2s ease;
+}
+
+.member-subnav-link:hover {
+  color: #bf9745;
+}
+
+.member-subnav-link.active {
+  color: #bf9745;
+  border-color: #bf9745;
+}
+
+/* ---------------------------------------------------------
+   MEMBER PAGE SHELL
+--------------------------------------------------------- */
+
+/* Main page shell */
+.member-main {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 3.5rem 2rem 5rem;
+}
+
+/* Inner wrapper no longer boxed */
+.member-main-inner {
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  padding: 0;
+}
+
+/* ---------------------------------------------------------
+   PAGE HEADERS (Dashboard / Account / Profile)
+--------------------------------------------------------- */
+
+.member-header {
+  margin-bottom: 2.5rem;
+}
+
+.member-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #002e6b;
+  margin-bottom: 0.3rem;
+}
+
+.member-subtitle {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* ---------------------------------------------------------
+   CARD GRID SYSTEM (Dashboard + Account)
+--------------------------------------------------------- */
+
+.member-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.75rem;
+}
+
+.member-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 1.75rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  border-left: 4px solid #bf9745;
+}
+
+/* ---------------------------------------------------------
+   TWO COLUMN LAYOUT (Account / Profile)
+--------------------------------------------------------- */
+
+.member-columns {
+  display: grid;
+  grid-template-columns: 2.2fr 1fr;
+  gap: 2.5rem;
+}
+
+@media (max-width: 900px) {
+  .member-columns {
+    grid-template-columns: 1fr;
+  }
+  .member-main-inner {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+/* ---------------------------------------------------------
+   ACCOUNT FORM GROUPING (STRUCTURE ONLY)
+--------------------------------------------------------- */
+
+.member-form-section {
+  margin-bottom: 2.5rem;
+}
+
+.member-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+
+@media (max-width: 720px) {
+  .member-form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------------------------------------------------------
+   SIDEBAR (Account + Profile)
+--------------------------------------------------------- */
+
+.member-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ---------------------------------------------------------
+   UTILITIES
+--------------------------------------------------------- */
+
+.mt-xs { margin-top: 0.5rem; }
+.mt-sm { margin-top: 1rem; }
+.mt-md { margin-top: 1.75rem; }
+.mt-lg { margin-top: 2.5rem; }
+
+@media (max-width: 600px) {
+  .member-main {
+    padding: 2.25rem 1.2rem 4rem;
+  }
+
+  .member-title {
+    font-size: 1.7rem;
+  }
+
+  .member-subnav-inner {
+    gap: 1.1rem;
+  }
+}
+
+/* =========================================================
+   MEMBER DASHBOARD — VISUAL LAYER
+   (Safe, scoped, non-global)
+========================================================= */
+
+/* ---------- Dashboard Hero ---------- */
+
+.dashboard-hero {
+  background: linear-gradient(135deg, #002e6b, #00245a);
+  color: #ffffff;
+  padding: 1.5rem 1.5rem; /* slimmer */
+}
+
+
+.dashboard-hero-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  gap: 1.25rem; /* tighter */
+}
+
+
+
+
+.hero-left {
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.dashboard-hero-content {
+  flex: 1;
+  max-width: 700px;
+}
+
+.dashboard-hero-actions {
+  margin-top: 0.65rem;
+}
+
+
+/* Avatar pushed to far right */
+.hero-avatar {
+  flex-shrink: 0;
+  margin-left: auto;
+  width: 88px;
+  height: 88px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.22);
+  border: 3px solid rgba(191,151,69,0.85);
+}
+
+
+.hero-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.hero-subtitle {
+  font-size: 0.9rem;
+  opacity: 0.88;
+  max-width: 460px;
+}
+
+
+/* ---------- Dashboard Grids ---------- */
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 2.5rem;
+  align-items: stretch;
+}
+
+/* Second row grid (Podcast, etc.) */
+.dashboard-grid.bottom {
+  grid-template-columns: 1fr;
+  margin-top: 3rem;
+}
+/* ---------- Dashboard Cards ---------- */
+
+
+.dash-card,
+.member-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 2rem;
+
+  box-shadow:
+    0 12px 30px rgba(0,0,0,0.06),
+    0 2px 6px rgba(0,0,0,0.04);
+
+  border-left: 4px solid #bf9745;
+}
+
+/* Card titles */
+.dash-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #002e6b;
+  margin-bottom: 1.25rem;
+}
+
+/* =========================================================
+   GIVING / FORUM STATS — CLEAN ROWS
+========================================================= */
+
+.giving-stats,
+.forum-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 1.75rem;
+}
+
+.giving-box,
+.forum-box {
+  background: #f8f9fc;
+  border-radius: 14px;
+  padding: 1.2rem;
+  text-align: center;
+}
+
+/* Numbers */
+.giving-amount {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #002e6b;
+}
+
+.giving-label,
+.forum-box span {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+
+/* ---------- Media Blocks ---------- */
+
+.media-block {
+  min-height: 140px;
+}
+
+.empty-state {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* ===== Hero CTA (Apple-style) ===== */
+
+.view-btn {
+  margin-top: 1.25rem;
+  padding: 0.55rem 1.6rem;
+  border-radius: 999px;
+
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.35);
+
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.95rem;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: all 0.2s ease;
+}
+
+.view-btn:hover {
+  background: rgba(255,255,255,0.22);
+  transform: translateY(-1px);
+}
+
+
+
+/* ---------- Dashboard Links ---------- */
+
+.dash-link {
+  display: inline-block;
+  margin-top: 0.75rem;
+ 
+  font-weight: 600;
+  color: #bf9745;
+}
+
+.dash-link:hover {
+  text-decoration: underline;
+}
+
+.giving-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.btn-member {
+  font-weight: 600;
+  color: #bf9745;
+  white-space: nowrap;
+}
+
+.btn-member:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Dashboard Card Footer ---------- */
+
+.dash-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 1.25rem;
+}
+/* Single-action cards stay aligned */
+.dash-card-footer:has(:only-child) {
+  justify-content: flex-end;
+}
+
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .member-main {
+    padding: 3rem 1.75rem 4.5rem;
+  }
+}
+
+  @media (max-width: 768px) {
+  .dashboard-hero {
+    padding: 2.25rem 1.25rem;
+  }
+
+     .dashboard-hero-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.75rem;
+  }
+
+  .hero-title {
+    font-size: 1.35rem;
+  }
+
+  .hero-avatar {
+    width: 76px;
+    height: 76px;
+  }
+  @media (max-width: 768px) {
+  .member-main {
+    padding: 2.5rem 1.25rem 4rem;
+  }
+
+  .giving-stats,
+  .forum-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .dash-card,
+  .member-card {
+    padding: 1.6rem;
+  }
+}
+}
+
+
+
+/* =========================================================
+   ACCOUNT PAGE POLISH
+========================================================= */
+
+.account-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #002e6b;
+  margin-bottom: 0.25rem;
+}
+
+.page-subtitle {
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+/* Section cards */
+.section-card {
+  margin-bottom: 2.5rem;
+}
+
+/* Clear visual grouping */
+.section-card > h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #002e6b;
+  margin-bottom: 1rem;
+}
+
+/* Account sidebar */
+.account-sidebar {
+  background: #f8f9fc;
+  border-radius: 16px;
+  padding: 1.75rem;
+  height: fit-content;
+}
+
+.account-sidebar h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #002e6b;
+  margin-bottom: 0.75rem;
+}
+
+.sidebar-text {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 1.25rem;
+}
+
+.sidebar-stats p {
+  font-size: 0.9rem;
+  margin: 0.4rem 0;
+}
+
+.account-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.account-form button {
+  align-self: flex-start;
+}
+
+/* =========================================================
+   MEMBER GIVING HISTORY — VISUAL POLISH
+   Matches Dashboard + Account styling
+========================================================= */
+
+/* Page wrapper tightening */
+.member-main .member-card {
+  margin-bottom: 2.5rem;
+}
+
+/* ---- TOTAL GIVEN CARD ---- */
+
+.dashboard-card {
+  background: #f8f9fc;
+  border-radius: 16px;
+  padding: 1.75rem;
+  margin: 1.75rem 0 2.5rem;
+  text-align: center;
+  border: 1px solid #e6e9f2;
+}
+
+.dashboard-card h3 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+/* ---- TAX SUMMARY ---- */
+
+.tax-summary {
+  background: linear-gradient(180deg, #f9fbff, #ffffff);
+  border-radius: 18px;
+  padding: 2rem;
+  text-align: center;
+  border-left: 4px solid #bf9745;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.06);
+}
+
+.tax-summary h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #002e6b;
+  margin-bottom: 0.75rem;
+}
+
+.tax-summary p {
+  color: #555;
+  font-size: 0.95rem;
+  margin-bottom: 1.25rem;
+}
+
+.tax-summary .gold-btn {
+  padding: 0.6rem 1.6rem;
+  border-radius: 999px;
+}
+
+/* ---- FILTER CONTROLS ---- */
+
+.giving-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.75rem;
+}
+
+.filter-select,
+.search-input {
+  padding: 0.6rem 0.75rem;
+  border-radius: 10px;
+  border: 1px solid #dfe3eb;
+  font-size: 0.9rem;
+  font-family: inherit;
+}
+
+.search-input {
+  flex: 1;
+  min-width: 200px;
+}
+
+.filter-select:focus,
+.search-input:focus {
+  outline: none;
+  border-color: #bf9745;
+  box-shadow: 0 0 0 3px rgba(191,151,69,0.15);
+}
+
+/* ---- DONATION LIST ---- */
+
+.donation-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.donation-list li {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #eef0f6;
+  transition: 0.2s ease;
+}
+
+.donation-list li:hover {
+  box-shadow: 0 8px 22px rgba(0,0,0,0.06);
+  transform: translateY(-1px);
+}
+
+/* Left side (date / label) */
+.donation-list .donation-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.donation-list .donation-date {
+  font-size: 0.8rem;
+  color: #777;
+}
+
+.donation-list .donation-type {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #002e6b;
+}
+
+/* Right side (amount) */
+.donation-list .donation-amount {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #002e6b;
+  white-space: nowrap;
+}
+
+/* ---- EMPTY STATE ---- */
+
+.donation-list:empty::after {
+  content: "No donations found.";
+  display: block;
+  text-align: center;
+  color: #777;
+  padding: 2rem 0;
+  font-size: 0.9rem;
+}
+
+/* ---- MOBILE ---- */
+
+@media (max-width: 640px) {
+  .donation-list li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .donation-list .donation-amount {
+    align-self: flex-end;
+  }
+
+  .giving-controls {
+    flex-direction: column;
+  }
+}

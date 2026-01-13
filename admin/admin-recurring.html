@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Recurring Gifts | Holy Circle Admin</title>
+  <link rel="stylesheet" href="admin.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    .page-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #002e6b;
+      margin-bottom: 1rem;
+    }
+
+    .subtext {
+      color: #666;
+      margin-bottom: 2rem;
+    }
+
+    .controls {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+    }
+
+    .controls input {
+      width: 300px;
+      padding: 0.6rem 1rem;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      font-size: 0.95rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+    }
+
+    th {
+      background: #002e6b;
+      color: #fff;
+      padding: 0.9rem;
+      font-weight: 600;
+      text-align: left;
+    }
+
+    td {
+      padding: 0.85rem;
+      border-bottom: 1px solid #eee;
+      color: #333;
+      font-size: 0.95rem;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .cancel-btn {
+      background: #bf1515;
+      color: #fff;
+      padding: 0.4rem 0.8rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      border: none;
+      transition: 0.3s;
+    }
+
+    .cancel-btn:hover {
+      background: #ff4c4c;
+    }
+
+    .status-active {
+      background: #30b130;
+      color: #fff;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+    }
+
+    .status-canceling {
+      background: #bf9745;
+      color: #fff;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="admin-container">
+
+    <h1 class="page-title">Recurring Gifts</h1>
+    <p class="subtext">Manage active monthly partners and automated giving plans.</p>
+
+    <div class="controls">
+      <input type="text" id="searchInput" placeholder="Search by name or email..." />
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Donor</th>
+          <th>Email</th>
+          <th>Amount</th>
+          <th>Interval</th>
+          <th>Status</th>
+          <th>Next Billing</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="recurringTableBody">
+        <tr><td colspan="7">Loading...</td></tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <script src="admin-recurring.js"></script>
+</body>
+</html>

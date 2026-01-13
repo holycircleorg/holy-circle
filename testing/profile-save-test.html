@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Profile Save Test</title>
+  <style>body{font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial;max-width:800px;margin:24px} pre{background:#f6f8fa;padding:12px;border-radius:6px;overflow:auto}</style>
+</head>
+<body>
+  <h1>Profile Save Test</h1>
+  <p>This page simulates saving a profile by POSTing to <code>/api/members/update</code> with credentials included. Open it in the same browser where you're signed in so cookies are sent.</p>
+
+  <label>First name: <input id="first_name" value="TestFirst"></label><br>
+  <label>Last name: <input id="last_name" value="TestLast"></label><br>
+  <label>Bio: <input id="bio" value="Automated test bio"></label><br>
+  <label>Featured verse: <input id="featured_verse" value="John 3:16"></label><br>
+  <label>Visibility: <select id="visibility"><option value="public">public</option><option value="private">private</option></select></label><br><br>
+
+  <button id="send">Send Save Request</button>
+  <p id="status"></p>
+  <h3>Response</h3>
+  <pre id="output">(not sent yet)</pre>
+
+  <script>
+    document.getElementById('send').addEventListener('click', async () => {
+      const statusEl = document.getElementById('status');
+      const out = document.getElementById('output');
+      statusEl.textContent = 'Sending...';
+
+      const payload = {
+        first_name: document.getElementById('first_name').value,
+        last_name: document.getElementById('last_name').value,
+        bio: document.getElementById('bio').value,
+        featured_verse: document.getElementById('featured_verse').value,
+        profile_visibility: document.getElementById('visibility').value
+      };
+
+      try {
+        const res = await fetch('/api/members/update', {
+          method: 'POST',
+          credentials: 'include',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        const json = await res.json().catch(() => ({ status: 'non-json response' }));
+        out.textContent = JSON.stringify({ status: res.status, ok: res.ok, body: json }, null, 2);
+        statusEl.textContent = res.ok ? 'Request succeeded' : 'Request failed';
+      } catch (err) {
+        statusEl.textContent = 'Network error';
+        out.textContent = String(err);
+      }
+    });
+  </script>
+</body>
+</html>

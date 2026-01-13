@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Holy Circle | Admin Dashboard</title>
+
+  <link rel="stylesheet" href="admin.css">
+  <link rel="stylesheet" href="admin-layout.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <script>
+    document.body.classList.add("with-sidebar");
+  </script>
+
+<aside class="admin-sidebar">
+  <div class="sidebar-header">
+    <h2>HOLY CIRCLE</h2>
+    <button id="sidebarToggle" class="sidebar-toggle">☰</button>
+  </div>
+
+  <ul class="sidebar-menu">
+
+    <li><a href="admin-dashboard.html">
+      <i class="icon">🏠</i><span>Dashboard</span>
+    </a></li>
+
+    <li><a href="admin-people.html">
+      <i class="icon">👥</i><span>People</span>
+    </a></li>
+
+    <li><a href="admin-donors.html">
+      <i class="icon">💛</i><span>Donors</span>
+    </a></li>
+
+
+    <li><a href="admin-events.html">
+      <i class="icon">📅</i><span>Events</span>
+    </a></li>
+
+    <li><a href="admin-podcast.html">
+      <i class="icon">🎙️</i><span>Podcast</span>
+    </a></li>
+
+    <li>
+      <a href="admin-moderation.html">
+        <i class="icon">🗒️</i> Forums
+      </a>
+    </li>
+
+
+    <li><a href="admin-news.html">
+      <i class="icon">📰</i><span>News</span>
+    </a></li>
+
+    <li><a href="admin-analytics.html">
+      <i class="icon">📊</i><span>Analytics</span>
+    </a></li>
+    
+    <li><a href="admin-email.html">
+      <i class="icon">✉️</i><span>Email</span>
+    </a></li>
+
+    <li><a href="admin-users.html">
+      <i class="icon">🛂</i><span>Users</span>
+    </a></li>
+    
+
+    <li><a href="admin-settings.html">
+      <i class="icon">⚙️</i><span>Settings</span>
+    </a></li>
+  </ul>
+
+  <div class="sidebar-footer">
+    <a href="#" onclick="adminLogout()" class="logout-link">
+      <i class="icon">🚪</i><span>Logout</span>
+    </a>
+  </div>
+</aside>
+
+
+
+<header class="admin-header">
+
+  <!-- MOBILE-ONLY DROPDOWN BUTTON -->
+<div class="header-left">
+<div class="mobile-menu-trigger" id="mobileMenuTrigger">
+  <i class="fa-solid fa-bars"></i>
+</div>
+</div>
+
+
+  <!-- CENTER: title -->
+  <div class="header-center">
+    <h1>Dashboard</h1>
+  </div>
+
+  <!-- RIGHT: name + role -->
+  <div class="header-right">
+    <div class="simple-user-text">
+      <strong id="headerName">Loading...</strong>
+      <small id="headerRole"></small>
+    </div>
+  </div>
+
+</header>
+
+  <!-- MOBILE NAV DROPDOWN -->
+<div class="mobile-nav-dropdown" id="mobileNavDropdown">
+  <a href="admin-dashboard.html">Dashboard</a>
+  <a href="admin-people.html">People</a>
+  <a href="admin-donors.html">Donors</a>
+  <a href="admin-events.html">Events</a>
+  <a href="admin-podcast.html">Podcast</a>
+  <a href="admin-news.html">News</a>
+  <a href="admin-analytics.html">Analytics</a>
+  <a href="admin-users.html">Users</a>
+  <a href="admin-settings.html">Settings</a>
+</div>
+
+  
+
+<a href="/" class="back-to-public-btn">
+  ← Back to Public Site
+</a>
+
+
+<!-- MAIN -->
+<main class="admin-main">
+  <div class="admin-container">
+
+
+    <!-- NOTIFICATIONS -->
+    <section class="notifications-section panel tall-panel">
+      <div class="panel-header">
+        <h2>Notifications</h2>
+      </div>
+
+      <div id="notificationsList" class="notifications-list"></div>
+      <p id="noNotifications" class="empty-state hidden">All caught up — no new notifications </p>
+    </section>
+
+
+
+    <!-- TOP OVERVIEW GRID -->
+    <div class="overview-grid">
+
+
+      <!-- PEOPLE SNAPSHOT -->
+      <section class="panel tall-panel">
+        <div class="panel-header">
+          <h2>People Snapshot</h2>
+        </div>
+
+        <ul class="simple-list">
+          <li>
+            <div class="list-main">
+              <span class="list-title">Members</span>
+              <span class="list-meta">Total active members</span>
+            </div>
+            <strong id="statMembers">0</strong>
+          </li>
+
+          <li>
+            <div class="list-main">
+              <span class="list-title">Visitors</span>
+              <span class="list-meta">First-time or returning</span>
+            </div>
+            <strong id="statVisitors">0</strong>
+          </li>
+
+          <li>
+            <div class="list-main">
+              <span class="list-title">Volunteers</span>
+              <span class="list-meta">Serving this month</span>
+            </div>
+            <strong id="statVolunteers">0</strong>
+          </li>
+
+          <li>
+            <div class="list-main">
+              <span class="list-title">New This Month</span>
+              <span class="list-meta">People added recently</span>
+            </div>
+            <strong id="statNewPeople">0</strong>
+          </li>
+        </ul>
+      </section>
+
+
+
+      <!-- STATS CARDS (UPDATED WITH STRIPE IDs) -->
+      <section class="stats-section">
+        
+        <div class="stat-card">
+          <h3>Total Donors</h3>
+          <p id="statDonors">0</p>
+        </div>
+
+        <div class="stat-card">
+          <h3>Total Events</h3>
+          <p id="statEvents">0</p>
+        </div>
+
+        <div class="stat-card">
+          <h3>Total RSVPs</h3>
+          <p id="statRSVPs">0</p>
+        </div>
+
+        <!-- CHANGED: Now Stripe Monthly Revenue -->
+        <div class="stat-card">
+          <h3>Monthly Giving</h3>
+          <p id="statDonations">$0</p>
+        </div>
+
+        <!-- NEW: Stripe Recurring Revenue -->
+        <div class="stat-card">
+          <h3>Recurring Monthly</h3>
+          <p id="statRecurring">$0</p>
+        </div>
+
+      </section>
+
+
+
+      <!-- UPCOMING EVENTS -->
+      <section class="panel tall-panel">
+        <div class="panel-header">
+          <h2>Upcoming Events</h2>
+        </div>
+
+        <ul class="simple-list" id="eventsList">
+          <!-- Filled by JS -->
+        </ul>
+
+        <a href="admin-events.html" class="small-btn" style="margin-top:1rem;">View All Events</a>
+      </section>
+
+    </div>
+
+
+
+
+
+
+    <!-- BOTTOM GRID -->
+    <div class="bottom-grid">
+
+
+      <!-- VOLUNTEER OVERVIEW -->
+      <section class="panel tall-panel">
+        <div class="panel-header">
+          <h2>Volunteer Overview</h2>
+        </div>
+
+        <ul class="simple-list">
+          <li><span class="list-title">Volunteers Scheduled</span><strong id="volScheduled">0</strong></li>
+          <li><span class="list-title">Unfilled Roles</span><strong id="volUnfilled">0</strong></li>
+          <li><span class="list-title">Total Volunteers</span><strong id="volTotal">0</strong></li>
+        </ul>
+
+        <a href="admin-people.html" class="small-btn" style="margin-top:1rem;">Manage Volunteers</a>
+      </section>
+
+
+
+
+      <!-- FOLLOW-UP PIPELINE -->
+      <section class="panel tall-panel">
+        <div class="panel-header">
+          <h2>Follow-Up Pipeline</h2>
+        </div>
+
+        <ul class="simple-list">
+          <li><span class="list-title">New</span> <strong id="followNew">0</strong></li>
+          <li><span class="list-title">Assigned</span> <strong id="followAssigned">0</strong></li>
+          <li><span class="list-title">Overdue</span> <strong id="followOverdue">0</strong></li>
+          <li><span class="list-title">Completed</span> <strong id="followCompleted">0</strong></li>
+        </ul>
+
+        <a href="admin-followups.html" class="small-btn" style="margin-top:1rem;">Manage Follow-Ups</a>
+      </section>
+
+
+
+      <!-- CONTENT OVERVIEW -->
+      <section class="panel tall-panel">
+        <div class="panel-header">
+          <h2>Content Overview</h2>
+        </div>
+
+        <ul class="simple-list">
+          <li><span class="list-title">Latest News Article</span><span id="latestNews" class="list-meta">—</span></li>
+          <li><span class="list-title">Latest Podcast Episode</span><span id="latestPodcast" class="list-meta">—</span></li>
+          <li><span class="list-title">Latest Media Upload</span><span id="latestMedia" class="list-meta">—</span></li>
+        </ul>
+
+        <div style="margin-top:1rem; display:flex; gap:0.6rem; flex-wrap:wrap;">
+          <a href="admin-news.html" class="small-btn">New Article</a>
+          <a href="admin-podcast.html" class="small-btn">New Podcast</a>
+          <a href="admin-events.html" class="small-btn">New Event</a>
+        </div>
+      </section>
+
+    </div>
+
+
+
+
+
+    <!-- ANALYTICS (UPDATED FOR STRIPE) -->
+    <section class="panel tall-panel" style="margin-top:2rem;">
+      <div class="panel-header">
+        <h2>Analytics</h2>
+      </div>
+
+      <div class="charts-mini">
+
+        <!-- STRIPE MONTHLY GIVING -->
+        <div class="chart-box-mini">
+          <h4 class="chart-label">Monthly Giving</h4>
+          <canvas id="donationChart"></canvas>
+        </div>
+
+        <!-- STRIPE FUND BREAKDOWN -->
+        <div class="chart-box-mini">
+          <h4 class="chart-label">Fund Breakdown</h4>
+          <canvas id="fundChart"></canvas>
+        </div>
+
+        <!-- Your existing RSVP chart -->
+        <div class="chart-box-mini">
+          <h4 class="chart-label">RSVPs This Week</h4>
+          <canvas id="rsvpChart"></canvas>
+        </div>
+
+      </div>
+    </section>
+
+
+
+
+    <!-- SECURITY LOG -->
+    <section class="panel tall-panel" style="margin-top:2rem;">
+      <div class="panel-header">
+        <h2>Security & Activity Log</h2>
+      </div>
+
+      <ul class="simple-list" id="securityLog"></ul>
+    </section>
+
+
+  </div>
+    
+</main>
+
+
+<script src="admin-dashboard.js"></script>
+<script src="admin-layout.js"></script>
+<script>
+  const res = await fetch("/api/admin/me", { credentials: "include" });
+</script>
+
+
+
+</body>
+
+
+</html>

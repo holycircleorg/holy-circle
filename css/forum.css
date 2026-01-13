@@ -1,0 +1,423 @@
+/* =====================================================
+   HOLY CIRCLE FORUM — FINAL CSS
+   Matches forum.html exactly
+   ===================================================== */
+
+:root {
+  --hc-blue: #002e6b;
+  --hc-blue-soft: #0b3f87;
+  --hc-gold: #bf9745;
+  --hc-bg: #f6f7f9;
+  --hc-card: #ffffff;
+  --hc-border: #e6e8ee;
+  --hc-muted: #6b7280;
+  --hc-shadow: 0 14px 40px rgba(0,0,0,.08);
+}
+
+/* -----------------------------------------------------
+   Page base
+----------------------------------------------------- */
+body[data-page="forum-home"] {
+  background: var(--hc-bg);
+  font-family: "Poppins", system-ui, sans-serif;
+}
+
+/* -----------------------------------------------------
+   Main shell
+----------------------------------------------------- */
+.forum-shell {
+  width: 100%;
+}
+
+/* -----------------------------------------------------
+   3-column desktop layout
+----------------------------------------------------- */
+.forum-layout {
+  max-width: 1320px;
+  margin: 0 auto;
+  margin-top:20px;
+  padding: 2rem 1rem 4rem;
+
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr) 300px;
+  gap: 1.5rem;
+}
+
+/* -----------------------------------------------------
+   SORT BAR (MATCH FORUM)
+----------------------------------------------------- */
+
+
+.forum-nav-pill {
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid var(--hc-border);
+  background: #ffffff;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.forum-nav-pill.is-active {
+  background: var(--hc-gold);
+  color: #ffffff;
+  border-color: var(--hc-gold);
+}
+
+
+
+/* =====================================================
+   SORT CONTAINER — SHARED
+   ===================================================== */
+.forum-sort-wrap {
+  width: auto;
+  flex-shrink: 0;
+  background: #ffffff;
+  border: 1px solid var(--hc-border);
+  border-radius: 16px;
+  padding: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.forum-sort-wrap .forum-nav-pill {
+  margin: 0;
+}
+
+.forum-nav-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+
+/* -----------------------------------------------------
+   LEFT COLUMN
+----------------------------------------------------- */
+.forum-left {
+  position: sticky;
+  top: 72px;
+  align-self: start;
+}
+
+.forum-nav-section {
+  background: var(--hc-card);
+  border-radius: 16px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--hc-border);
+  box-shadow: var(--hc-shadow);
+}
+
+
+
+
+.create-community-btn {
+  width: 100%;
+  padding: .55rem;
+  border-radius: 10px;
+  border: none;
+  background: var(--hc-blue);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* -----------------------------------------------------
+   CENTER COLUMN
+----------------------------------------------------- */
+.forum-center {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* HERO */
+.forum-hero {
+
+  background: linear-gradient(180deg, var(--hc-blue), var(--hc-blue-soft));
+  color: #fff;
+  border-radius: 22px;
+  padding: 2rem;
+  box-shadow: var(--hc-shadow);
+}
+
+.forum-hero h1 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.forum-hero p {
+  margin-top: .35rem;
+  opacity: .9;
+}
+
+.forum-hero-actions {
+  margin-top: 1.2rem;
+  display: flex;
+  gap: .75rem;
+}
+
+.forum-hero-actions .btn {
+  padding: .6rem 1.1rem;
+  border-radius: 10px;
+  background: #fff;
+  color: var(--hc-blue);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.forum-hero-actions .btn-gold {
+  background: var(--hc-gold);
+  color: #fff;
+}
+
+/* SECTIONS */
+.forum-section {
+  background: var(--hc-card);
+  border-radius: 20px;
+  padding: 1.25rem;
+  border: 1px solid var(--hc-border);
+  box-shadow: var(--hc-shadow);
+}
+
+.forum-section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: .75rem;
+}
+
+.forum-section-head h2 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+
+
+/* THREADS */
+.thread-list {
+  display: flex;
+  flex-direction: column;
+  gap: .85rem;
+}
+
+/* ===============================
+   THREAD ROW – PREMIUM CARD
+================================ */
+
+.thread-row {
+  position: relative;
+  background: #fff;
+  border-radius: 16px;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--hc-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  transition:
+    transform .18s ease,
+    box-shadow .18s ease,
+    border-color .18s ease;
+    cursor: pointer;
+}
+
+.thread-row:hover {
+  transform: translateY(-2px);
+  border-color: rgba(0, 46, 107, 0.15);
+  box-shadow: 0 14px 40px rgba(0,0,0,.12);
+}
+
+
+.thread-title {
+  font-size: .95rem;
+  font-weight: 600;
+  color: #111;
+  text-decoration: none;
+  line-height: 1.35;
+
+  transition: color .15s ease;
+}
+
+.thread-row:hover .thread-title {
+  color: var(--hc-blue);
+}
+
+
+.thread-meta {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+
+  margin-top: .25rem;
+  font-size: .75rem;
+  color: var(--hc-muted);
+}
+
+.thread-meta .dot {
+  opacity: .5;
+}
+
+
+.thread-row::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 12px;
+  bottom: 12px;
+  width: 3px;
+  border-radius: 999px;
+  background: transparent;
+  transition: background .18s ease;
+}
+
+.thread-row:hover::before {
+  background: linear-gradient(
+    to bottom,
+    var(--hc-blue),
+    var(--hc-gold)
+  );
+}
+
+
+
+
+/* -----------------------------------------------------
+   RIGHT COLUMN
+----------------------------------------------------- */
+.forum-right {
+  position: sticky;
+  top: 72px;
+  align-self: start;
+ 
+}
+
+
+
+.trending-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.trending-thread {
+  display: block;
+  font-size: 0.9rem;
+  line-height: 1.3;
+  padding: 0.4rem 0.5rem;
+  border-radius: 6px;
+  color: #1f2937;
+  text-decoration: none;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.trending-thread:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.community-rules {
+  padding-left: 1.25rem;
+  font-size: 0.85rem;
+  color: #333;
+}
+
+.community-rules li {
+  margin-bottom: 0.4rem;
+  line-height: 1.4;
+}
+
+
+.community-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.community-link:hover {
+  text-decoration: underline;
+}
+
+/* =====================================================
+   COMMUNITY PAGE — FORCE FORUM LAYOUT CONSISTENCY
+   ===================================================== */
+
+body[data-page="forum-community"] {
+  background: var(--hc-bg);
+  font-family: "Poppins", system-ui, sans-serif;
+}
+
+body[data-page="forum-community"] .forum-layout {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* -----------------------------------------------------
+   SORT BAR (MATCH FORUM)
+----------------------------------------------------- */
+.forum-sort {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.sort-chip {
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid var(--hc-border);
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.sort-chip.is-active {
+  background: var(--hc-gold);
+  color: #ffffff;
+  border-color: var(--hc-gold);
+}
+
+
+/* -----------------------------------------------------
+   Mobile
+----------------------------------------------------- */
+@media (max-width: 1100px) {
+  .forum-layout {
+    grid-template-columns: 1fr;
+    margin-top: 0px;
+  }
+
+  .forum-left,
+  .forum-right {
+    position: static;
+  }
+
+  
+  .forum-hero{
+    margin-top:0px;
+  }
+}
+
+@media (max-width: 640px) {
+  .thread-row {
+    padding: .9rem;
+  }
+
+  .thread-title {
+    font-size: .9rem;
+  }
+
+  .amen-btn {
+    font-size: .7rem;
+  }
+
+  .forum-layout {
+    margin-top: 0px;
+  }
+}
+

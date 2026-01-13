@@ -1,0 +1,350 @@
+/* ============================================================
+   Holy Circle Podcast — Cinematic Modern Stylesheet (CLEANED)
+   Only essential classes + minimal Coming Soon overlay preserved
+=============================================================== */
+
+/* ----------------------------------------------
+   HERO / CAROUSEL
+---------------------------------------------- */
+.carousel {
+  position: relative;
+  min-height: 500px;
+  background-image: url('../images/giving.jpeg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem;
+  text-align: center;
+  color: #fff;
+}
+
+.carousel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 46, 107, 0.45);
+  backdrop-filter: blur(0px) saturate(160%) contrast(110%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%) contrast(110%);
+  z-index: 1;
+}
+
+.carousel > * {
+  position: relative;
+  z-index: 2;
+}
+
+.carousel h3 {
+  font-size: 0.95rem;
+  color: #bff1ff;
+  text-transform: uppercase;
+  letter-spacing: 1.7px;
+  margin-bottom: 0.5rem;
+}
+
+.carousel h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #f0e990;
+  margin-bottom: 1rem;
+  max-width: 800px;
+  line-height: 1.25;
+}
+
+.carousel p {
+  max-width: 700px;
+  color: #e8ecf3;
+  font-size: 1.1rem;
+  margin-bottom: 1.8rem;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.watch-now-btn,
+.listen-now-btn {
+  padding: 0.9rem 2.2rem;
+  border-radius: 40px;
+  background: #bf9745;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.25);
+  transition: 0.3s ease;
+}
+
+.watch-now-btn:hover,
+.listen-now-btn:hover {
+  transform: translateY(-4px) scale(1.04);
+  color: #002e6b;
+}
+
+/* ----------------------------------------------
+   MOST RECENT EPISODE
+---------------------------------------------- */
+.recent-highlight {
+  background: linear-gradient(180deg, #f0f4ff 0%, #ffffff 100%);
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.recent-highlight h2 {
+  color: #002e6b;
+  font-size: 2.3rem;
+  margin-bottom: 2rem;
+}
+
+.recent-container {
+  display: flex;
+  justify-content: center;
+}
+
+.recent-item {
+  width: 90%;
+  max-width: 950px;
+  border-radius: 18px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.recent-item img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  filter: brightness(65%);
+  transition: all 0.3s ease;
+}
+
+.recent-item:hover img {
+  filter: brightness(45%);
+  transform: scale(1.03);
+}
+
+/* Play animation overlay */
+.recent-item::after {
+  content: "\f04b";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  color: #f0e990;
+  font-size: 2rem;
+  width: 80px;
+  height: 80px;
+  background: rgba(255,255,255,0.15);
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: pulseGlow 3s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+.recent-item:hover::after {
+  background: rgba(255,255,255,0.25);
+  transform: scale(1.1);
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(240,233,144,0.2); }
+  50% { box-shadow: 0 0 35px rgba(240,233,144,0.6); }
+}
+
+.recent-text {
+  position: absolute;
+  bottom: 35px;
+  left: 40px;
+  right: 40px;
+  color: #fff;
+  z-index: 5;
+}
+
+.recent-text h3 {
+  font-size: 1.9rem;
+  margin-bottom: 0.5rem;
+  color: #f0e990;
+}
+
+.recent-text p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* ----------------------------------------------
+   EPISODE GRID
+---------------------------------------------- */
+.podcast-grid {
+  margin-top: 3rem;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.episode {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.10);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.episode:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+}
+
+.episode iframe {
+  width: 100%;
+  height: 190px;
+  border-radius: 14px 14px 0 0;
+}
+
+.episode h3 {
+  font-size: 1.2rem;
+  padding: 1rem;
+  color: #002e6b;
+}
+
+.episode p {
+  padding: 0 1rem 1.2rem;
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+/* ----------------------------------------------
+   MOBILE RECENT EPISODE RESPONSIVE
+---------------------------------------------- */
+@media (max-width: 850px) {
+  .carousel h1 { font-size: 2.1rem; }
+  .recent-text {
+    text-align: center;
+    left: 20px;
+    right: 20px;
+  }
+  .recent-text h3 { font-size: 1.6rem; }
+  .recent-item img { height: 300px; }
+}
+
+
+/* ============================================================
+   CENTERED COMING SOON LAYOUT
+=============================================================== */
+
+.coming-soon-centered {
+  position: relative;
+  text-align: center;
+}
+
+/* Title at top middle */
+.cs-title {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: #f0e990;
+  z-index: 5;
+}
+
+/* Play icon in the exact center */
+.cs-play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  color: #f0e990;
+  z-index: 5;
+
+  width: 100px;
+  height: 100px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+/* Button at bottom middle */
+.cs-button {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.8rem 1.8rem;
+  background: linear-gradient(180deg, #bf9745, #a67d3d);
+  border-radius: 35px;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  z-index: 5;
+  transition: 0.3s ease;
+}
+
+.cs-button:hover {
+
+  color: #002e6b;
+  transform: translateX(-50%) translateY(-3px);
+}
+
+/* Mobile adjustments */
+@media (max-width: 650px) {
+  .cs-title {
+    top: 25px;
+    font-size: 1.4rem;
+  }
+
+  .cs-play-icon {
+    width: 70px;
+    height: 70px;
+    font-size: 2rem;
+  }
+
+  .cs-button {
+    bottom: 25px;
+    padding: 0.65rem 1.4rem;
+    font-size: 0.9rem;
+  }
+}
+
+.coming-soon-centered {
+  width: 100%;
+  max-width: 950px;
+  border-radius: 18px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.coming-soon-centered::after {
+  content: none !important;
+  display: none !important;
+}
+
+
+.btn sticky-btn {
+  padding:0.4rem 1rem;
+  
+}
+
+/* Sticky Button Hover */
+.sticky-btn:hover {
+  background: #bf9745 !important;  /* gold highlight */
+  color: #002e6b !important;        /* navy text */
+  transform: translateY(-3px);
+}

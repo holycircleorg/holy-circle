@@ -1,0 +1,94 @@
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #f6f7ff, #eef2ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .login-card {
+    background: #ffffff;
+    padding: 2.5rem 2.5rem 3rem;
+    border-radius: 18px;
+    max-width: 380px;
+    width: 90%;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    text-align: center;
+  }
+  
+  .login-title {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1e293b;
+  }
+  
+  .login-subtitle {
+    margin-top: 0.3rem;
+    margin-bottom: 1.8rem;
+    color: #64748b;
+    font-size: 0.95rem;
+  }
+  
+  label {
+    display: block;
+    text-align: left;
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: #334155;
+  }
+  
+  input {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 10px;
+    border: 1px solid #cbd5e1;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+  }
+  
+  input:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99,102,241,0.2);
+  }
+  
+  .login-btn {
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 10px;
+    background: #4f46e5;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+  
+  .login-btn:hover {
+    background: #4338ca;
+  }
+  
+  .login-status {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    min-height: 18px;
+  }
+  
+
+  @media (max-width: 960px) {
+    .headername {
+      padding: 2rem 2rem 2.5rem;
+      justify-content: right;
+    }
+  }

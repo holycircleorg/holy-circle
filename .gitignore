@@ -1,0 +1,59 @@
+# dependencies
+node_modules/
+
+# environment variables
+.env
+.env.*
+*.env
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+
+# build artifacts (if any)
+dist/
+build/
+
+# SQLite / local DBs (if applicable)
+*.sqlite
+*.db
+
+# uploads / temp
+uploads/
+tmp/
+# dependencies
+node_modules/
+
+# environment variables
+.env
+.env.*
+*.env
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+
+# build artifacts (if any)
+dist/
+build/
+
+# SQLite / local DBs (if applicable)
+*.sqlite
+*.db
+
+# uploads / temp
+uploads/
+tmp/
+

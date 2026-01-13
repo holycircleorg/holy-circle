@@ -1,0 +1,277 @@
+/* =====================================================
+   HOLY CIRCLE BRAND THEME — PREMIUM + CLEAN
+   Works with index.html exactly as uploaded
+===================================================== */
+
+/* ----------------------------------------
+   BRAND COLORS
+----------------------------------------- */
+:root {
+  --hc-blue: #002e6b;
+  --hc-blue-light: #89ddf4;
+  --hc-gold: #bf9745;
+  --hc-gold-light: #f0e990;
+  --hc-gray: #6b7280;
+  --hc-bg-light: #f9fafb;
+  --hc-bg-dark: #0f172a;
+}
+
+/* ----------------------------------------
+   GLOBAL PAGE SPACING
+----------------------------------------- */
+.section {
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+
+.section.light {
+  background: var(--hc-bg-light);
+}
+
+/* ----------------------------------------
+   HEADERS AND TEXT
+----------------------------------------- */
+h1, h2, h3 {
+  color: var(--hc-blue);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+h2 {
+  font-size: 2.2rem;
+  margin-bottom: 0.7rem;
+}
+
+.subtitle {
+  color: var(--hc-gray);
+  font-size: 1.05rem;
+  margin-bottom: 2rem;
+}
+
+/* ----------------------------------------
+   BUTTONS
+----------------------------------------- */
+.btn {
+  background: var(--hc-blue);
+  color: #fff;
+  padding: 0.75rem 1.4rem;
+  border-radius: 999px;
+  font-weight: 600;
+  display: inline-block;
+  transition: 0.25s ease;
+}
+
+.btn:hover {
+  background: var(--hc-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.btn.secondary {
+  background: #ffffff;
+  color: var(--hc-blue);
+  border: 2px solid var(--hc-blue-light);
+}
+
+.support-btn {
+  display: block;
+  margin: 1.5rem auto 0;
+  background: var(--hc-gold);
+  color: #fff;
+  padding: 0.9rem 1.5rem;
+  width: fit-content;
+  border-radius: 999px;
+  font-weight: 600;
+  transition: 0.25s ease;
+}
+
+.support-btn:hover {
+  filter: brightness(1.05);
+  box-shadow: 0 8px 20px rgba(191,151,69,0.4);
+}
+
+/* ----------------------------------------
+   HERO SECTION
+----------------------------------------- */
+.hero {
+  position: relative;
+  height: 92vh;
+  background-image: url('/images/Blues and white doves.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgba(0,0,0,0.25),
+    rgba(0,0,0,0.6)
+  );
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 5;
+  color: #fff;
+  max-width: 650px;
+  padding: 1rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.15rem;
+  margin-bottom: 2rem;
+  line-height: 1.8;
+}
+
+/* Button stacking for hero */
+.buttons.vertical-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.top-row {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+/* ----------------------------------------
+   SHORTS SECTION
+----------------------------------------- */
+.shorts-slider-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.shorts-row {
+  display: flex;
+  gap: 1.4rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 1rem 0;
+}
+
+.shorts-row::-webkit-scrollbar {
+  height: 6px;
+}
+
+.shorts-row::-webkit-scrollbar-thumb {
+  background: var(--hc-blue);
+  border-radius: 999px;
+}
+
+.slider-btn {
+  background: var(--hc-blue);
+  border: none;
+  color: white;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.slider-btn:hover {
+  background: var(--hc-gold);
+}
+
+/* Mini player */
+.mini-player {
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 14px;
+  margin: 2rem auto;
+  max-width: 500px;
+  padding: 0;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.mini-header {
+  background: var(--hc-blue);
+  color: #fff;
+  padding: 0.8rem;
+  font-weight: 600;
+  border-radius: 14px 14px 0 0;
+}
+
+/* ----------------------------------------
+   ABOUT & GRID LAYOUT
+----------------------------------------- */
+.about-grid {
+  max-width: 1000px;
+  margin: 2rem auto;
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 3rem;
+  text-align: left;
+}
+
+.about-grid .image img {
+  width: 100%;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+blockquote {
+  margin-top: 1.5rem;
+  padding-left: 1rem;
+  border-left: 4px solid var(--hc-gold);
+  color: var(--hc-blue);
+  font-style: italic;
+}
+
+/* ----------------------------------------
+   DONATE SECTION
+----------------------------------------- */
+#donate h3 {
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+/* ----------------------------------------
+   FOOTER
+----------------------------------------- */
+.footer {
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.footer-logo h3 {
+  color: var(--hc-gold-light);
+  font-size: 1.6rem;
+  margin-bottom: 0.3rem;
+}
+
+.footer-logo p {
+  font-size: 0.95rem;
+  color: var(--hc-blue-light);
+}
+
+.social-links a {
+  color: #fff;
+  font-size: 1.8rem;
+  transition: 0.3s ease;
+}
+
+.social-links a:hover {
+  color: var(--hc-gold-light);
+  transform: translateY(-4px);
+}

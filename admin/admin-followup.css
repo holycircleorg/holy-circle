@@ -1,0 +1,492 @@
+/* ===============================
+   FOLLOW-UP PAGE STYLING
+   =============================== */
+
+   .followup-main {
+    padding: 24px;
+  }
+  
+  .followup-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .followup-header-row h2 {
+    margin: 0 0 4px 0;
+  }
+  
+  .followup-header-row .subtitle {
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+  
+  /* FILTERS */
+  .followup-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: flex-end;
+    margin-bottom: 16px;
+  }
+  
+  .followup-filters .filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .followup-filters label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.8;
+  }
+  
+  .followup-filters select,
+  .followup-filters input {
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-size: 0.9rem;
+  }
+  
+  .filter-search {
+    flex: 1;
+    min-width: 200px;
+  }
+  
+  /* TABLE CARD */
+  .followup-table-card {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+    padding: 16px;
+  }
+  
+  .followup-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+  
+  .followup-table th,
+  .followup-table td {
+    padding: 10px 8px;
+    border-bottom: 1px solid #f0f0f0;
+    text-align: left;
+  }
+  
+  .followup-table th {
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    opacity: 0.8;
+  }
+  
+  .followup-title {
+    font-weight: 500;
+  }
+  
+  .followup-notes-small {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    margin-top: 2px;
+  }
+  
+  /* Category + Priority Pills */
+  .pill-category {
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+  
+  .pill-priority {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+    border-radius: 999px;
+    display: inline-block;
+  }
+  
+  .priority-low {
+    background: rgba(0, 150, 0, 0.1);
+  }
+  
+  .priority-normal {
+    background: rgba(255, 193, 7, 0.12);
+  }
+  
+  .priority-high {
+    background: rgba(220, 53, 69, 0.12);
+  }
+  
+  /* Status dropdown */
+  .status-select {
+    padding: 4px 6px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-size: 0.8rem;
+  }
+  
+  /* ACTION BUTTONS */
+  .followup-actions {
+    display: flex;
+    gap: 6px;
+  }
+  
+  .icon-btn {
+    border: none;
+    background: #f3f3f3;
+    border-radius: 999px;
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0.8rem;
+  }
+  
+  .icon-btn.danger {
+    background: #ffe5e5;
+  }
+  
+  .icon-btn:hover {
+    filter: brightness(0.95);
+  }
+  
+  /* EMPTY STATE */
+  .followup-empty-state {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 24px 0;
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+  
+  .followup-empty-state i {
+    font-size: 1.6rem;
+    opacity: 0.4;
+  }
+  
+  /* MODAL */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+  }
+  
+  .modal-overlay.open {
+    display: flex;
+  }
+  
+  .modal {
+    background: #ffffff;
+    border-radius: 12px;
+    max-width: 640px;
+    width: 100%;
+    padding: 16px 18px 18px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+  
+  .modal-header h3 {
+    margin: 0;
+  }
+  
+  .modal-close {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 1.1rem;
+  }
+  
+  .form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  
+  .form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 10px;
+  }
+  
+  .form-group label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.8;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 7px 10px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-size: 0.9rem;
+  }
+  
+  .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 8px;
+  }
+  
+  .required {
+    color: #dc3545;
+    margin-left: 2px;
+  }
+  
+  /* Buttons (if not inherited) */
+  .btn-primary {
+    background: #002e6b;
+    color: #ffffff;
+    border-radius: 999px;
+    border: none;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  .btn-secondary {
+    background: #f3f3f3;
+    color: #222;
+    border-radius: 999px;
+    border: none;
+    padding: 8px 14px;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .followup-header-row {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  
+  .overdue-row {
+    background: rgba(255, 0, 0, 0.08);
+  }
+  
+  .notif-badge {
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-weight: 600;
+  }
+  
+  .notif-badge.red { background: #ffcccc; color: #a10000; }
+  .notif-badge.green { background: #ccffcc; color: #0b6e0b; }
+  .notif-badge.gold { background: #fff3c4; color: #8a6b00; }
+  
+  .notification-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 7px 10px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  /* ================================
+   KANBAN VIEW
+================================ */
+
+.hidden {
+  display: none !important;
+}
+
+.kanban {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.kanban-column {
+  flex: 1;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.kanban-column h3 {
+  margin: 0 0 10px 0;
+  font-size: 1rem;
+  color: #002e6b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.kanban-list {
+  flex: 1;
+  min-height: 80px;
+  border: 2px dashed #e0e0e0;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.kanban-card {
+  background: #f8f8f8;
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  cursor: grab;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.kanban-card:hover {
+  background: #f0f0f0;
+}
+
+.kanban-card .card-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.kanban-card .card-category {
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+.kanban-card .card-due {
+  font-size: 0.75rem;
+  margin-top: 6px;
+  opacity: 0.8;
+}
+
+
+/* ============================
+   FOLLOW-UP DETAILS PANELS
+============================ */
+
+.followup-side-panel {
+  position: fixed;
+  top: 0;
+  right: -380px;
+  width: 360px;
+  height: 100vh;
+  background: #ffffff;
+  box-shadow: -4px 0 14px rgba(0,0,0,0.15);
+  padding: 1.4rem;
+  overflow-y: auto;
+  z-index: 5000;
+  transition: right 0.28s ease-in-out;
+}
+
+.followup-side-panel.open {
+  right: 0;
+}
+
+.followup-side-panel h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 12px 0;
+  color: #002e6b;
+}
+
+/* COMMENTS */
+.comment-item {
+  background: #f7f7f7;
+  padding: 0.8rem;
+  border-radius: 8px;
+  margin-bottom: 0.8rem;
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  margin-bottom: 3px;
+}
+
+.comment-body {
+  font-size: 0.9rem;
+  color: #444;
+}
+
+#new-comment-input {
+  width: 100%;
+  padding: 0.7rem;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  margin-top: 0.5rem;
+  min-height: 70px;
+}
+
+/* FILES */
+.file-item {
+  background: #f3f3f3;
+  padding: 0.6rem;
+  border-radius: 6px;
+  margin-bottom: 0.7rem;
+}
+
+.file-item a {
+  font-weight: 600;
+  color: #002e6b;
+  text-decoration: none;
+}
+
+.file-date {
+  font-size: 0.75rem;
+  color: #666;
+}
+
+/* ACTIVITY LOG */
+#activity-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.activity-item {
+  background: #fafafa;
+  border-left: 4px solid #bf9745;
+  padding: 0.7rem;
+  margin-bottom: 0.7rem;
+  border-radius: 4px;
+}
+
+.activity-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+}
+
+.activity-action {
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.activity-details {
+  color: #444;
+  font-size: 0.85rem;
+}

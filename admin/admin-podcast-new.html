@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Create New Episode | Holy Circle Admin</title>
+
+  <link rel="stylesheet" href="admin.css" />
+  <link rel="stylesheet" href="admin-podcast-new.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+  
+
+  <!-- FORM -->
+  <div class="podcast-form">
+
+    <h2>Create New Episode</h2>
+
+    <div class="form-row">
+      <input type="text" id="title" placeholder="Episode Title" required />
+    </div>
+
+    <div class="form-row">
+      <textarea id="description" placeholder="Episode Description"></textarea>
+    </div>
+
+    <div class="form-row">
+      <input type="text" id="duration" placeholder="Duration (e.g. 42:17)">
+    </div>
+
+    <h3 style="margin-top:1.5rem;color:#002e6b;">Audio File (MP3 for Podbean)</h3>
+    <label class="file-input" for="audioFile">
+      <i class="fa-solid fa-music"></i> &nbsp; Choose MP3 File
+    </label>
+    <input type="file" id="audioFile" accept="audio/mpeg" style="display:none;">
+
+    <h3 style="margin-top:1.5rem;color:#002e6b;">Video File (MP4 for YouTube)</h3>
+    <label class="file-input" for="videoFile">
+      <i class="fa-solid fa-video"></i> &nbsp; Choose MP4 File
+    </label>
+    <input type="file" id="videoFile" accept="video/mp4" style="display:none;">
+
+    <h3 style="margin-top:1.5rem;color:#002e6b;">Scheduling</h3>
+
+    <div class="form-row">
+      <input type="datetime-local" id="publishDate" placeholder="Podcast Publish Time (Podbean)">
+      <input type="datetime-local" id="youtubeSchedule" placeholder="YouTube Schedule Time">
+    </div>
+
+    <button class="primary-btn" id="createEpisodeBtn">Create Episode</button>
+
+    <div class="status-box" id="episodeStatus"></div>
+  </div>
+
+
+  <script src="admin-podcast-new.js"></script>
+
+</body>
+</html>

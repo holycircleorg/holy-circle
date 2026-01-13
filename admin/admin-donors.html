@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Holy Circle | Donor Management</title>
+
+  <link rel="stylesheet" href="admin.css" />
+  <link rel="stylesheet" href="admin-donors.css" />
+  <link rel="stylesheet" href="admin-layout.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap"
+    rel="stylesheet"
+  />
+</head>
+
+<body>
+  <script>
+    document.body.classList.add("with-sidebar");
+  </script>
+
+<aside class="admin-sidebar">
+  <div class="sidebar-header">
+    <h2>HOLY CIRCLE</h2>
+    <button id="sidebarToggle" class="sidebar-toggle">☰</button>
+  </div>
+
+  <ul class="sidebar-menu">
+
+    <li><a href="admin-dashboard.html">
+      <i class="icon">🏠</i><span>Dashboard</span>
+    </a></li>
+
+    <li><a href="admin-people.html">
+      <i class="icon">👥</i><span>People</span>
+    </a></li>
+
+    <li><a href="admin-donors.html">
+      <i class="icon">💛</i><span>Donors</span>
+    </a></li>
+
+
+    <li><a href="admin-events.html">
+      <i class="icon">📅</i><span>Events</span>
+    </a></li>
+
+    <li><a href="admin-podcast.html">
+      <i class="icon">🎙️</i><span>Podcast</span>
+    </a></li>
+
+    <li><a href="admin-news.html">
+      <i class="icon">📰</i><span>News</span>
+    </a></li>
+
+    <li><a href="admin-analytics.html">
+      <i class="icon">📊</i><span>Analytics</span>
+    </a></li>
+
+    <li><a href="admin-settings.html">
+      <i class="icon">⚙️</i><span>Settings</span>
+    </a></li>
+  </ul>
+
+  <div class="sidebar-footer">
+    <a href="#" onclick="adminLogout()" class="logout-link">
+      <i class="icon">🚪</i><span>Logout</span>
+    </a>
+  </div>
+</aside>
+<body>
+  <!-- HEADER -->
+  <header class="admin-header">
+    <div class="admin-header-left">
+      <h1>Donor Management</h1>
+  
+    </div>
+
+    <div class="admin-user-info">
+      <div class="admin-user-meta">
+        <span id="adminName">Admin User</span>
+        <small id="adminRole">Super Admin</small>
+      </div>
+      <button class="admin-icon-btn" id="adminSettingsBtn">
+        <i class="fa-solid fa-gear"></i>
+      </button>
+      <button class="admin-icon-btn" id="adminLogoutBtn">
+        <i class="fa-solid fa-right-from-bracket"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="admin-main donors-layout">
+    <!-- SUMMARY CARDS -->
+    <section class="donors-summary">
+      <div class="summary-card">
+        <h3>Total Donors</h3>
+        <p class="summary-value" id="totalDonors">—</p>
+      </div>
+      <div class="summary-card">
+        <h3>Total Donations</h3>
+        <p class="summary-value" id="totalDonations">—</p>
+      </div>
+      <div class="summary-card">
+        <h3>Total Given</h3>
+        <p class="summary-value" id="totalAmount">—</p>
+      </div>
+      <div class="summary-card">
+        <h3>Last 30 Days</h3>
+        <p class="summary-value" id="last30Amount">—</p>
+      </div>
+    </section>
+
+    <!-- TABLE + DETAIL -->
+    <section class="donors-content">
+      <div class="donors-table-panel">
+        <div class="panel-header">
+          <h2>All Donors</h2>
+          <input
+            type="text"
+            id="donorSearch"
+            placeholder="Search by name or email..."
+          />
+        </div>
+
+        <table class="donors-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th># Gifts</th>
+              <th>Total Given</th>
+              <th>Last Gift</th>
+            </tr>
+          </thead>
+          <tbody id="donorsTableBody"></tbody>
+        </table>
+      </div>
+
+      <div class="donor-detail-panel">
+        <div id="donorDetailEmpty">
+          <p>Select a donor to view their giving history.</p>
+        </div>
+
+        <div id="donorDetail" class="hidden">
+          <h2 id="donorDetailName">Donor Name</h2>
+          <p id="donorDetailEmail">email@example.com</p>
+          <p id="donorDetailSummary"></p>
+
+          <h3>Donation History</h3>
+          <ul id="donorDonationList" class="donation-list"></ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="admin-donors.js"></script>
+</body>
+</html>

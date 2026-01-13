@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Event RSVPs | Holy Circle</title>
+
+  <link rel="stylesheet" href="admin.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+  <header class="admin-header">
+    <h1 id="eventTitle">Loading...</h1>
+
+    <div class="admin-user-info">
+      <span id="adminName"></span>
+      <button onclick="logoutAdmin()" class="logout-btn">Logout</button>
+    </div>
+  </header>
+
+  <div class="admin-container">
+
+    <button class="secondary-btn" onclick="history.back()">
+      ← Back to Events
+    </button>
+
+    <!-- EVENT INFO -->
+    <section class="event-info-section">
+      <p><strong>Date:</strong> <span id="eventDate"></span></p>
+      <p><strong>Location:</strong> <span id="eventLocation"></span></p>
+      <p><strong>Total RSVPs:</strong> <span id="eventCount"></span></p>
+
+      <a id="exportBtn" class="action-btn" href="#">
+        <i class="fa-solid fa-file-csv"></i> Export CSV
+      </a>
+    </section>
+    <section class="filter-bar">
+      <input id="searchInput" placeholder="Search name/email…" />
+    
+      <select id="contactFilter">
+        <option value="">Contacted: All</option>
+        <option value="YES">Contacted</option>
+        <option value="NO">Not Contacted</option>
+      </select>
+    
+      <select id="memberFilter">
+        <option value="">All RSVPs</option>
+        <option value="1">Members Only</option>
+      </select>
+    
+      <button class="action-btn" id="applyFilters">Apply</button>
+    </section>
+    
+    <!-- RSVP LIST -->
+    <section class="rsvp-table-section">
+      <h2>RSVP List</h2>
+
+      <table id="rsvpTable">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Guests</th>
+            <th>Comments</th>
+            <th>Contacted</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Filled by JS -->
+        </tbody>
+      </table>
+
+      <p id="rsvpEmpty" class="empty-state hidden">
+        No RSVPs yet for this event.
+      </p>
+    </section>
+
+  </div>
+
+
+  <script src="admin-rsvp-details.js"></script>
+
+  
+</body>
+</html>
